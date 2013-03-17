@@ -5,7 +5,7 @@ CS307 - Software Engineering Project
 
 Apache Tomcat Files have been added.
 The webapp for us to work on will be in the directory.
-    webapp/thundercat
+    webapp/idcheck
 
 I have left all the examples from the original apache downloads incase people want to to look at them.
 
