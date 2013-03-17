@@ -1,0 +1,472 @@
+Mar 17, 2013 3:22:05 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/opt/sun-jdk-1.6.0.37/jre/lib/amd64/server:/usr/opt/sun-jdk-1.6.0.37/jre/lib/amd64:/usr/opt/sun-jdk-1.6.0.37/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+Mar 17, 2013 3:22:05 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:22:05 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:22:05 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 378 ms
+Mar 17, 2013 3:22:05 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Mar 17, 2013 3:22:05 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.37
+Mar 17, 2013 3:22:05 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/host-manager
+Mar 17, 2013 3:22:07 PM org.apache.catalina.util.SessionIdGenerator createSecureRandom
+INFO: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,970] milliseconds.
+Mar 17, 2013 3:22:07 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/ROOT
+Mar 17, 2013 3:22:07 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/examples
+Mar 17, 2013 3:22:07 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/manager
+Mar 17, 2013 3:22:07 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/docs
+Mar 17, 2013 3:22:07 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:22:07 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:22:07 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 2447 ms
+Mar 17, 2013 3:25:54 PM org.apache.catalina.core.StandardServer await
+WARNING: StandardServer.await: Invalid command 'GET / HTTP/1.1' received
+Mar 17, 2013 3:25:58 PM org.apache.catalina.core.StandardServer await
+WARNING: StandardServer.await: Invalid command 'GET / HTTP/1.1' received
+Mar 17, 2013 3:42:28 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/thundercat
+Mar 17, 2013 3:42:50 PM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Mar 17, 2013 3:42:50 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:42:50 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:42:50 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Mar 17, 2013 3:42:50 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:42:50 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:42:50 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:42:50 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:42:52 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/opt/sun-jdk-1.6.0.37/jre/lib/amd64/server:/usr/opt/sun-jdk-1.6.0.37/jre/lib/amd64:/usr/opt/sun-jdk-1.6.0.37/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+Mar 17, 2013 3:42:52 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:42:52 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:42:52 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 339 ms
+Mar 17, 2013 3:42:52 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Mar 17, 2013 3:42:52 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.37
+Mar 17, 2013 3:42:52 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/host-manager
+Mar 17, 2013 3:42:52 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/ROOT
+Mar 17, 2013 3:42:52 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/examples
+Mar 17, 2013 3:42:52 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/manager
+Mar 17, 2013 3:42:52 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/thundercat
+Mar 17, 2013 3:42:52 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/docs
+Mar 17, 2013 3:42:52 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:42:52 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:42:52 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 448 ms
+Mar 17, 2013 3:46:51 PM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Mar 17, 2013 3:46:51 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:46:52 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:46:52 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Mar 17, 2013 3:46:52 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:46:52 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:46:52 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:46:52 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:46:54 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/opt/sun-jdk-1.6.0.37/jre/lib/amd64/server:/usr/opt/sun-jdk-1.6.0.37/jre/lib/amd64:/usr/opt/sun-jdk-1.6.0.37/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+Mar 17, 2013 3:46:54 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:46:54 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:46:54 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 355 ms
+Mar 17, 2013 3:46:54 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Mar 17, 2013 3:46:54 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.37
+Mar 17, 2013 3:46:54 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/host-manager
+Mar 17, 2013 3:46:54 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/ROOT
+Mar 17, 2013 3:46:54 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/examples
+Mar 17, 2013 3:46:54 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/manager
+Mar 17, 2013 3:46:54 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/thundercat
+Mar 17, 2013 3:46:54 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/docs
+Mar 17, 2013 3:46:54 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:46:54 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:46:54 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 449 ms
+Mar 17, 2013 3:48:16 PM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Mar 17, 2013 3:48:16 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:48:16 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:48:16 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Mar 17, 2013 3:48:16 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:48:16 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:48:16 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:48:16 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:48:18 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/opt/sun-jdk-1.6.0.37/jre/lib/amd64/server:/usr/opt/sun-jdk-1.6.0.37/jre/lib/amd64:/usr/opt/sun-jdk-1.6.0.37/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+Mar 17, 2013 3:48:18 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:48:18 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:48:18 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 338 ms
+Mar 17, 2013 3:48:18 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Mar 17, 2013 3:48:18 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.37
+Mar 17, 2013 3:48:18 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/host-manager
+Mar 17, 2013 3:48:18 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/ROOT
+Mar 17, 2013 3:48:18 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/examples
+Mar 17, 2013 3:48:18 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/manager
+Mar 17, 2013 3:48:19 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/thundercat
+Mar 17, 2013 3:48:19 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/docs
+Mar 17, 2013 3:48:19 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:48:19 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:48:19 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 448 ms
+Mar 17, 2013 3:48:58 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] has started
+Mar 17, 2013 3:48:58 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] is completed
+Mar 17, 2013 3:50:29 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] has started
+Mar 17, 2013 3:50:29 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/thundercat]
+Mar 17, 2013 3:50:29 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] is completed
+Mar 17, 2013 3:50:29 PM org.apache.catalina.util.LifecycleBase start
+INFO: The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/thundercat]] after start() had already been called. The second call will be ignored.
+Mar 17, 2013 3:52:43 PM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Mar 17, 2013 3:52:43 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:52:43 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:52:43 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Mar 17, 2013 3:52:43 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:52:43 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:52:43 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:52:43 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:52:44 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/opt/sun-jdk-1.6.0.37/jre/lib/amd64/server:/usr/opt/sun-jdk-1.6.0.37/jre/lib/amd64:/usr/opt/sun-jdk-1.6.0.37/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+Mar 17, 2013 3:52:44 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:52:44 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:52:44 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 339 ms
+Mar 17, 2013 3:52:44 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Mar 17, 2013 3:52:44 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.37
+Mar 17, 2013 3:52:45 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/host-manager
+Mar 17, 2013 3:52:45 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/ROOT
+Mar 17, 2013 3:52:45 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/examples
+Mar 17, 2013 3:52:45 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/manager
+Mar 17, 2013 3:52:45 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/thundercat
+Mar 17, 2013 3:52:45 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/docs
+Mar 17, 2013 3:52:45 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:52:45 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:52:45 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 511 ms
+Mar 17, 2013 3:54:15 PM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Mar 17, 2013 3:54:15 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:54:15 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:54:15 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Mar 17, 2013 3:54:15 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:54:15 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:54:15 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:54:15 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:54:20 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/opt/sun-jdk-1.6.0.37/jre/lib/amd64/server:/usr/opt/sun-jdk-1.6.0.37/jre/lib/amd64:/usr/opt/sun-jdk-1.6.0.37/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+Mar 17, 2013 3:54:20 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:54:20 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:54:20 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 367 ms
+Mar 17, 2013 3:54:20 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Mar 17, 2013 3:54:20 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.37
+Mar 17, 2013 3:54:20 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/host-manager
+Mar 17, 2013 3:54:20 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/ROOT
+Mar 17, 2013 3:54:20 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/examples
+Mar 17, 2013 3:54:20 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/manager
+Mar 17, 2013 3:54:20 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/thundercat
+Mar 17, 2013 3:54:21 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/docs
+Mar 17, 2013 3:54:21 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:54:21 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:54:21 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 507 ms
+Mar 17, 2013 3:55:28 PM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Mar 17, 2013 3:55:28 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:55:28 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:55:28 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Mar 17, 2013 3:55:28 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:55:28 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:55:28 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:55:28 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:55:29 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/opt/sun-jdk-1.6.0.37/jre/lib/amd64/server:/usr/opt/sun-jdk-1.6.0.37/jre/lib/amd64:/usr/opt/sun-jdk-1.6.0.37/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+Mar 17, 2013 3:55:29 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:55:29 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:55:29 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 340 ms
+Mar 17, 2013 3:55:29 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Mar 17, 2013 3:55:29 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.37
+Mar 17, 2013 3:55:29 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/host-manager
+Mar 17, 2013 3:55:30 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/ROOT
+Mar 17, 2013 3:55:30 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/examples
+Mar 17, 2013 3:55:30 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/manager
+Mar 17, 2013 3:55:30 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/thundercat
+Mar 17, 2013 3:55:30 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/docs
+Mar 17, 2013 3:55:30 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Mar 17, 2013 3:55:30 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+Mar 17, 2013 3:55:30 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 503 ms
+Mar 17, 2013 3:57:00 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/thundercat]
+Mar 17, 2013 3:57:00 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] has started
+Mar 17, 2013 3:57:00 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] is completed
+Mar 17, 2013 4:01:51 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/sample.war
+Mar 17, 2013 4:04:11 PM org.apache.catalina.startup.HostConfig deleteRedeployResources
+INFO: Undeploying context [/sample]
+Mar 17, 2013 4:06:12 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/thundercat]
+Mar 17, 2013 4:06:12 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] has started
+Mar 17, 2013 4:06:12 PM org.apache.tomcat.util.digester.Digester fatalError
+SEVERE: Parse Fatal Error at line 1 column 1: Premature end of file.
+org.xml.sax.SAXParseException: Premature end of file.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:195)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:174)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:388)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1427)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:1056)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:647)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:511)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:808)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:737)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:119)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1205)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:522)
+	at org.apache.tomcat.util.digester.Digester.parse(Digester.java:1537)
+	at org.apache.catalina.startup.ContextConfig.parseWebXml(ContextConfig.java:1879)
+	at org.apache.catalina.startup.ContextConfig.webConfig(ContextConfig.java:1259)
+	at org.apache.catalina.startup.ContextConfig.configureStart(ContextConfig.java:878)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:369)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5179)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3926)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1271)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1440)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:301)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1374)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1530)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1540)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1519)
+	at java.lang.Thread.run(Thread.java:662)
+Mar 17, 2013 4:06:12 PM org.apache.catalina.startup.ContextConfig parseWebXml
+SEVERE: Parse error in application web.xml file at jndi:/localhost/thundercat/WEB-INF/web.xml
+org.xml.sax.SAXParseException: Premature end of file.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:195)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:174)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:388)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1427)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:1056)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:647)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:511)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:808)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:737)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:119)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1205)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:522)
+	at org.apache.tomcat.util.digester.Digester.parse(Digester.java:1537)
+	at org.apache.catalina.startup.ContextConfig.parseWebXml(ContextConfig.java:1879)
+	at org.apache.catalina.startup.ContextConfig.webConfig(ContextConfig.java:1259)
+	at org.apache.catalina.startup.ContextConfig.configureStart(ContextConfig.java:878)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:369)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5179)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3926)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1271)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1440)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:301)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1374)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1530)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1540)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1519)
+	at java.lang.Thread.run(Thread.java:662)
+Mar 17, 2013 4:06:12 PM org.apache.catalina.startup.ContextConfig parseWebXml
+SEVERE: Occurred at line 1 column 1
+Mar 17, 2013 4:06:12 PM org.apache.catalina.startup.ContextConfig configureStart
+SEVERE: Marking this application unavailable due to previous error(s)
+Mar 17, 2013 4:06:12 PM org.apache.catalina.core.StandardContext startInternal
+SEVERE: Error getConfigured
+Mar 17, 2013 4:06:12 PM org.apache.catalina.core.StandardContext startInternal
+SEVERE: Context [/thundercat] startup failed due to previous errors
+Mar 17, 2013 4:06:13 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] is completed
+Mar 17, 2013 4:07:33 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/sample.war
+Mar 17, 2013 4:08:33 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/thundercat]
+Mar 17, 2013 4:08:53 PM org.apache.catalina.startup.HostConfig deleteRedeployResources
+INFO: Undeploying context [/sample]
+Mar 17, 2013 4:10:14 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/thundercat]
+Mar 17, 2013 4:10:14 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] has started
+Mar 17, 2013 4:10:14 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] is completed
+Mar 17, 2013 4:10:24 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/thundercat]
+Mar 17, 2013 4:10:24 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] has started
+Mar 17, 2013 4:10:25 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] is completed
+Mar 17, 2013 4:10:35 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/thundercat]
+Mar 17, 2013 4:10:35 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] has started
+Mar 17, 2013 4:10:35 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] is completed
+Mar 17, 2013 4:14:15 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/thundercat]
+Mar 17, 2013 4:14:15 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] has started
+Mar 17, 2013 4:14:16 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] is completed
+Mar 17, 2013 4:14:46 PM org.apache.catalina.startup.HostConfig deleteRedeployResources
+INFO: Undeploying context [/thundercat]
+Mar 17, 2013 4:15:17 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/thundercat
+Mar 17, 2013 4:19:27 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/idcheck
+Mar 17, 2013 4:19:37 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/idcheck]
+Mar 17, 2013 4:19:37 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/idcheck] has started
+Mar 17, 2013 4:19:37 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/idcheck] is completed
+Mar 17, 2013 4:19:47 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/thundercat]
+Mar 17, 2013 4:19:47 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] has started
+Mar 17, 2013 4:19:48 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/thundercat] is completed
+Mar 17, 2013 4:19:58 PM org.apache.catalina.startup.HostConfig deleteRedeployResources
+INFO: Undeploying context [/thundercat]
+Mar 17, 2013 4:21:19 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /u/data/u96/dfistrov/apache-tomcat-7.0.37/webapps/.git
+Mar 17, 2013 4:21:29 PM org.apache.catalina.startup.HostConfig deleteRedeployResources
+INFO: Undeploying context [/.git]
