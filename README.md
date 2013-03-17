@@ -2,7 +2,7 @@ online-id-checker
 =================
 
 CS307 - Software Engineering Project
-
+----------------------
 Apache Tomcat Files have been added.
 The webapp for us to work on will be in the directory.
     webapp/idcheck
