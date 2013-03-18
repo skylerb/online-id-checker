@@ -1,14 +1,11 @@
 <%
-	String username, password = null;
+	String username = null;
 	
 	try {
 		session.setAttribute("username",null);
-		session.setAttribute("password",null);
-
 		username = request.getParameter("username");
-		password = request.getParameter("pass");
 
-		if(username.toLowerCase().trim().equals("admin") && password.toLowerCase().trim().equals("admin")) { 
+		if(username.toLowerCase().trim().equals("admin")) { 
 			session.setAttribute("username",username);
 		%>
 			<jsp:forward page="index.jsp"/>

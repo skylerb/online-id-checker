@@ -8,8 +8,8 @@
 		<link href="main.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
-		<div style="width:100%; background-color:black; color:white; height: 30px; padding-top: 10px;">
-			<div style="align: left; padding-left: 100px; font: 18px Myriad Pro,sans-serif;">
+		<div style="width:100%; background-color:black; color:white; height: 30px; border-bottom: solid 1px #1c1c1c;">
+			<div style="margin: auto; width: 900px; font: 18px Myriad Pro,sans-serif; position: relative; padding-top: 5px;">
 				ONLINE ID CHECKER
 			</div>
 		</div>
