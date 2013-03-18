@@ -26,6 +26,8 @@ h4 {
 	margin: 150px auto 0 auto;
 	padding: 20px 20px 0 20px;
 	position: relative;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
 }
 
 #login input[type="text"] {
