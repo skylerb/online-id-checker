@@ -9,7 +9,7 @@ body {
 
 h4 {
 	margin: 0;
-	font: 15pt Myriad Pro, sans-serif;
+	font: 13pt Myriad Pro, sans-serif;
 	font-weight: 550px;
 }
 
@@ -58,11 +58,19 @@ h4 {
 	background-image: linear-gradient(to bottom, #e0e0e0 0%, #f3f3f3 100%);
 }
 
-.loginButton {
+.button {
 	background: #ac210f;
 	color: #FFF;
 	font: 9pt Myriad Pro, sans-serif;
 	padding: 3px 15px;
 	border: solid 1px #000;
 	border-radius: 5px;
+	float: right;
+	display: inline-block;
+}
+
+.bottom-content {
+	margin: 40px auto 0 auto;
+	position: relative;
+	width: 900px; 
 }

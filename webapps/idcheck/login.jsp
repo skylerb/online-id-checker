@@ -19,7 +19,7 @@
 				<input type="text" name="username" placeholder="Email Address..."/></br>
 				<hr/>
 				<input type="text" name="pass" placeholder="Password..."/><br/>
-				<input class="loginButton" type="submit" value="Login">
+				<input class="button" type="submit" value="Login">
 			</form>
 		</div>
 	</body>

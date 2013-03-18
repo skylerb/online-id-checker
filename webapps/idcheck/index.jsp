@@ -14,16 +14,23 @@ response.setDateHeader("Expires",0);
 	
 	<% if((session.getAttribute("username") != null)) { %>
 		<body>
-			<div style="width:100%; background-color: black; color: white; height: 30px; border-bottom: solid 1px #1c1c1c;">
-				<div style="margin: auto; font: 18px Myriad Pro, sans-serif; width: 900px; position: relative; padding-top: 5px;">
-					ONLINE ID CHECKER
+			<div style="width:100%; background-color: black; color: white; min-height: 30px; border-bottom: solid 1px #1c1c1c; padding: 6px 0 2px;">
+				<div style="margin: auto; font: 18px Myriad Pro, sans-serif; width: 900px; position: relative;">
+					<div style="float: left;">ONLINE ID CHECKER</div>
+					<form action="logout.jsp">
+						<input class="button" type="submit" value="Logout">
+					</form>
 				</div>
 			</div>
 			<div style="width:100%; height: 120px;  background-color: #080808; background-image: url(images/header.jpg); background-repeat: no-repeat; 
 background-position: center top;">
 				&nbsp;
 			</div>
-			
+			<div class="bottom-content">
+				<div class="shadow" style="width: 100%; background: white; padding: 5px;">
+					<h4>Search History</h4>
+				</div> 
+			</div>
 		</body>
 	<% } else { %>
 		<jsp:forward page="login.jsp" />
