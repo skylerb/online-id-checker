@@ -13,14 +13,13 @@
 				ONLINE ID CHECKER
 			</div>
 		</div>
-		<div class="shadow" style="background: white; min-height: 230px; width: 400px; margin: 150px auto 0 auto; padding: 10px 20px 0 20px; position: 
-relative;">
+		<div class="shadow" id="login">
 			<h4>Login</h4>
 			<form action="checkLogin.jsp">
-				<input type="text" name="username"/></br>
+				<input type="text" name="username" placeholder="Email Address..."/></br>
 				<hr/>
-				<input type="text" name="pass"/><br/>
-				<input type="submit" value="submit">
+				<input type="text" name="pass" placeholder="Password..."/><br/>
+				<input type="submit" value="Login">
 			</form>
 		</div>
 	</body>

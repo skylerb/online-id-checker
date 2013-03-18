@@ -18,3 +18,40 @@ h4 {
 	-moz-box-shadow: 2px 2px px #999;
 	-webkit-box-shadow: 2px 2px 1px #999;
 }
+
+#login {
+	background: white;
+	height: 230px;
+	width: 400px;
+	margin: 150px auto 0 auto;
+	padding: 20px 20px 0 20px;
+	position: relative;
+}
+
+#login input[type="text"] {
+	width: 380px;
+	margin: 5px;
+	font-size: 14pt;
+	font-style: italic;
+	font-family: Chaparral Pro;
+	border: solid 2px #343434;
+	border-radius: 5px;
+	
+	/* IE */
+	background-image: -ms-linear-gradient(top,#e0e0e0 0%, #f3f3f3 100%);
+
+	/* FF */
+	background-image: -moz-linear-gradient(top,#e0e0e0 0%, #f3f3f3 100%);
+	
+	/* Opera */
+	background-image: -o-linear-gradient(top,#e0e0e0 0%, #f3f3f3 100%);
+
+	/* WebKit 1 */
+	background-image: -webkit-gradient(linear,left top, left bottom, color-stop(0,#e0e0e0), color-stop(1,#f3f3f3));
+
+	/* Webkit 2 */
+	background-image: -webkit-linear-gradient(top, #e0e0e0 0%, #f3f3f3 100%);
+
+	/* Other */
+	background-image: linear-gradient(to bottom, #e0e0e0 0%, #f3f3f3 100%);
+}
