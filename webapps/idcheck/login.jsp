@@ -15,11 +15,14 @@
 		</div>
 		<div class="shadow" id="login">
 			<h4>Login</h4>
+			<br />
 			<form action="checkLogin.jsp">
 				<input type="text" name="username" placeholder="Email Address..."/></br>
 				<hr/>
 				<input type="text" name="pass" placeholder="Password..."/><br/>
-				<input class="button" type="submit" value="Login">
+				<div style="padding-top: 30px;">
+					<input class="button" type="submit" value="Login">
+				</div>
 			</form>
 		</div>
 	</body>
