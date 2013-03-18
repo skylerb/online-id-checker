@@ -1,6 +1,3 @@
-online-id-checker
-=================
-
 CS307 - Software Engineering Project
 ----------------------
 Apache Tomcat Files have been added.
