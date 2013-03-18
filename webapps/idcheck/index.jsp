@@ -22,9 +22,13 @@ response.setDateHeader("Expires",0);
 					</form>
 				</div>
 			</div>
-			<div style="width:100%; height: 120px;  background-color: #080808; background-image: url(images/header.jpg); background-repeat: no-repeat; 
-background-position: center top;">
-				&nbsp;
+			<div style="width:100%; height: 120px;  background-color: #080808; background-image: url(images/header.jpg); background-repeat: no-repeat; background-position: center top;">
+				<div style="font: 11pt Myriad Pro, sans-serif; color: white; width: 900px; margin: auto; position: relative;">
+					<ul>
+						<li><img src="images/home.png"><br/>Dashboard</li>
+						<li><img src="images/search.png"><br/>Search</li>
+					</ul>
+				</div>
 			</div>
 			<div class="bottom-content">
 				<div class="shadow" style="width: 100%; background: white; padding: 5px;">
