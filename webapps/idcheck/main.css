@@ -12,3 +12,9 @@ h4 {
 	font: 15pt Myriad Pro, sans-serif;
 	font-weight: 550px;
 }
+
+.shadow {
+	box-shadow: 2px 2px 1px #999;
+	-moz-box-shadow: 2px 2px px #999;
+	-webkit-box-shadow: 2px 2px 1px #999;
+}
