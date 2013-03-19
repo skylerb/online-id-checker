@@ -22,10 +22,11 @@ request.setAttribute("year", sdf.format(new java.util.Date()));
 request.setAttribute("tomcat7Url", "http://tomcat.apache.org/");
 request.setAttribute("tomcat7DocUrl", "/docs/");
 request.setAttribute("tomcat7ExamplesUrl", "/examples/");
+request.setAttribute("idchecker", "/idcheck/");
 %>
 <html lang="en">
     <head>
-	<h1>WUTANG CLAN</h1>
+	<h1><a href="${idchecker}index.jsp">ID Checker Link</a></h1>
         <title><%=request.getServletContext().getServerInfo() %></title>
         <link href="favicon.ico" rel="icon" type="image/x-icon" />
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
