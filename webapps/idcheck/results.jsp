@@ -5,6 +5,7 @@ response.setDateHeader("Expires",0);
 %>
 
 <%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.sql.*" errorPage="" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -33,10 +34,27 @@ response.setDateHeader("Expires",0);
 					</ul>
 				</div>
 			</div>
+			<div class="submenu" style="width: 100%; height: 50px; background-color: #e1e1e1; border-top: solid 1px #34353a;">
+				&nbsp;
+			</div>
 			<div class="bottom-content">
-				<div class="shadow" style="width: 100%; background: white; padding: 5px;">
-					<h4>Search History</h4>
-				</div> 
+				<div class="shadow" style="width: 200px; height: 100px; background: white; padding: 5px; float: left; margin-right: 20px;">
+					<h4>Lion-O</h4>
+				</div>
+				<div class="shadow" style="width: 200px; height: 100px; background: white; padding: 5px; float: left; margin-right: 20px;">
+					<h4>#</h4>
+				</div>
+				<div class="shadow" style="width: 200px; height: 100px; background: white; padding: 5px; float: left; margin-right: 20px;">
+					<h4>%</h4>
+				</div>
+				<div class="shadow" style="width: 200px; height: 100px; background: white; padding: 5px; float: left;">
+					<h4>%</h4>
+				</div>
+			</div>
+			<div class="bottom-content-results">
+				<div class="shadow" style="width: 200px; height: 300px; background: white; padding: 5px; float: left; margin-right: 30px;">
+					<h4>Facebook</h4>
+				</div>
 			</div>
 		</body>
 	<% } else { %>
