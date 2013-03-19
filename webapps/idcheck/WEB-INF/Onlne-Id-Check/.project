@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>classes</name>
+			<type>2</type>
+			<location>/u/data/u87/csauer/cs307/online-id-checker/webapps/idcheck/WEB-INF/classes</location>
+		</link>
+	</linkedResources>
 </projectDescription>
