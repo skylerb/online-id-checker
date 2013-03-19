@@ -1,6 +1,7 @@
-package SocialNetworkAcces;
-import ProfileManager.Person;
-import ProfileManager.Profile;
+package socialNetworkAccess;
+
+import profileManager.Person;
+import profileManager.Profile;
 
 
 public interface APIWrapper {

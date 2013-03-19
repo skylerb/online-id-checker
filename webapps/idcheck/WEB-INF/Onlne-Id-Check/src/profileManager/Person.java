@@ -1,4 +1,4 @@
-package ProfileManager;
+package profileManager;
 
 public class Person {
 	//String containing the users full name

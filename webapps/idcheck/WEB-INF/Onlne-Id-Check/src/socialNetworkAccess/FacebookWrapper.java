@@ -1,7 +1,7 @@
-package SocialNetworkAcces;
+package socialNetworkAccess;
 
-import ProfileManager.Person;
-import ProfileManager.Profile;
+import profileManager.Person;
+import profileManager.Profile;
 
 public class FacebookWrapper implements APIWrapper {
 
