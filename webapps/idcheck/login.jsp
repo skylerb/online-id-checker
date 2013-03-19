@@ -19,7 +19,7 @@
 			<form action="checkLogin.jsp">
 				<input type="text" name="username" placeholder="Email Address..."/></br>
 				<hr/>
-				<input type="text" name="pass" placeholder="Password..."/><br/>
+ 				<input type="password" name="pass" placeholder="Password..."/><br/>
 				<div style="padding-top: 30px; padding-right: 10px;">
 					<input class="button" type="submit" value="Login">
 				</div>

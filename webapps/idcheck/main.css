@@ -47,7 +47,7 @@ hr {
 	-moz-border-radius: 3px;
 }
 
-#login input[type="text"] {
+#login input[type="text"], input[type="password"] {
 	width: 400px;
 	margin: 5px 10px;
 	height: 25px;
