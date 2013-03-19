@@ -30,10 +30,17 @@ response.setDateHeader("Expires",0);
 					</ul>
 				</div>
 			</div>
-			<div class="bottom-content">
-				<div class="shadow" style="width: 100%; background: white; padding: 5px;">
-					<h4>Search History</h4>
-				</div> 
+			<div class="shadow" id="login" style="margin-top: 50px;">
+				<h4 style="margin-left: 10px;">Search</h4>
+				<br/>
+				<form action="#">
+					<input type="text" name="name" placeholder="Name..."/><br/>
+					<hr/>
+					<input type="text" name="dob" placeholder="Date of Birth..."/><br/>
+					<div style="padding-top: 30px; padding-right: 10px;">
+						<input class="button" type="submit" value="Search">
+					</div>
+				</form>
 			</div>
 		</body>
 	<% } else { %>
