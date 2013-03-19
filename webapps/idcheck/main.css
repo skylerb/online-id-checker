@@ -42,7 +42,6 @@ hr {
 	width: 430px;
 	margin: 150px auto 0 auto;
 	padding: 20px 15px 0 15px;
-	position: relative;
 	border-radius: 3px;
 	-moz-border-radius: 3px;
 }
@@ -139,4 +138,18 @@ hr {
 	margin: 170px auto 0 auto;
 	position: relative;
 	width: 900px; 
+}
+
+.advanced {
+	padding-top: 35px; 
+	padding-left: 10px; 
+	float: left;
+	cursor: pointer;
+}
+
+.dropdown {
+	height: 100px;
+	position: relative;
+	width:430px;
+	background-color:white;
 }

@@ -10,6 +10,8 @@ response.setDateHeader("Expires",0);
 	<head>
 		<title>Change This</title>
 		<link href="main.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/slider.js"></script>
 	</head>
 	
 	<% if((session.getAttribute("username") != null)) { %>
@@ -30,17 +32,21 @@ response.setDateHeader("Expires",0);
 					</ul>
 				</div>
 			</div>
-			<div class="shadow" id="login" style="margin-top: 50px;">
+			<div class="shadow" id="login" style="margin-top: 50px;">			
 				<h4 style="margin-left: 10px;">Search</h4>
 				<br/>
 				<form action="#">
 					<input type="text" name="name" placeholder="Name..."/><br/>
 					<hr/>
 					<input type="text" name="dob" placeholder="Date of Birth..."/><br/>
-					<div style="padding-top: 30px; padding-right: 10px;">
+					<div class="dropdown">
+					Add the advanced stuff here. You Know. And need to fix the scroll thing.
+					</div>
+					<div class="advanced">Advanced</div>
+					<div style="padding-top: 30px; float: right; padding-right: 10px;">
 						<input class="button" type="submit" value="Search">
 					</div>
-				</form>
+				</form>			
 			</div>
 		</body>
 	<% } else { %>

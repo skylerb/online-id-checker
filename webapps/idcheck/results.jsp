@@ -35,7 +35,7 @@ response.setDateHeader("Expires",0);
 				</div>
 			</div>
 			<div class="submenu" style="width: 100%; height: 50px; background-color: #e1e1e1; border-top: solid 1px #34353a;">
-				&nbsp;
+				&nbsp;Need to change this color
 			</div>
 			<div class="bottom-content">
 				<div class="shadow" style="width: 200px; height: 100px; background: white; padding: 5px; float: left; margin-right: 20px;">
