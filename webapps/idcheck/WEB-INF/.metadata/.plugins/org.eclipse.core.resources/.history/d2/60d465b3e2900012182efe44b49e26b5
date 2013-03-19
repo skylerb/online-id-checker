@@ -1,0 +1,8 @@
+package profileManager;
+
+import java.net.URL;
+
+public class Profile {
+	public Person person;
+	public URL url;
+}
