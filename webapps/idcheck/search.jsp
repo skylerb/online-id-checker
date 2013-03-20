@@ -40,7 +40,10 @@ response.setDateHeader("Expires",0);
 					<hr/>
 					<input type="text" name="dob" placeholder="Date of Birth..."/><br/>
 					<div class="dropdown">
-					Add the advanced stuff here. You Know. And need to fix the scroll thing.
+						<hr/>
+						<input type="text" name="?" placeholder="Something.."/><br/>
+						<hr/>
+						<input type="text" name="?" placeholder="Something else..."/><br/>
 					</div>
 					<div class="advanced">Advanced</div>
 					<div style="padding-top: 30px; float: right; padding-right: 10px;">

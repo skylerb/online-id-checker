@@ -38,7 +38,7 @@ hr {
 
 #login {
 	background: white;
-	height: 230px;
+	min-height: 230px;
 	width: 430px;
 	margin: 150px auto 0 auto;
 	padding: 20px 15px 0 15px;
@@ -148,7 +148,7 @@ hr {
 }
 
 .dropdown {
-	height: 100px;
+	height: 150px;
 	position: relative;
 	width:430px;
 	background-color:white;
