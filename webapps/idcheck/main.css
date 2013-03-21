@@ -196,6 +196,9 @@ hr {
 	padding-left: 10px; 
 	float: left;
 	cursor: pointer;
+	color: #a2b1b9;
+	font: 12pt Myriad-Pro, sans-serif;
+	font-weight: 650;
 }
 
 .dropdown {

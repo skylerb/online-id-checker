@@ -2,7 +2,7 @@ $(document).ready(function () {
 	$('.dropdown').hide();
     	$('div.advanced').click(function () {
 		a = $('.dropdown').height();
-		n =  $('#login').height() + a + 20;
+		n =  $('#login').height() + a + 15;
 		$('#login').height(n);
 		$('div.dropdown').slideToggle(400);
 		$('div.advanced').css('visibility','hidden');
