@@ -7,12 +7,13 @@
 
 		if(username.toLowerCase().trim().equals("admin")) { 
 			session.setAttribute("username",username);
-		%>
-			<jsp:forward page="index.jsp"/>
-		<% } else { %>
-			<jsp:forward page="login.jsp"/>
-		<% }
+			response.sendRedirect(request.getContextPath() + "/index.jsp");
+		 } else {
+			response.sendRedirect(request.getContextPath() + "/login.jsp");
+		 }
 	} catch (Exception e) {
 		System.out.println("error"+e);
 	}
 %>
+
+

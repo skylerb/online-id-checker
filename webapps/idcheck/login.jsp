@@ -16,7 +16,7 @@
 		<div class="shadow" id="login">
 			<h4 style="margin-left: 10px;">Login</h4>
 			<br />
-			<form action="checkLogin.jsp">
+			<form action="checkLogin.jsp" method="post">
 				<input type="text" name="username" placeholder="Email Address..."/></br>
 				<hr/>
  				<input type="password" name="pass" placeholder="Password..."/><br/>

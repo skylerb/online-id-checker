@@ -1,6 +1,8 @@
 <% 
 session.removeAttribute("username");
 session.invalidate();
+response.sendRedirect(request.getContextPath() + "/index.jsp");
 %>
-<jsp:forward page="index.jsp"/>
+
+
 
