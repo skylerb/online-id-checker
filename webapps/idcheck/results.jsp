@@ -24,7 +24,7 @@ response.setDateHeader("Expires",0);
 				</div>
 			</div>
 			<div style="width:100%; height: 120px;  background-color: #080808; background-image: url(images/header.jpg); background-repeat: no-repeat; background-position: center top;">
-				<div style="font: 11pt Myriad Pro, sans-serif; color: white; width: 900px; margin: auto; position: relative;">
+				<div style="font: 10pt Myriad Pro, sans-serif; color: white; width: 900px; margin: auto; position: relative;">
 					<ul>
 						<li>
 							<a href="index.jsp"><img src="images/home.png"></a><br/>
@@ -34,8 +34,18 @@ response.setDateHeader("Expires",0);
 					</ul>
 				</div>
 			</div>
-			<div class="submenu" style="width: 100%; height: 50px; background-color: #e1e1e1; border-top: solid 1px #34353a;">
-				&nbsp;Need to change this color
+			<div class="submenu">
+				<div style="font: 10pt Myriad Pro, sans-serif; color: #999999; width: 900px; margin: auto; position: relative;">
+					<div class="submenu-button selected">
+						Results
+					</div>
+					<div class="submenu-button unselected">
+						Locations
+					</div>
+					<div class="submenu-button unselected">
+						Social Friends
+					</div>
+				</div>
 			</div>
 			<div class="bottom-content">
 				<div class="shadow" style="width: 200px; height: 100px; background: white; padding: 5px; float: left; margin-right: 20px;">
@@ -52,7 +62,8 @@ response.setDateHeader("Expires",0);
 				</div>
 			</div>
 			<div class="bottom-content-results">
-				<div class="shadow" style="width: 200px; height: 300px; background: white; padding: 5px; float: left; margin-right: 30px;">
+				<div class="shadow" style="width: 200px; height: 250px; background: white; padding: 5px; float: left; 
+margin-right: 30px;">
 					<h4>Facebook</h4>
 				</div>
 			</div>
