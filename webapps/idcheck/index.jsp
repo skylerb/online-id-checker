@@ -1,3 +1,4 @@
+
 <%
 response.setHeader("Cache-Control","no-store");
 response.setHeader("Pragma","no-cache");
@@ -7,13 +8,17 @@ response.setDateHeader("Expires",0);
 <%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<title>Change This</title>
 		<link href="main.css" rel="stylesheet" type="text/css" />
 	</head>
-	
+
+
+
 	<% if((session.getAttribute("username") != null)) { %>
 		<body>
+		
 			<div style="width:100%; background-color: black; color: white; min-height: 30px; border-bottom: solid 1px #1c1c1c; padding: 6px 0 2px;">
 				<div style="margin: auto; font: 18px Myriad Pro, sans-serif; width: 900px; position: relative;">
 					<div style="float: left;">ONLINE ID CHECKER</div>
