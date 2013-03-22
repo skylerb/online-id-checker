@@ -8,7 +8,7 @@ response.setDateHeader("Expires",0);
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Change This</title>
+		<title>Search</title>
 		<link href="main.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/slider.js"></script>

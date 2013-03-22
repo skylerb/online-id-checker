@@ -10,7 +10,7 @@ response.setDateHeader("Expires",0);
 <html>
 
 	<head>
-		<title>Change This</title>
+		<title>Dashboard</title>
 		<link href="main.css" rel="stylesheet" type="text/css" />
 	</head>
 
