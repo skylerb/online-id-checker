@@ -28,9 +28,9 @@ response.setDateHeader("Expires",0);
 				</div>
 			</div>
 			<div style="width:100%; height: 120px;  background-color: #080808; background-image: url(images/header.jpg); background-repeat: no-repeat; background-position: center top;">
-				<div style="font: 11pt Myriad Pro, sans-serif; color: white; width: 900px; margin: auto; position: relative;">
+				<div style="font: 10pt Myriad Pro, sans-serif; color: white; width: 900px; margin: auto; position: relative;">
 					<ul>
-						<li>
+						<li class="current">
 							<a href="index.jsp"><img src="images/home.png"></a><br/>
 							Dashboard
 						</li>

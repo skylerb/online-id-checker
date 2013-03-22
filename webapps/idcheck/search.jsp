@@ -28,7 +28,7 @@ response.setDateHeader("Expires",0);
 				<div style="font: 11pt Myriad Pro, sans-serif; color: white; width: 900px; margin: auto; position: relative;">
 					<ul>
 						<li><a href="index.jsp"><img src="images/home.png"></a><br/>Dashboard</li>
-						<li><a href="search.jsp"><img src="images/search.png"></a><br/>Search</li>
+						<li class="current"><a href="search.jsp"><img src="images/search.png"></a><br/>Search</li>
 					</ul>
 				</div>
 			</div>
