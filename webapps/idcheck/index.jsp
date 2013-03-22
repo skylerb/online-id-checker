@@ -44,7 +44,7 @@ response.setDateHeader("Expires",0);
 				</div> 
 			</div>
 		</body>
-	<% } else { %>
-		<jsp:forward page="login.jsp" />
-	<% } %>
+	<% } else {
+		response.sendRedirect(request.getContextPath() + "/login.jsp");
+	} %>
 </html>

@@ -23,7 +23,7 @@ try {
     
     if (lc.validate(username, password)) {
 	session.setAttribute("username", username);
-	response.sendRedirect(request.getContextPath() + "/index.jsp");
+	response.sendRedirect(request.getContextPath());
     }
     else {
 	response.sendRedirect(request.getContextPath() + "/login.jsp");

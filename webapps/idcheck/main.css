@@ -7,6 +7,11 @@ body {
 	background: url('images/bg.jpg'); 
 }
 
+a {
+	outline: none;
+	text-decoration: none;
+}
+
 h4 {
 	margin: 0;
 	font: 13pt Myriad Pro, sans-serif;
@@ -213,6 +218,11 @@ hr {
 	color: #a2b1b9;
 	font: 12pt Myriad-Pro, sans-serif;
 	font-weight: 650;
+}
+
+.advanced a {
+	color: #a2b1b9;
+	text-decoration: none;
 }
 
 .dropdown {
