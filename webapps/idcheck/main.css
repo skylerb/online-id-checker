@@ -20,10 +20,12 @@ ul {
 }
 
 li {
-	float:left;
+        padding-top: 20px;  /* Tmp Change */
+        padding-left: 15px; /* Tmp Change */
+	float: left;
 	height: 85px;
 	width: 90px;
-	margin: 15px 70px 0 0;
+	margin: 15px 70px 0 20; /* Tmp Change */
 }
 
 .current {
