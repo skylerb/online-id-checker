@@ -1,9 +1,73 @@
 package auth;
+
 import java.sql.*;
 import javax.naming.*;
 import javax.sql.*;
 
 public class LoginCheck {
+
+    public static final int DB_CONNECTION_ERROR = -1;
+    public static final int USER_NAME_TAKEN = 0;
+    public static final int USER_CREATED = 1;
+
+    public Connection getDsConnection() {
+	Connection conn = null;
+	try {
+	    Context ctx = new InitialContext();
+	    Context envCtx = (Context)ctx.lookup("java:comp/env");
+	    DataSource ds = (DataSource)envCtx.lookup("jdbc/database");
+	    conn = ds.getConnection();
+
+	} catch (SQLException se) {
+	    //Handle Later
+	}
+	catch (NamingException ne) {
+	    //Handle Later
+	}
+	return conn;
+    }
+    
+
+    public int createUser(String user, String pass) {
+
+	Connection conn = null;
+	int ret = USER_CREATED;
+
+	try {
+	    conn = getDsConnection();
+
+	    if (conn == null) {
+		ret = DB_CONNECTION_ERROR;
+	    } 
+
+	    PreparedStatement stmt = null;
+	    stmt = conn.prepareStatement("SELECT uname FROM users WHERE uname=?");
+	    stmt.setString(1, user);
+	    ResultSet rs = stmt.executeQuery();
+
+	    if (rs.getFetchSize() > 0) {
+		ret = USER_NAME_TAKEN;
+	    }
+	    else {
+		
+		PreparedStatement stmtadd = null;
+		stmt = conn.prepareStatement("INSERT INTO users (uname, pass) VALUES (?,?)");
+		stmt.setString(1, user);
+		stmt.setString(2, pass);
+		stmt.executeUpdate();
+		ret = USER_CREATED;
+	    }
+
+	    conn.close();
+
+	} 
+	catch (SQLException se) {
+	    //	    ret =  DB_CONNECTION_ERROR;
+	} 
+	
+	return ret;
+    }
+
 
     public boolean validate(String user, String pass) {
 	
@@ -38,3 +102,4 @@ public class LoginCheck {
 
     
 }
+
