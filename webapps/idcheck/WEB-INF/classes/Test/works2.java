@@ -3,7 +3,7 @@ import java.sql.*;
 import javax.naming.*;
 import javax.sql.*;
 
-public class works {
+public class works2 {
 
     public String show() {
 
@@ -13,11 +13,11 @@ public class works {
 	    DataSource ds = (DataSource)envCtx.lookup("jdbc/database");
 	    Connection conn = ds.getConnection();
 	    Statement stat = conn.createStatement();
-	    ResultSet rs = stat.executeQuery("select * from test;");
+	    ResultSet rs = stat.executeQuery("insert into test (test) values (5)");
 
 	    //name = rs.getInt(1);
 	} catch (SQLException se) {
-	    return "hi";
+	    return se.toString();
 	    //	    return (se.toString());
 	} catch (NamingException ne) {
 	    //return "GG NAMING";

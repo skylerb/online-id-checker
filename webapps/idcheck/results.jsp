@@ -1,4 +1,4 @@
-<%@page import="Test.works" %>
+<%@page import="Test.works2" %>
 <%
 response.setHeader("Cache-Control","no-store");
 response.setHeader("Pragma","no-cache");
@@ -17,7 +17,7 @@ response.setDateHeader("Expires",0);
 	<% if((session.getAttribute("username") != null)) { %>
 		<body>
 	<% 
-	   works wk = new works();
+	   works2 wk = new works2();
 	   out.print(wk.show());
 	 %>
 	
