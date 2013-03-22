@@ -1,4 +1,4 @@
-<%@page import="Test.works2" %>
+
 <%
 response.setHeader("Cache-Control","no-store");
 response.setHeader("Pragma","no-cache");
@@ -16,10 +16,7 @@ response.setDateHeader("Expires",0);
 	 
 	<% if((session.getAttribute("username") != null)) { %>
 		<body>
-	<% 
-	   works2 wk = new works2();
-	   out.print(wk.show());
-	 %>
+
 	
 			<div style="width:100%; background-color: black; color: white; min-height: 30px; border-bottom: solid 1px #1c1c1c; padding: 6px 0 2px;">
 				<div style="margin: auto; font: 18px Myriad Pro, sans-serif; width: 900px; position: relative;">

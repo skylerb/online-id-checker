@@ -13,7 +13,7 @@ public class works2 {
 	    DataSource ds = (DataSource)envCtx.lookup("jdbc/database");
 	    Connection conn = ds.getConnection();
 	    Statement stat = conn.createStatement();
-	    ResultSet rs = stat.executeQuery("insert into test (test) values (5)");
+	    //ResultSet rs = stat.executeQuery("insert into test (test) values (5)");
 
 	    //name = rs.getInt(1);
 	} catch (SQLException se) {
