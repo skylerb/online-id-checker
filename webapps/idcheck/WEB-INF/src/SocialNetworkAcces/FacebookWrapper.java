@@ -1,5 +1,8 @@
 package SocialNetworkAcces;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
 import com.restfb.Parameter;
@@ -10,32 +13,35 @@ import ProfileManager.Profile;
 
 public class FacebookWrapper implements APIWrapper {
 	
-	private static final String FB_ACCESS_TOKEN = "AAACEdEose0cBAGzlhlWxAmAPJwS9mdtIKr8u89hnn5jGGwvRXOyXwkcuyVxyQTYmtZBMgUccnYIBWRK6iagZB5ZBlmyabCtUicfIwXN3wQBZArJp5F9g";
+	private static final String FB_URL = "http://www.facebook.com/";
+	private static final String FB_ACCESS_TOKEN = "AAACEdEose0cBAM3Dwj79bob8cShlxI76XYUVErGjzcMBF4g2ZAvVRTrgJjzlLx7ppIiK7ecMJjiZBLRZAXwYZCv9veSYu9lY7a9P0aJDPgZDZD";
 	//Profile for the person being searched for
 	private DefaultFacebookClient fbClient;
-	public String[] userarray;
 	
 	public FacebookWrapper(){
 		fbClient = new DefaultFacebookClient(FB_ACCESS_TOKEN);
 		//FacebookWrapper wrap = new FacebookWrapper("Alex");
 		//wrap.findPossibleMatches(null);
-		FacebookClient client = new DefaultFacebookClient(FacebookWrapper.FB_ACCESS_TOKEN);
+		this.fbClient = new DefaultFacebookClient(FacebookWrapper.FB_ACCESS_TOKEN);
 		//Connection<User> userSearch = client.fetchConnection("search", User.class, Parameter.with("q", "Calvin"), Parameter.with("type", "user"));
-		JsonObject usersearch = client.fetchObject("search", JsonObject.class, Parameter.with("q", "alex"), Parameter.with("type", "user"));
-		JsonArray userarray = (JsonArray)usersearch.get("data");
-		String[] users = new String[userarray.length()];
-		for(int i = 0; i < userarray.length(); i++){
-			JsonObject user = (JsonObject)userarray.get(i);
-			users[i] = "Found " + user.get("name") + " with id " + user.get("id");
-		}
-		this.userarray = users;
+		
 	}
 	
 	public Profile[] findPossibleMatches(Person person) {
-		
-		return null;
+		JsonObject usersearch = this.fbClient.fetchObject("search", JsonObject.class, Parameter.with("q", person.getFullName()), Parameter.with("type", "user"));
+		JsonArray userarray = (JsonArray)usersearch.get("data");
+		Profile[] profiles = new Profile[userarray.length()];
+		for(int i = 0; i < userarray.length(); i++){
+			JsonObject user = (JsonObject)userarray.get(i);
+			person = new Person((String)user.get("name"));
+			try {
+				profiles[i] = new Profile(person, new URL(FB_URL + user.get("id")));
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+		}
+		return profiles;
 	}
-
 	
 	public Profile getProfileInfo(Profile profile) {
 		
@@ -43,7 +49,21 @@ public class FacebookWrapper implements APIWrapper {
 	}
 	
 	public static void main(String[] args){
+		FacebookWrapper wrap = new FacebookWrapper();
+		Profile[] profiles = wrap.findPossibleMatches(new Person("Calvin Sauer"));
+		for(Profile p : profiles) {
+			System.out.println("Found " + p.person.getFullName() + " with url " + p.url.toString());
+		}
 		
+		profiles = wrap.findPossibleMatches(new Person("Alex Jahns"));
+		for(Profile p : profiles) {
+			System.out.println("Found " + p.person.getFullName() + " with url " + p.url.toString());
+		}
+		
+		profiles = wrap.findPossibleMatches(new Person("Derek Kunzman"));
+		for(Profile p : profiles) {
+			System.out.println("Found " + p.person.getFullName() + " with url " + p.url.toString());
+		}
 	}
 
 }
