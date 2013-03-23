@@ -23,7 +23,7 @@ padding-top: 5px;">
 		<div class="shadow" id="login" style="height: 305px;">
 			<h4 style="margin-left: 10px;">Register</h4>
 			<br />
-			<form action="#" method="post">
+			<form action="chkReg.jsp" method="post">
 				<input type="text" name="username" 
 placeholder="Username..."/></br>
 				<hr/>

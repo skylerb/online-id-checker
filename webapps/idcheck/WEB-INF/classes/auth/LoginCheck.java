@@ -26,12 +26,40 @@ public class LoginCheck {
 	}
 	return conn;
     }
+
+   	public boolean userExists(String user, String pass) {
+		Connection conn = null;
+		boolean ret = false;
+		try {
+			conn = getDsConnection();
+
+			if(conn == null) {
+				return false;	
+			}
+
+			PreparedStatement stmt = null;
+			stmt = conn.prepareStatement("SELECT uname FROM users WHERE uname=?");
+	    		stmt.setString(1, user);
+	    		ResultSet rs = stmt.executeQuery();
+
+			if(rs.getString(1).equals(user)) {
+				ret = true;
+			} else {
+				ret = false;
+			}
+			conn.close();
+		} catch (SQLException e) {
+			//
+		}
+
+		return ret;
+	}
     
 
     public int createUser(String user, String pass) {
 
 	Connection conn = null;
-	int ret = USER_CREATED;
+	int ret = -100;
 
 	try {
 	    conn = getDsConnection();
@@ -41,28 +69,21 @@ public class LoginCheck {
 	    } 
 
 	    PreparedStatement stmt = null;
-	    stmt = conn.prepareStatement("SELECT uname FROM users WHERE uname=?");
-	    stmt.setString(1, user);
-	    ResultSet rs = stmt.executeQuery();
-
-	    if (rs.getFetchSize() > 0) {
-		ret = USER_NAME_TAKEN;
-	    }
-	    else {
-		
-		PreparedStatement stmtadd = null;
+		ret = 1;
 		stmt = conn.prepareStatement("INSERT INTO users (uname, pass) VALUES (?,?)");
+		ret = 2;
 		stmt.setString(1, user);
+		ret = 3;
 		stmt.setString(2, pass);
+		ret = -5;
 		stmt.executeUpdate();
 		ret = USER_CREATED;
-	    }
 
 	    conn.close();
 
 	} 
-	catch (SQLException se) {
-	    //	    ret =  DB_CONNECTION_ERROR;
+	catch (SQLException se) {	    
+	    //	    ret = DB_CONNECTION_ERROR;  
 	} 
 	
 	return ret;
