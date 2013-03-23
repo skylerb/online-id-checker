@@ -8,14 +8,14 @@
 		<link href="main.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
-		<div style="width:100%; background-color:black; color:white; height: 30px; border-bottom: solid 1px #1c1c1c;">
-			<div style="margin: auto; width: 900px; font: 18px Myriad Pro,sans-serif; position: relative; padding-top: 5px;">
+		<div class="topbar-wrapper">
+			<div class="topbar">
 				<div style="float: left;">ONLINE ID CHECKER</div>
-				<div style="font-size: 9pt; color: #a2b1b9; float: right; 
+				<div style="font-size: 9pt; color: #86858e; float: right; 
 padding-top: 5px;">
-					<a href="#" style="color: #a2b1b9;" 
+					<a href="#" style="color: #86858e;" 
 >Login</a> | 
-<a href="register.jsp" style="color: #a2b1b9;">Register</a></div>
+<a href="register.jsp" style="color: #86858e;">Register</a></div>
 			</div>
 		</div>
 		<div class="shadow" id="login">
