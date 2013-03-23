@@ -1,8 +1,14 @@
+<%@page import="SocialNetworkAcces.FacebookWrapper" %>
+<%@page import="ProfileManager.Profile" %>
+<%@page import="ProfileManager.Person" %>
 
 <%
 response.setHeader("Cache-Control","no-store");
 response.setHeader("Pragma","no-cache");
 response.setDateHeader("Expires",0);
+
+//Post parameters
+String name = request.getParameter("name");
 %>
 
 <%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.sql.*" errorPage="" %>
@@ -64,10 +70,26 @@ response.setDateHeader("Expires",0);
 					<h4>%</h4>
 				</div>
 			</div>
+
+
+
 			<div class="bottom-content-results">
-				<div class="shadow" style="width: 200px; height: 250px; background: white; padding: 5px; float: left; 
+				<div class="shadow" style="width: 890px; background: white; padding: 5px 0 20px 0; float: left; 
 margin-right: 30px;">
 					<h4>Facebook</h4>
+                    <%
+                        FacebookWrapper fw = new FacebookWrapper();
+                        Profile[] profiles = fw.findPossibleMatches(new Person(name));
+
+                        for(Profile prof : profiles) {
+                    %>
+                    <div style="-webkit-box-shadow: 2px 2px 16px #999; box-shadow: 2px 2px 16px #999; padding: 30px; margin: 15px; 0 15px 0;">
+                    <img src="https://graph.facebook.com<% out.println(prof.url.getPath()); %>/picture">
+                    <a style="color: #777; font-size: 1.8em; float:right; margin-top: 1.7em;"href="<% out.println(prof.url.toString()); %>"><% out.println(prof.person.getFullName()); %></a>
+                    </div>
+                    <%
+                        }
+                    %>
 				</div>
 			</div>
 		</body>
