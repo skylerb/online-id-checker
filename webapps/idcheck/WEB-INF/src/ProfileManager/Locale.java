@@ -2,13 +2,13 @@ package ProfileManager;
 
 public class Locale {
 	//String containing the persons current country
-	private String Country;
+	public String Country;
 	//String containing the person current city
-	private String City;
+	public String City;
 	//String containing the person current state
-	private String State;
+	public String State;
 	//String containing the person current address
-	private String Address;
+	public String Address;
 	
 	
 }

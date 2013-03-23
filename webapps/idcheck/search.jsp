@@ -35,7 +35,7 @@ response.setDateHeader("Expires",0);
 			<div class="shadow" id="login" style="margin-top: 50px;">			
 				<h4 style="margin-left: 10px;">Search</h4>
 				<br/>
-				<form action="#">
+				<form method="post" action="facetest.jsp">
 					<input type="text" name="name" placeholder="Name..."/><br/>
 					<hr/>
 					<input type="text" name="dob" placeholder="Date of Birth..."/><br/>
