@@ -16,7 +16,7 @@ String name = request.getParameter("name");
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Change This</title>
+		<title>Results | <% out.print(name); %></title>
 		<link href="main.css" rel="stylesheet" type="text/css" />
 	</head>
 	 
@@ -24,27 +24,30 @@ String name = request.getParameter("name");
 		<body>
 
 	
-			<div style="width:100%; background-color: black; color: white; min-height: 30px; border-bottom: solid 1px #1c1c1c; padding: 6px 0 2px;">
-				<div style="margin: auto; font: 18px Myriad Pro, sans-serif; width: 900px; position: relative;">
+			<div class="topbar-wrapper">
+				<div class="topbar">
 					<div style="float: left;">ONLINE ID CHECKER</div>
 					<form action="logout.jsp">
 						<input class="button" type="submit" value="Logout">
 					</form>
 				</div>
 			</div>
-			<div style="width:100%; height: 120px;  background-color: #080808; background-image: url(images/header.jpg); background-repeat: no-repeat; background-position: center top;">
-				<div style="font: 10pt Myriad Pro, sans-serif; color: white; width: 900px; margin: auto; position: relative;">
+			<div class="mainmenu-wrapper">
+				<div class="mainmenu">
 					<ul>
 						<li>
-							<a href="index.jsp"><img src="images/home.png"></a><br/>
-							Dashboard
+							<a href="index.jsp"><img src="images/home.png"></a>
+							<p>Dashboard</p>
 						</li>
-						<li><a href="search.jsp"><img src="images/search.png"></a><br/>Search</li>
+						<li>
+							<a href="search.jsp"><img src="images/search.png"></a>
+							<p>Search</p>
+						</li>
 					</ul>
 				</div>
 			</div>
-			<div class="submenu">
-				<div style="font: 10pt Myriad Pro, sans-serif; color: #999999; width: 900px; margin: auto; position: relative;">
+			<div class="submenu-wrapper">
+				<div class="submenu">
 					<div class="submenu-button selected">
 						Results
 					</div>
@@ -58,7 +61,7 @@ String name = request.getParameter("name");
 			</div>
 			<div class="bottom-content">
 				<div class="shadow" style="width: 200px; height: 100px; background: white; padding: 5px; float: left; margin-right: 20px;">
-					<h4>Lion-O</h4>
+					<h4><% out.print(name); %></h4>
 				</div>
 				<div class="shadow" style="width: 200px; height: 100px; background: white; padding: 5px; float: left; margin-right: 20px;">
 					<h4>#</h4>
@@ -93,7 +96,7 @@ margin-right: 30px;">
 				</div>
 			</div>
 		</body>
-	<% } else { %>
-		<jsp:forward page="login.jsp" />
-	<% } %>
+	<% } else {
+		response.sendRedirect(request.getContextPath() + "/login.jsp");
+	} %>
 </html>

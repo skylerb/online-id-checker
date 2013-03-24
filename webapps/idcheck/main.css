@@ -216,7 +216,7 @@ hr {
 	text-shadow: 1px -1px #480800;
 }
 
-.submenu {
+.submenu-wrapper {
 	height: 55px;
 	width: 100%;
 	border-top: solid 1px #43444a;
@@ -240,6 +240,14 @@ hr {
 	background-image: linear-gradient(to bottom, #2e2f35 0%, #28292f 100%);
 
 
+}
+
+.submenu {
+	font: 10pt Myriad Pro, sans-serif;
+	color: #999999;
+	width: 900px;
+	margin: auto;
+	position: relative;
 }
 
 .bottom-content {
