@@ -71,9 +71,28 @@ public class SearchUsers {
             do {
             	users = twitter.searchUsers(name, page);
             	for (User user : users) {
-            		persons[i] = user.getName()+';'+user.getLocation(); 
-                    i++;   
-                } 	
+            		String str = "";
+            		if (user != null) {
+                		if (user.getName() != null && !user.getName().equals("null") && !user.getName().equals("")) {
+                			str = str + "Name:" + user.getName() + ";";
+                			System.out.println(user.getName());
+                    		if (user.getLocation() != null) {
+                    			str = str + user.getLocation();
+                    		} else {
+                    			str = str + "N/A;";
+                    		}
+                    		
+                    		if (user.getMiniProfileImageURL() != null) {
+                    			str = str + user.getMiniProfileImageURL();
+                    		} else {
+                    			str = str + "N/A;";
+                    		}
+                    		
+                    		persons[i] = str;
+                            i++;
+                		}
+            		}
+            	}
             	page++;
             } while (users.size() != 0 && page < 2);
             return persons;
@@ -86,19 +105,16 @@ public class SearchUsers {
     public static void main(String[] args) {
         if (args.length < 1) {
             System.out.println("Usage: java twitter4j.examples.user.SearchUsers [query]");
-            System.exit(-1);
         }
         
-        SearchUsers search = new SearchUsers();
-       String[] people =  search.getResults(args[0]);
-       int i=0;
+       SearchUsers search = new SearchUsers();
+       String[] people =  search.getResults("Dylan");
 	   int j = people.length;
-	   while(j>0){
-		   if(people[i]!=null){
-		   System.out.println(people[i]);
-		   j--;i++;}
+	   for (String str: people) {
+		   System.out.println(str);
 	   }
-	   }
+	   
+	}
     
 }
 	
