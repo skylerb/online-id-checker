@@ -64,8 +64,9 @@ String dob = request.getParameter("dob");
 				</div>
 			</div>
 			<div class="bottom-content">
-				<div class="shadow" style="width: 200px; height: 100px; background: white; padding: 5px; float: left; margin-right: 20px;">
-					<h4><% out.print(name); %></h4>
+				<div class="shadow" style="width: 190px; height: 90px; background: white; padding: 10px; float: left; margin-right: 20px;">
+					<p style="text-align:center; font: 15pt Myriad Pro, 
+sans-serif; font-weight: 700;"><% out.print(name); %></p>
 				</div>
 				<div class="shadow" style="width: 200px; height: 100px; background: white; padding: 5px; float: left; margin-right: 20px;">
 					<h4>#</h4>
@@ -108,8 +109,10 @@ String dob = request.getParameter("dob");
 							String[] arr = twt.split(";");
 				%>
 				<div class="shadow" style="width: 880px; background: white; padding: 15px 0 5px 20px; float: left; margin-bottom: 20px;">
+					<img src="<% out.print(arr[2]); %>" />
 					<h4><% out.print(arr[0]); %></h4>
 					<h5><% if(!arr[1].equals("null")) { out.print(arr[1]); } else { out.print("N/A"); } %></h5>
+
 				</div>
 				<% } } %>
 			</div>

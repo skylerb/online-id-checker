@@ -74,18 +74,18 @@ public class SearchUsers {
             		String str = "";
             		if (user != null) {
                 		if (user.getName() != null && !user.getName().equals("null") && !user.getName().equals("")) {
-                			str = str + "Name:" + user.getName() + ";";
+                			str = str + user.getName() + ";";
                 			System.out.println(user.getName());
                     		if (user.getLocation() != null) {
-                    			str = str + user.getLocation();
+                    			str = str + user.getLocation() + ";";
                     		} else {
                     			str = str + "N/A;";
                     		}
                     		
                     		if (user.getMiniProfileImageURL() != null) {
-                    			str = str + user.getMiniProfileImageURL();
+                    			str = str + user.getProfileImageURL();
                     		} else {
-                    			str = str + "N/A;";
+                    			str = str + "N/A";
                     		}
                     		
                     		persons[i] = str;
