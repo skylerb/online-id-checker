@@ -104,14 +104,17 @@ sans-serif; font-weight: 700;"><% out.print(name); %></p>
 				<% 
 					SearchUsers search = new SearchUsers();
 					String[] twitter = search.getResults(name);
+					int i = 0;
 					for(String twt : twitter) {
 						if(twt != null) {
 							String[] arr = twt.split(";");
 				%>
-				<div class="shadow" style="width: 880px; background: white; padding: 15px 0 5px 20px; float: left; margin-bottom: 20px;">
-					<img src="<% out.print(arr[2]); %>" />
+				<div class="shadow" style="width: 200px; height: 100px; background: white; padding: 5px; float: left; margin-bottom: 
+20px; <% if(i != 3) { out.print("margin-right: 20px;"); i++;} else { i = 0; } %>">
+					<img src="<% out.print(arr[2]); %>" /><br/>
 					<h4><% out.print(arr[0]); %></h4>
-					<h5><% if(!arr[1].equals("null")) { out.print(arr[1]); } else { out.print("N/A"); } %></h5>
+					<h5 style="padding-top: 0; margin-top: 0;"><% if(!arr[1].equals("null")) { out.print(arr[1]); } else { 
+out.print("N/A"); } %></h5>
 
 				</div>
 				<% } } %>
