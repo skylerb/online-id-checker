@@ -71,7 +71,7 @@ public class SearchUsers {
             do {
             	users = twitter.searchUsers(name, page);
             	for (User user : users) {
-            		persons[i] = user.getName()+' '+user.getLocation(); 
+            		persons[i] = user.getName()+';'+user.getLocation(); 
                     i++;   
                 } 	
             	page++;

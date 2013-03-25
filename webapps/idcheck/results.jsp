@@ -105,9 +105,11 @@ String dob = request.getParameter("dob");
 					String[] twitter = search.getResults(name);
 					for(String twt : twitter) {
 						if(twt != null) {
+							String[] arr = twt.split(";");
 				%>
-				<div class="shadow" style="width: 880px; background: white; padding: 5px 0 5px 20px; float: left; margin-bottom: 20px;">
-					<h4><% out.print(twt); %></h4>
+				<div class="shadow" style="width: 880px; background: white; padding: 15px 0 5px 20px; float: left; margin-bottom: 20px;">
+					<h4><% out.print(arr[0]); %></h4>
+					<h5><% if(!arr[1].equals("null")) { out.print(arr[1]); } else { out.print("N/A"); } %></h5>
 				</div>
 				<% } } %>
 			</div>
