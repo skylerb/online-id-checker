@@ -2,6 +2,9 @@
 <%@page import="ProfileManager.Profile" %>
 <%@page import="ProfileManager.Person" %>
 
+<%@page import="User.MyConfigurationBuilder" %>
+<%@page import="User.SearchUsers" %>
+
 <%
 response.setHeader("Cache-Control","no-store");
 response.setHeader("Pragma","no-cache");
@@ -9,6 +12,7 @@ response.setDateHeader("Expires",0);
 
 //Post parameters
 String name = request.getParameter("name");
+String dob = request.getParameter("dob");
 %>
 
 <%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.sql.*" errorPage="" %>
@@ -39,7 +43,7 @@ String name = request.getParameter("name");
 							<a href="index.jsp"><img src="images/home.png"></a>
 							<p>Dashboard</p>
 						</li>
-						<li>
+						<li class="current">
 							<a href="search.jsp"><img src="images/search.png"></a>
 							<p>Search</p>
 						</li>
@@ -77,8 +81,8 @@ String name = request.getParameter("name");
 
 
 			<div class="bottom-content-results">
-				<div class="shadow" style="width: 890px; background: white; padding: 5px 0 20px 0; float: left; 
-margin-right: 30px;">
+			<%--
+				<div class="shadow" style="width: 100%; background: white; padding: 5px 0 20px 0; float: left; margin-right: 30px;">
 					<h4>Facebook</h4>
                     <%
                         FacebookWrapper fw = new FacebookWrapper();
@@ -93,7 +97,19 @@ margin-right: 30px;">
                     <%
                         }
                     %>
+			
 				</div>
+			--%>
+				<% 
+					SearchUsers search = new SearchUsers();
+					String[] twitter = search.getResults(name);
+					for(String twt : twitter) {
+						if(twt != null) {
+				%>
+				<div class="shadow" style="width: 880px; background: white; padding: 5px 0 5px 20px; float: left; margin-bottom: 20px;">
+					<h4><% out.print(twt); %></h4>
+				</div>
+				<% } } %>
 			</div>
 		</body>
 	<% } else {
