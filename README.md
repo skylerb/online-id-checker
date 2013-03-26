@@ -15,6 +15,3 @@ Run this on any linux pc @ the school. You can then check if the server is runni
 /bin/shutdown.sh
 Will shutdown the server. Do this before you logoff so you don't keep the server running all day long. 
 
-Skyler is working on the UI now. 
-
-Still working on DB for now. 
