@@ -257,7 +257,7 @@ hr {
 }
 
 .bottom-content-results {
-	margin: 170px auto 20px auto;
+	margin: 170px auto 50px auto;
 	position: relative;
 	width: 900px; 
 }
@@ -278,7 +278,7 @@ hr {
 }
 
 .dropdown {
-	height: 150px;
+	height: 410px;
 	position: relative;
 	width:430px;
 	background-color:white;
