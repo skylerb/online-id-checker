@@ -2,6 +2,9 @@
 <%@page import="ProfileManager.Profile" %>
 <%@page import="ProfileManager.Person" %>
 
+<%@page import="User.MyConfigurationBuilder" %>
+<%@page import="User.SearchUsers" %>
+
 <%
 response.setHeader("Cache-Control","no-store");
 response.setHeader("Pragma","no-cache");
@@ -9,6 +12,7 @@ response.setDateHeader("Expires",0);
 
 //Post parameters
 String name = request.getParameter("name");
+String dob = request.getParameter("dob");
 %>
 
 <%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.sql.*" errorPage="" %>
@@ -16,7 +20,7 @@ String name = request.getParameter("name");
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Change This</title>
+		<title>Results | <% out.print(name); %></title>
 		<link href="main.css" rel="stylesheet" type="text/css" />
 	</head>
 	 
@@ -24,27 +28,30 @@ String name = request.getParameter("name");
 		<body>
 
 	
-			<div style="width:100%; background-color: black; color: white; min-height: 30px; border-bottom: solid 1px #1c1c1c; padding: 6px 0 2px;">
-				<div style="margin: auto; font: 18px Myriad Pro, sans-serif; width: 900px; position: relative;">
+			<div class="topbar-wrapper">
+				<div class="topbar">
 					<div style="float: left;">ONLINE ID CHECKER</div>
 					<form action="logout.jsp">
 						<input class="button" type="submit" value="Logout">
 					</form>
 				</div>
 			</div>
-			<div style="width:100%; height: 120px;  background-color: #080808; background-image: url(images/header.jpg); background-repeat: no-repeat; background-position: center top;">
-				<div style="font: 10pt Myriad Pro, sans-serif; color: white; width: 900px; margin: auto; position: relative;">
+			<div class="mainmenu-wrapper">
+				<div class="mainmenu">
 					<ul>
 						<li>
-							<a href="index.jsp"><img src="images/home.png"></a><br/>
-							Dashboard
+							<a href="index.jsp"><img src="images/home.png"></a>
+							<p>Dashboard</p>
 						</li>
-						<li><a href="search.jsp"><img src="images/search.png"></a><br/>Search</li>
+						<li class="current">
+							<a href="search.jsp"><img src="images/search.png"></a>
+							<p>Search</p>
+						</li>
 					</ul>
 				</div>
 			</div>
-			<div class="submenu">
-				<div style="font: 10pt Myriad Pro, sans-serif; color: #999999; width: 900px; margin: auto; position: relative;">
+			<div class="submenu-wrapper">
+				<div class="submenu">
 					<div class="submenu-button selected">
 						Results
 					</div>
@@ -57,8 +64,9 @@ String name = request.getParameter("name");
 				</div>
 			</div>
 			<div class="bottom-content">
-				<div class="shadow" style="width: 200px; height: 100px; background: white; padding: 5px; float: left; margin-right: 20px;">
-					<h4>Lion-O</h4>
+				<div class="shadow" style="width: 190px; height: 90px; background: white; padding: 10px; float: left; margin-right: 20px;">
+					<p style="text-align:center; font: 15pt Myriad Pro, 
+sans-serif; font-weight: 700;"><% out.print(name); %></p>
 				</div>
 				<div class="shadow" style="width: 200px; height: 100px; background: white; padding: 5px; float: left; margin-right: 20px;">
 					<h4>#</h4>
@@ -74,8 +82,8 @@ String name = request.getParameter("name");
 
 
 			<div class="bottom-content-results">
-				<div class="shadow" style="width: 890px; background: white; padding: 5px 0 20px 0; float: left; 
-margin-right: 30px;">
+			<%--
+				<div class="shadow" style="width: 100%; background: white; padding: 5px 0 20px 0; float: left; margin-right: 30px;">
 					<h4>Facebook</h4>
                     <%
                         FacebookWrapper fw = new FacebookWrapper();
@@ -90,10 +98,29 @@ margin-right: 30px;">
                     <%
                         }
                     %>
+			
 				</div>
+			--%>
+				<% 
+					SearchUsers search = new SearchUsers();
+					String[] twitter = search.getResults(name);
+					int i = 0;
+					for(String twt : twitter) {
+						if(twt != null) {
+							String[] arr = twt.split(";");
+				%>
+				<div class="shadow" style="width: 200px; height: 100px; background: white; padding: 5px; float: left; margin-bottom: 
+20px; <% if(i != 3) { out.print("margin-right: 20px;"); i++;} else { i = 0; } %>">
+					<img src="<% out.print(arr[2]); %>" /><br/>
+					<h4><% out.print(arr[0]); %></h4>
+					<h5 style="padding-top: 0; margin-top: 0;"><% if(!arr[1].equals("null")) { out.print(arr[1]); } else { 
+out.print("N/A"); } %></h5>
+
+				</div>
+				<% } } %>
 			</div>
 		</body>
-	<% } else { %>
-		<jsp:forward page="login.jsp" />
-	<% } %>
+	<% } else {
+		response.sendRedirect(request.getContextPath() + "/login.jsp");
+	} %>
 </html>

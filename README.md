@@ -15,6 +15,7 @@ Run this on any linux pc @ the school. You can then check if the server is runni
 /bin/shutdown.sh
 Will shutdown the server. Do this before you logoff so you don't keep the server running all day long. 
 
-Skyler is working on the UI now. 
+Server must be restarted anytime Java files are compiled. If you switch machines and are having issues, try recompiling classes.
 
-Still working on DB for now. 
+Compile all code on same machine
+

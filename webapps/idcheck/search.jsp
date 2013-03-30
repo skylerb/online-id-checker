@@ -16,34 +16,49 @@ response.setDateHeader("Expires",0);
 	
 	<% if((session.getAttribute("username") != null)) { %>
 		<body>
-			<div style="width:100%; background-color: black; color: white; min-height: 30px; border-bottom: solid 1px #1c1c1c; padding: 6px 0 2px;">
-				<div style="margin: auto; font: 18px Myriad Pro, sans-serif; width: 900px; position: relative;">
+			<div class="topbar-wrapper">
+				<div class="topbar">
 					<div style="float: left;">ONLINE ID CHECKER</div>
 					<form action="logout.jsp">
 						<input class="button" type="submit" value="Logout">
 					</form>
 				</div>
 			</div>
-			<div style="width:100%; height: 120px;  background-color: #080808; background-image: url(images/header.jpg); background-repeat: no-repeat; background-position: center top;">
-				<div style="font: 11pt Myriad Pro, sans-serif; color: white; width: 900px; margin: auto; position: relative;">
+			<div class="mainmenu-wrapper">
+				<div class="mainmenu">
 					<ul>
-						<li><a href="index.jsp"><img src="images/home.png"></a><br/>Dashboard</li>
-						<li class="current"><a href="search.jsp"><img src="images/search.png"></a><br/>Search</li>
+						<li>
+							<a href="index.jsp"><img src="images/home.png"></a>
+							<p>Dashboard</p>
+						</li>
+						<li class="current">
+							<a href="search.jsp"><img src="images/search.png"></a>
+							<p>Search</p>
+						</li>
 					</ul>
 				</div>
 			</div>
-			<div class="shadow" id="login" style="margin-top: 50px;">			
+			<div class="shadow" id="login" style="margin-top: 50px; margin-bottom: 50px;">			
 				<h4 style="margin-left: 10px;">Search</h4>
 				<br/>
 				<form method="post" action="results.jsp">
+					<a name="TOP"></a>
 					<input type="text" name="name" placeholder="Name..."/><br/>
 					<hr/>
 					<input type="text" name="dob" placeholder="Date of Birth..."/><br/>
 					<div class="dropdown">
 						<hr/>
-						<input type="text" name="?" placeholder="Something.."/><br/>
+						<input type="text" name="phone" placeholder="Telephone Number..."/><br/>
 						<hr/>
-						<input type="text" name="?" placeholder="Something else..."/><br/>
+						<input type="text" name="address" placeholder="Street Address..."/><br/>
+						<hr/>
+						<input type="text" name="city" placeholder="City..."/><br/>
+						<hr/>
+						<input type="text" name="state" placeholder="State..."/><br/>
+						<hr/>
+						<input type="text" name="country" placeholder="Country..."/><br/>
+						<hr/>
+						<input type="text" name="job" placeholder="Employment Information..."/><br/>
 					</div>
 					<div class="advanced">Advanced</div>
 					<div style="padding-top: 30px; float: right; padding-right: 10px;">
@@ -52,7 +67,7 @@ response.setDateHeader("Expires",0);
 				</form>			
 			</div>
 		</body>
-	<% } else { %>
-		<jsp:forward page="login.jsp" />
-	<% } %>
+	<% } else {
+		response.sendRedirect(request.getContextPath() + "/login.jsp");
+	} %>
 </html>
