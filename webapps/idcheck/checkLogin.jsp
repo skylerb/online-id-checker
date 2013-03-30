@@ -21,8 +21,11 @@ try {
 
     LoginCheck lc = new LoginCheck();
     
-    if (lc.validate(username, password)) {
+	int id = lc.validate(username,password);
+
+    if (id != 0) {
 	session.setAttribute("username", username);
+	session.setAttribute("uid", id);
 	response.sendRedirect(request.getContextPath());
     }
     else {

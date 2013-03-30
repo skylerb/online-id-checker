@@ -22,6 +22,9 @@ response.setDateHeader("Expires",0);
 					<form action="logout.jsp">
 						<input class="button" type="submit" value="Logout">
 					</form>
+					<div style="float: right; display: inline-block; padding-right: 25px; font-size: 10pt; padding-top: 5px;">
+						<% out.print((String)session.getAttribute("username")); %>
+					</div>
 				</div>
 			</div>
 			<div class="mainmenu-wrapper">
