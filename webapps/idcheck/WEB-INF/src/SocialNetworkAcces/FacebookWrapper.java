@@ -14,7 +14,7 @@ import ProfileManager.Profile;
 public class FacebookWrapper implements APIWrapper {
 	
 	private static final String FB_URL = "http://www.facebook.com/";
-	private static final String FB_ACCESS_TOKEN = "AAACEdEose0cBAM3Dwj79bob8cShlxI76XYUVErGjzcMBF4g2ZAvVRTrgJjzlLx7ppIiK7ecMJjiZBLRZAXwYZCv9veSYu9lY7a9P0aJDPgZDZD";
+	private static final String FB_ACCESS_TOKEN = "AAACEdEose0cBADDGQmXcXi6ZAwX51CrZALb6DEFlZAt0kLsmq9SYGwqlTZBy2ahGHJw0J02i042zCJdrSMRlNIrGcYUVhmnrh3ZBZCtzQbdgZDZD";
 	//Profile for the person being searched for
 	private DefaultFacebookClient fbClient;
 	
