@@ -22,6 +22,9 @@ response.setDateHeader("Expires",0);
 					<form action="logout.jsp">
 						<input class="button" type="submit" value="Logout">
 					</form>
+					<div style="float: right; display: inline-block; padding-right: 25px; font-size: 10pt; padding-top: 5px;">
+						<% out.print((String)session.getAttribute("username")); %>
+					</div>
 				</div>
 			</div>
 			<div class="mainmenu-wrapper">
@@ -45,7 +48,7 @@ response.setDateHeader("Expires",0);
 					<a name="TOP"></a>
 					<input type="text" name="name" placeholder="Name..."/><br/>
 					<hr/>
-					<input type="text" name="dob" placeholder="Date of Birth..."/><br/>
+					<input type="text" name="dob" placeholder="Date of Birth (MM/DD/YYYY)..."/><br/>
 					<div class="dropdown">
 						<hr/>
 						<input type="text" name="phone" placeholder="Telephone Number..."/><br/>
@@ -59,6 +62,9 @@ response.setDateHeader("Expires",0);
 						<input type="text" name="country" placeholder="Country..."/><br/>
 						<hr/>
 						<input type="text" name="job" placeholder="Employment Information..."/><br/>
+						<hr/>
+						<input type="text" name="degree" placeholder="Academic Degree..."/><br/>
+				
 					</div>
 					<div class="advanced">Advanced</div>
 					<div style="padding-top: 30px; float: right; padding-right: 10px;">

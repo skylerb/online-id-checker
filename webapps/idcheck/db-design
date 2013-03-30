@@ -1,0 +1,23 @@
+sid - Search ID, PRIMARY KEY
+uid - User ID
+date - Search Date (Timestamp)
+name - Searched Name
+dob - Searched D.O.B. (MM/DD/YYYY)
+phone - Telephone Number
+address - Street Address
+city - City
+state - State
+country - Country
+job - Employment Information (Current Job?)
+degree - Academic Degree
+colleges - College Names (Separated by ',')
+fb - Facebook profile id/url (optional)
+fbActive - Whether or not to include FB
+gp - Google+ profile id/url (optional)
+gpActive - Whether or not to include Google+
+twt - Twitter profile id/url (optional)
+twtActive - Whether or not to include Twitter
+li - LinkedIn profile id/url (optional)
+liActive - Whether or not to include LinkedIn
+ig - Instagram profile id/url (optional)
+igActive - Whether or not to include Instagram

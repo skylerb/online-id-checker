@@ -90,7 +90,7 @@ public class LoginCheck {
     }
 
 
-    public boolean validate(String user, String pass) {
+    public int validate(String user, String pass) {
 	
 	PreparedStatement stmt = null;
 
@@ -101,24 +101,24 @@ public class LoginCheck {
 	    DataSource ds = (DataSource)envCtx.lookup("jdbc/database");
 	    Connection conn = ds.getConnection();
 	
-	    stmt = conn.prepareStatement("SELECT uname FROM users WHERE uname=? AND pass=?");
+	    stmt = conn.prepareStatement("SELECT uid, uname FROM users WHERE uname=? AND pass=?");
 	    stmt.setString(1, user);
 	    stmt.setString(2, pass);
 	    ResultSet rs = stmt.executeQuery();
 	    
-	    String res = rs.getString(1);
+	    String res = rs.getString("uname");
 	    if (res.equals(user)) {
-		return true;
+		return rs.getInt("uid");
 	    }
 	    else {
-		return false;
+		return 0;
 	    }
 	    
 	} 
 	catch (SQLException se) { }
 	catch (NamingException ne) { }
      
-	return false;
+	return 0;
     }
 
     

@@ -1,11 +1,12 @@
-
+<%@ page contentType="text/html" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="org.sqlite.*" %>
 <%
 response.setHeader("Cache-Control","no-store");
 response.setHeader("Pragma","no-cache");
 response.setDateHeader("Expires",0);
 %>
 
-<%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html>
 <html>
 
@@ -16,7 +17,8 @@ response.setDateHeader("Expires",0);
 
 
 
-	<% if((session.getAttribute("username") != null)) { %>
+	<% if((session.getAttribute("username") != null)) { 
+		int id = (Integer)session.getAttribute("uid");%>
 		<body>
 		
 			<div class="topbar-wrapper">
@@ -25,6 +27,11 @@ response.setDateHeader("Expires",0);
 					<form action="logout.jsp">
 						<input class="button" type="submit" value="Logout">
 					</form>
+					<div style="float:right; display:inline-block; padding-right: 25px; font-size: 10pt; 
+padding-top: 5px;">
+						<% out.print((String)session.getAttribute("username")); %>
+					</div>
+
 				</div>
 			</div>
 			<div class="mainmenu-wrapper">
@@ -42,9 +49,44 @@ response.setDateHeader("Expires",0);
 				</div>
 			</div>
 			<div class="bottom-content">
-				<div class="shadow" style="width: 100%; background: white; padding: 5px;">
+				<div class="shadow" style="width: 890px; padding: 5px; background: white;">
 					<h4>Search History</h4>
 				</div> 
+
+			<table class="shadow" style="width: 900px; cellspacing: 0; cellpadding: 0;background: white; margin-top: 
+20px; border-collapse: collapse;">
+			<%	
+				try {
+					Class.forName("org.sqlite.JDBC");
+					Connection conn = DriverManager.getConnection("jdbc:sqlite:" + System.getProperty("catalina.home") + "/dbs/database.db");
+					Statement stmt = conn.createStatement();
+					ResultSet rs = stmt.executeQuery("select * from search where uid =" + id);
+					int cnt = 0;
+					while(rs.next()) {
+						cnt++;
+						if(cnt % 2 == 0) { 
+							out.println("<tr style='background: #808080;'>"); 
+						} else {
+							out.println("<tr>");
+						}
+						out.println("<td>" + rs.getDate("date").toString() + "</td>");
+						out.println("<td>" + rs.getString("name") + "</td>");
+						out.println("<td>" + rs.getString("address") + " " + rs.getString("city") + ", " + rs.getString("state") + ", " + rs.getString("country") + "</td>");
+						out.println("</tr>");			
+					}
+
+					if(cnt == 0) {
+						out.println("<tr><td>No search history available...</td></tr>");
+					} 
+
+					rs.close();
+					conn.close();
+				} catch(Exception e) {
+					out.println("Unable to connect to database");
+				}
+
+			%>
+			</table>
 			</div>
 		</body>
 	<% } else {
