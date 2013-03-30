@@ -3,28 +3,27 @@ package SocialNetworkAcces;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import com.restfb.DefaultFacebookClient;
-import com.restfb.FacebookClient;
-import com.restfb.Parameter;
-import com.restfb.json.JsonArray;
-import com.restfb.json.JsonObject;
 import ProfileManager.Person;
 import ProfileManager.Profile;
+
+import com.restfb.DefaultFacebookClient;
+import com.restfb.Parameter;
+import com.restfb.exception.FacebookOAuthException;
+import com.restfb.json.JsonArray;
+import com.restfb.json.JsonObject;
 
 public class FacebookWrapper implements APIWrapper {
 	
 	private static final String FB_URL = "http://www.facebook.com/";
-	private static final String FB_ACCESS_TOKEN = "AAACEdEose0cBADDGQmXcXi6ZAwX51CrZALb6DEFlZAt0kLsmq9SYGwqlTZBy2ahGHJw0J02i042zCJdrSMRlNIrGcYUVhmnrh3ZBZCtzQbdgZDZD";
 	//Profile for the person being searched for
 	private DefaultFacebookClient fbClient;
 	
-	public FacebookWrapper(){
-		fbClient = new DefaultFacebookClient(FB_ACCESS_TOKEN);
+	public FacebookWrapper(String fb_token){
+		fbClient = new DefaultFacebookClient(fb_token);
 		//FacebookWrapper wrap = new FacebookWrapper("Alex");
 		//wrap.findPossibleMatches(null);
-		this.fbClient = new DefaultFacebookClient(FacebookWrapper.FB_ACCESS_TOKEN);
+		this.fbClient = new DefaultFacebookClient(fb_token);
 		//Connection<User> userSearch = client.fetchConnection("search", User.class, Parameter.with("q", "Calvin"), Parameter.with("type", "user"));
-		
 	}
 	
 	public Profile[] findPossibleMatches(Person person) {
@@ -49,7 +48,9 @@ public class FacebookWrapper implements APIWrapper {
 	}
 	
 	public static void main(String[] args){
-		FacebookWrapper wrap = new FacebookWrapper();
+		FacebookWrapper wrap = new FacebookWrapper("AAACEdEose0cBAFBpHMYWhN8cM357FhByWL4rZBCKYaAxQZAPvI8ZB7wbly3zZAWl8ZCIRfgVD2RUU98Bc1ZAaisUjSQeYsbKVmL0yAe28OZCgZDZD");
+		
+		try {
 		Profile[] profiles = wrap.findPossibleMatches(new Person("Calvin Sauer"));
 		for(Profile p : profiles) {
 			System.out.println("Found " + p.person.getFullName() + " with url " + p.url.toString());
@@ -63,6 +64,10 @@ public class FacebookWrapper implements APIWrapper {
 		profiles = wrap.findPossibleMatches(new Person("Derek Kunzman"));
 		for(Profile p : profiles) {
 			System.out.println("Found " + p.person.getFullName() + " with url " + p.url.toString());
+		}
+		} catch (FacebookOAuthException e) {
+			//Fetch a new access token
+			wrap = new FacebookWrapper(new DefaultFacebookClient().obtainExtendedAccessToken("627719843920827", "5cbbac27f24d05a3f9e75a3921ff9a6b").getAccessToken());
 		}
 	}
 
