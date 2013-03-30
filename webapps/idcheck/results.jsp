@@ -81,26 +81,7 @@ sans-serif; font-weight: 700;"><% out.print(name); %></p>
 
 
 
-			<div class="bottom-content-results">
-			<%--
-				<div class="shadow" style="width: 100%; background: white; padding: 5px 0 20px 0; float: left; margin-right: 30px;">
-					<h4>Facebook</h4>
-                    <%
-                        FacebookWrapper fw = new FacebookWrapper();
-                        Profile[] profiles = fw.findPossibleMatches(new Person(name));
-
-                        for(Profile prof : profiles) {
-                    %>
-                    <div style="-webkit-box-shadow: 2px 2px 16px #999; box-shadow: 2px 2px 16px #999; padding: 30px; margin: 15px; 0 15px 0;">
-                    <img src="https://graph.facebook.com<% out.println(prof.url.getPath()); %>/picture">
-                    <a style="color: #777; font-size: 1.8em; float:right; margin-top: 1.7em;"href="<% out.println(prof.url.toString()); %>"><% out.println(prof.person.getFullName()); %></a>
-                    </div>
-                    <%
-                        }
-                    %>
-			
-				</div>
-			--%>
+            <div id="twitter-results">
 				<% 
 					SearchUsers search = new SearchUsers();
 					String[] twitter = search.getResults(name);
@@ -118,7 +99,31 @@ out.print("N/A"); } %></h5>
 
 				</div>
 				<% } } %>
-			</div>
+            </div>
+
+
+
+                    <br><br>
+                    <div id="facebook-results">
+					<h3>Facebook</h3>
+                    <%
+                        //Paste in access token here!
+                        FacebookWrapper fw = new FacebookWrapper("AAACEdEose0cBAKZAFTwZA7FIWDEPJ9JxzxVQujU8ZACIh5L6HbWO5H5SpZB4fVnYVDP8zhWyXZAI4WlJGvfi0JQIykwtdUZCXEeZAeetV4IQgZDZD");
+                        Profile[] profiles = fw.findPossibleMatches(new Person(name));
+
+                        i = 0;
+                        for(Profile prof : profiles) {
+                    %>
+				<div class="shadow" style="width: 200px; height: 100px; background: white; padding: 5px; float: left; margin-bottom: 
+                        20px; <% if(i != 3) { out.print("margin-right: 20px;"); i++;} else { i = 0; } %>">
+                    <h4><% out.println(prof.person.getFullName()); %></h4>
+                    <img src="https://graph.facebook.com<% out.println(prof.url.getPath()); %>/picture">
+                    </div>
+                    <%
+                        }
+                    %>
+                </div>
+			
 		</body>
 	<% } else {
 		response.sendRedirect(request.getContextPath() + "/login.jsp");
