@@ -81,6 +81,7 @@ sans-serif; font-weight: 700;"><% out.print(name); %></p>
 
 
 
+            <div class="bottom-content-results">
             <div id="twitter-results">
 				<% 
 					SearchUsers search = new SearchUsers();
@@ -123,6 +124,7 @@ out.print("N/A"); } %></h5>
                         }
                     %>
                 </div>
+            </div>
 			
 		</body>
 	<% } else {
