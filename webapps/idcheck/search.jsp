@@ -64,6 +64,8 @@ response.setDateHeader("Expires",0);
 						<input type="text" name="job" placeholder="Employment Information..."/><br/>
 						<hr/>
 						<input type="text" name="degree" placeholder="Academic Degree..."/><br/>
+						<hr/>
+						<input type="text" name="colleges" placeholder="Colleges..."/><br/>
 				
 					</div>
 					<div class="advanced">Advanced</div>
