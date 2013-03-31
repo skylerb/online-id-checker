@@ -53,8 +53,8 @@ padding-top: 5px;">
 					<h4>Search History</h4>
 				</div> 
 
-			<table class="shadow" style="width: 900px; cellspacing: 0; cellpadding: 0;background: white; margin-top: 
-20px; border-collapse: collapse;">
+			<table class="shadow" style="width: 900px; cellspacing: 0; cellpadding: 0;background: white; margin-top: 20px; border-collapse: collapse; 
+font-size: 11pt; color: #808080;">
 			<%	
 				try {
 					Class.forName("org.sqlite.JDBC");
@@ -65,7 +65,7 @@ padding-top: 5px;">
 					while(rs.next()) {
 						cnt++;
 						if(cnt % 2 == 0) { 
-							out.println("<tr style='background: #808080;'>"); 
+							out.println("<tr style='background: #e1e1e1;'>"); 
 						} else {
 							out.println("<tr>");
 						}
