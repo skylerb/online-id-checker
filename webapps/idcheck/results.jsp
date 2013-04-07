@@ -13,6 +13,8 @@ response.setDateHeader("Expires",0);
 //Post parameters
 String name = request.getParameter("name");
 String dob = request.getParameter("dob");
+String phone = request.getParameter("phone");
+
 %>
 
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
@@ -172,7 +174,7 @@ String dob = request.getParameter("dob");
 		  <%
 		  
 		  //Paste in access token here!
-		  FacebookWrapper fw = new FacebookWrapper("AAACEdEose0cBAAgDmy9ZCfeEy4KTpPIkhRMtaZCXaC3slppXXKsdDVpiVMlXF5Fhu0f8zpyXeY615rQdHYS8uE7ch8x5hPNJPziUc071cFbnXqb4ZAu");
+		  FacebookWrapper fw = new FacebookWrapper("AAACEdEose0cBAM9qwl02E1HAwpVtHhkc59ZCVMqZAVugneHCwaRMDuFgCPc0CjMLnXXrn9zQzpllohZBQol2iHkvo2wybUL5ZBhU30FDacWku4T5fZBcz");
 		  Profile[] profiles = fw.findPossibleMatches(new Person(name));
 		  i = 0;
 		  for(Profile prof : profiles) {
