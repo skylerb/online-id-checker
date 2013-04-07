@@ -15,7 +15,7 @@ String name = request.getParameter("name");
 String dob = request.getParameter("dob");
 %>
 
-<%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.sql.*" errorPage="" %>
+<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 
 <!DOCTYPE html>
 <html>
