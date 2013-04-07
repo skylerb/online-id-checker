@@ -1,7 +1,7 @@
 <%@page import="SocialNetworkAcces.FacebookWrapper" %>
 <%@page import="ProfileManager.Profile" %>
 <%@page import="ProfileManager.Person" %>
-
+<%@page import="GooglePlus.PlusSample" %>
 <%@page import="User.MyConfigurationBuilder" %>
 <%@page import="User.SearchUsers" %>
 
@@ -206,8 +206,43 @@ String phone = request.getParameter("phone");
 		</div>
 
 
-		<div id="google-results">
-		</div>
+		<div id="google-results">  
+		  <table>
+		    <tr>
+		      <% 
+		      PlusSample goo = new PlusSample();
+					String []gplus = goo.getProfile(name);
+					i=0;
+           				for (String person : gplus) {
+           					if(person!=null){
+           						String [] as = person.split(";");
+		      %>
+
+		      <%
+		      i++;
+		      if (i != 4) {
+		      out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
+		      }
+		      else if (i == 4) {
+		      out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
+		      }
+		      %>
+
+		      <img src="<% out.print(as[1]); %>"/>
+		      <br/>
+		      <h4><% out.print(as[0]); %></h4>
+		      
+		      <h5 style="padding-top: 0; margin-top: 0;">
+			<% if(!as[2].equals("null")) { out.print(as[2]); } else { out.print("N/A"); } %>
+		      </h5>
+
+		      <% 
+		      out.println("</div></td>"); 
+		      if (i == 4) { i = 0; out.println("</tr><tr>"); }
+		      } } //End For loop
+		      out.println("</table>");
+		      %>
+	    	</div>
 
 
 	      </div>
