@@ -1,17 +1,18 @@
-<%
-	try {
-          Context ctx = new InitialContext();
-          DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/database");
-          Connection conn = ds.getConnection();
-          Statement stat = conn.createStatement();
-          ResultSet rs = stat.executeQuery("select test from test");
-          this.name = rs.getString(1);
-    } catch (SQLException se) {
-          LOG.info(se.toString());
-    } catch (NamingException ne) {
-          LOG.info(ne.toString());
-    }
+<%@page import="auth.LoginCheck" %>
 
-	out.print(this.name);
+<%
+
+      try {
+	  String password = "me";
+	  String username = "test";
+
+	  LoginCheck lc = new LoginCheck();
+	  
+	  out.println(lc.createUser(username, password));
+
+      } catch (Exception e) {
+	  out.println("error" + e);
+      }
+
 %>
 

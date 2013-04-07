@@ -138,10 +138,11 @@ hr {
 	background-image: linear-gradient(to bottom, #494b54 0%, #393b41 100%);
 }
 
+
 .shadow {
 	box-shadow: 2px 2px 1px #999;
 	-moz-box-shadow: 2px 2px px #999;
-	-webkit-box-shadow: 2px 2px 1px #999;
+	-webkit-box-shadow: 2px 2px 1px #999; 
 }
 
 #login {
