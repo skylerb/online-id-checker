@@ -45,15 +45,20 @@ String dob = request.getParameter("dob");
   $(function() {
   $( "#selectable" ).selectable({
   stop: function() {
-   $('#twitter-results, #facebook-results').hide();
+  $('#twitter-results, #facebook-results, #google-results, #linkedin-results').hide();
   $( ".ui-selected", this ).each(function() {
 
   var index = $( "#selectable li" ).index( this );
   if (index === 0)  {
    $('#twitter-results').show();
-  } else {
+  } else if (index === 1){
   $('#facebook-results').show();
+  } else if (index === 2){
+  $('#linkedin-results').show();
+  } else if (index === 3){
+  $('#google-results').show();
   }
+
   });
   }
   });
@@ -147,7 +152,7 @@ String dob = request.getParameter("dob");
 	      <h4><% out.print(arr[0]); %></h4>
 	      
 	      <h5 style="padding-top: 0; margin-top: 0;">
-	      <% if(!arr[1].equals("null")) { out.print(arr[1]); } else { out.print("N/A"); } %>
+		<% if(!arr[1].equals("null")) { out.print(arr[1]); } else { out.print("N/A"); } %>
 	      </h5>
 
 	      <% 
@@ -157,46 +162,54 @@ String dob = request.getParameter("dob");
 	      out.println("</table>");
 	      %>
 
-	  </div>
+	    </div>
 
+ 
+	    <div id="facebook-results">
+	      <table>
+		<tr>
+		  
+		  <%
+		  
+		  //Paste in access token here!
+		  FacebookWrapper fw = new FacebookWrapper("AAACEdEose0cBAAgDmy9ZCfeEy4KTpPIkhRMtaZCXaC3slppXXKsdDVpiVMlXF5Fhu0f8zpyXeY615rQdHYS8uE7ch8x5hPNJPziUc071cFbnXqb4ZAu");
+		  Profile[] profiles = fw.findPossibleMatches(new Person(name));
+		  i = 0;
+		  for(Profile prof : profiles) {
+		  
+		  %>
 
-	  
-	  <div id="facebook-results">
-	    <table>
-	      <tr>
+		  <%
+		  i++;
+		  if (i != 4) {
+		  out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
+		  }
+		  else if (i == 4) {
+		  out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
+		  }
+		  %>
+		  <h4><% out.println(prof.person.getFullName()); %></h4>
+		  <img src="https://graph.facebook.com<% out.println(prof.url.getPath()); %>/picture">
+
+		  <% 
+		  out.println("</div></td>"); 
+		  if (i == 4) { i = 0; out.println("</tr><tr>"); }
+		  } //End For loop
+		  out.println("</table>");
+		  %>
+
+		</div>
 		
-		<%
-		
-		//Paste in access token here!
-		FacebookWrapper fw = new FacebookWrapper("AAACEdEose0cBAAgDmy9ZCfeEy4KTpPIkhRMtaZCXaC3slppXXKsdDVpiVMlXF5Fhu0f8zpyXeY615rQdHYS8uE7ch8x5hPNJPziUc071cFbnXqb4ZAu");
-		Profile[] profiles = fw.findPossibleMatches(new Person(name));
-		i = 0;
-		for(Profile prof : profiles) {
-		
-		%>
+		<div id="linkedin-results">
+		</div>
 
-		<%
-		i++;
-		if (i != 4) {
-		out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
-		}
-		else if (i == 4) {
-		out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
-		}
-		%>
-		<h4><% out.println(prof.person.getFullName()); %></h4>
-		<img src="https://graph.facebook.com<% out.println(prof.url.getPath()); %>/picture">
 
-		<% 
-		out.println("</div></td>"); 
-		if (i == 4) { i = 0; out.println("</tr><tr>"); }
-		} //End For loop
-		out.println("</table>");
-		%>
+		<div id="google-results">
+		</div>
 
-	  </div>
-	</div>
-	
+
+	      </div>
+	      
     	<script>
 	  $("table").selectable({
 	  filter: ".tdItem"
