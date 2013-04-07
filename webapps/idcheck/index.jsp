@@ -27,8 +27,7 @@ response.setDateHeader("Expires",0);
 					<form action="logout.jsp">
 						<input class="button" type="submit" value="Logout">
 					</form>
-					<div style="float:right; display:inline-block; padding-right: 25px; font-size: 10pt; 
-padding-top: 5px;">
+					<div style="float:right; display:inline-block; padding-right: 25px; font-size: 10pt; padding-top: 5px;">
 						<% out.print((String)session.getAttribute("username")); %>
 					</div>
 
@@ -53,8 +52,7 @@ padding-top: 5px;">
 					<h4>Search History</h4>
 				</div> 
 
-			<table class="shadow" style="width: 900px; cellspacing: 0; cellpadding: 0;background: white; margin-top: 20px; border-collapse: collapse; 
-font-size: 11pt; color: #808080;">
+			<table class="shadow" style="width: 900px; cellspacing: 0; cellpadding: 0;background: white; margin-top: 20px; border-collapse: collapse; font-size: 11pt; color: #808080;">
 			<%	
 				try {
 					Class.forName("org.sqlite.JDBC");
@@ -63,15 +61,46 @@ font-size: 11pt; color: #808080;">
 					ResultSet rs = stmt.executeQuery("select * from search where uid =" + id);
 					int cnt = 0;
 					while(rs.next()) {
+						int accts = 0;
 						cnt++;
 						if(cnt % 2 == 0) { 
 							out.println("<tr style='background: #e1e1e1;'>"); 
 						} else {
 							out.println("<tr>");
 						}
+						if(rs.getInt("fbActive") == 1) {
+							accts += 1;
+						}
+						if(rs.getInt("gpActive") == 1) {
+							accts += 1;
+						}
+						if(rs.getInt("twtActive") == 1) {
+							accts += 1;
+						}
+						if(rs.getInt("liActive") == 1) {
+							accts += 1;
+						}
+						if(rs.getInt("igActive") == 1) {
+							accts += 1;
+						}
+						out.println("<td>&nbsp;</td>");
+						String location = "";
+						if(rs.getString("address") != null) {
+							location += rs.getString("address") + ", ";
+						}
+						if(rs.getString("city") != null) {
+							location += rs.getString("city") + ", ";
+						}
+						if(rs.getString("state") != null) {
+							location += rs.getString("state") + ", ";
+						}
+						if(rs.getString("country") != null) {
+							location += rs.getString("country");
+						}
 						out.println("<td>" + rs.getDate("date").toString() + "</td>");
 						out.println("<td>" + rs.getString("name") + "</td>");
-						out.println("<td>" + rs.getString("address") + " " + rs.getString("city") + ", " + rs.getString("state") + ", " + rs.getString("country") + "</td>");
+						out.println("<td>" + location + "</td>");
+						out.println("<td>" + accts + " Accounts</td>");
 						out.println("</tr>");			
 					}
 

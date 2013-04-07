@@ -66,7 +66,17 @@ response.setDateHeader("Expires",0);
 						<input type="text" name="degree" placeholder="Academic Degree..."/><br/>
 						<hr/>
 						<input type="text" name="colleges" placeholder="Colleges..."/><br/>
-				
+						<hr/>
+						<input type="checkbox" name="fbActive" value="fbActive" checked/><input style="width:368px;" type="text" name="fb" placeholder="Facebook ID..."/><br/>
+						<hr/>
+						<input type="checkbox" name="gpActive" value="gpActive" checked/><input style="width:368px;" type="text" name="gp" placeholder="Google+ ID..."/><br/>
+						<hr/>						
+						<input type="checkbox" name="twtActive" value="twtActive" checked/><input style="width:368px;" type="text" name="twt" placeholder="Twitter ID..."/><br/>
+						<hr/>
+						<input type="checkbox" name="liActive" value="liActive" checked/><input style="width:368px;" type="text" name="li" placeholder="LinkedIn ID..."/><br/>
+						<hr/>
+						<input type="checkbox" name="igActive" value="igActive" checked/><input style="width:368px;" type="text" name="ig" placeholder="Instagram ID..."/><br/>
+
 					</div>
 					<div class="advanced">Advanced</div>
 					<div style="padding-top: 30px; float: right; padding-right: 10px;">
