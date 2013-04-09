@@ -103,6 +103,14 @@ hr {
 	cursor: pointer;
 }
 
+.compare {
+	color: #FFF;
+	background-color: #ac210f;
+	border-top: solid 1px #ab2d1d;
+	border-bottom: solid 1px #1d1d22;
+	text-shadow: 0px 1px #000000;
+}
+
 .selected {
 	color: #54545b;
 	border-bottom: solid 1px #494a4f;

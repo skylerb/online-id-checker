@@ -1,6 +1,9 @@
 <%@ page contentType="text/html" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="org.sqlite.*" %>
+<%@ page import="java.text.*" %>
+<%@ page import="java.util.Date" %>
+
 <%
 response.setHeader("Cache-Control","no-store");
 response.setHeader("Pragma","no-cache");
@@ -97,7 +100,8 @@ response.setDateHeader("Expires",0);
 						if(rs.getString("country") != null) {
 							location += rs.getString("country");
 						}
-						out.println("<td>" + rs.getDate("date").toString() + "</td>");
+						DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+						out.println("<td>" + df.format(rs.getDate(3)) + "</td>");
 						out.println("<td>" + rs.getString("name") + "</td>");
 						out.println("<td>" + location + "</td>");
 						out.println("<td>" + accts + " Accounts</td>");

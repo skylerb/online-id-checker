@@ -65,7 +65,7 @@ response.setDateHeader("Expires",0);
 						<hr/>
 						<input type="text" name="degree" placeholder="Academic Degree..."/><br/>
 						<hr/>
-						<input type="text" name="colleges" placeholder="Colleges..."/><br/>
+						<input type="text" name="colleges" placeholder="Colleges (Separate by commas)..."/><br/>
 						<hr/>
 						<input type="checkbox" name="fbActive" value="fbActive" checked/><input style="width:368px;" type="text" name="fb" placeholder="Facebook ID..."/><br/>
 						<hr/>

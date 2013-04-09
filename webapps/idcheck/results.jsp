@@ -4,6 +4,7 @@
 <%@page import="GooglePlus.PlusSample" %>
 <%@page import="User.MyConfigurationBuilder" %>
 <%@page import="User.SearchUsers" %>
+<%@page import="SearchHistory.SaveSearch" %>
 
 <%
 response.setHeader("Cache-Control","no-store");
@@ -14,34 +15,85 @@ response.setDateHeader("Expires",0);
 String name = request.getParameter("name");
 String dob = request.getParameter("dob");
 String phone = request.getParameter("phone");
+String address = request.getParameter("address");
+String city = request.getParameter("city");
+String state = request.getParameter("state");
+String country = request.getParameter("country");
+String job = request.getParameter("job");
+String degree = request.getParameter("degree");
+String colleges = request.getParameter("colleges");
+//String[] collegeArr = colleges.split(",");
+int fbActive = 0;
+int gpActive = 0;
+int twtActive = 0;
+int liActive = 0;
+int igActive = 0;
+if(request.getParameter("fbActive") != null) {
+	fbActive = 1;
+}
+if(request.getParameter("gpActive") != null) {
+	gpActive = 1;
+}
+if(request.getParameter("twtActive") != null) {
+	twtActive = 1;
+}
+if(request.getParameter("liActive") != null) {
+	liActive = 1;
+}
+if(request.getParameter("igActive") != null) {
+	igActive = 1;
+}
+String fbID = request.getParameter("fb");
+String gpID = request.getParameter("gp");
+String twtID = request.getParameter("twt");
+String liID = request.getParameter("li");
+String igID = request.getParameter("ig");
 
 %>
 
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 
+
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <title>Results | <% out.print(name); %></title>
-    <link href="main.css" rel="stylesheet" type="text/css" />
+<% if((session.getAttribute("username") != null)) { 
+	if(name != null) { 
+
+	int id = (Integer)session.getAttribute("uid");
+	//Save Search History
+	SaveSearch saveSearch = new SaveSearch();
+	boolean saved = false;
+	try {
+		saved = saveSearch.save(id,name,dob,phone,address,city,state,country,job,degree,colleges,fbActive,fbID,gpActive,gpID,twtActive,twtID,liActive,liID,igActive,igID);
+	} catch(SQLException e) {
+		e.printStackTrace(response.getWriter());
+	}
+
+	//out.print(saved);
+	%>
+
+	<head>
+		<title>Results | <% out.print(name); %></title>
+    		<link href="main.css" rel="stylesheet" type="text/css" />
     
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    		<meta charset="utf-8" />
+    		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+    		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    		<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 
 
- <style>
-   #feedback { font-size: 1.4em; }
-   table .ui-selectee  { background: white; border: solid; border-width:1px; border-color: grey;}
-   table .ui-selecting { background: white;}
-   table .ui-selected  { background: #FFE685; color: black}
-   #selectable .ui-selectee { background: white;}
-   #selectable .ui-selecting { background: blue; }
-   #selectable .ui-selected { background: white; border-width:1px; border-color:black; }
-   #selectable { list-style-type: none; margin: 0; padding: 0; width: 700px; }
-   #selectable li { margin: 3px; padding: 1px; float: left; width: 670px; height: 20px; font-size: 1.4m; text-align: center; margin-right:15px }
-</style>
+ 		<style>
+   			#feedback { font-size: 1.4em; }
+   			table .ui-selectee  { background: white; border: solid; border-width:1px; border-color: grey;}
+   			table .ui-selecting { background: white;}
+   			table .ui-selected  { background: #FFE685; color: black}
+   			#selectable .ui-selectee { background: white;}
+   			#selectable .ui-selecting { background: blue; }
+   			#selectable .ui-selected { background: white; border-width:1px; border-color:black; }
+   			#selectable { list-style-type: none; margin: 0; padding: 0; width: 700px; }
+   			#selectable li { margin: 3px; padding: 1px; float: left; width: 670px; height: 20px; font-size: 1.4m; text-align: center; margin-right:15px }
+		</style>
 
 <script>
   $(function() {
@@ -69,7 +121,6 @@ String phone = request.getParameter("phone");
 
   </head>
   
-  <% if((session.getAttribute("username") != null)) { %>
   <body>
 
     <div class="topbar-wrapper">
@@ -96,19 +147,16 @@ String phone = request.getParameter("phone");
 	</div>
       </div>
 
-      <div class="submenu-wrapper">
-	<div class="submenu">
-	  <div class="submenu-button selected">
-	    Results
-	  </div>
-	  <div class="submenu-button unselected">
-	    Locations
-	  </div>
-	  <div class="submenu-button unselected">
-	    Social Friends
-	  </div>
-	</div>
-      </div>
+	<div class="submenu-wrapper">
+		<div class="submenu" id="pages">
+	  		<div class="submenu-button selected">Twitter</div>
+	  		<div class="submenu-button unselected">Facebook</div>
+	  		<div class="submenu-button unselected">LinkedIn</div>
+			<div class="submenu-button unselected">Google+</div>
+			<div class="submenu-button unselected">Instagram</div>
+			<div class="submenu-button compare">Compare</div>
+		</div>
+      	</div>
 
       <div class="bottom-content">
 	<div class="shadow" style="width: 190px; height: 90px; background: white; padding: 10px; float: left; margin-right: 20px;">
@@ -168,13 +216,13 @@ String phone = request.getParameter("phone");
 
  
 	    <div id="facebook-results">
-	      <table>
+	    <%-- <table>
 		<tr>
 		  
 		  <%
 		  
 		  //Paste in access token here!
-		  FacebookWrapper fw = new FacebookWrapper("AAACEdEose0cBAIZBZBKVbx2M0Te7GrREqiEqovi2jWYLUjjAHwJU2uKiNDZAkrbnPpsnGzrz4tGSXhTkstxNfymcSIXIInSD5Lq0vjOb7Rc5s6bX4ng");
+		  FacebookWrapper fw = new FacebookWrapper("AAACEdEose0cBAIodR2jcshTEydFfinlfzhW6hHG1ywAlr0QvTxpU3TqZCV7gjjkUseVYEXj0M4UqBJA8mw6UhNkVvhnAIOhAvonDk5VFsCx505fkW");
 		  Profile[] profiles = fw.findPossibleMatches(new Person(name));
 		  i = 0;
 		  for(Profile prof : profiles) {
@@ -199,7 +247,7 @@ String phone = request.getParameter("phone");
 		  } //End For loop
 		  out.println("</table>");
 		  %>
-
+		--%>	
 		</div>
 		
 		<div id="linkedin-results">
@@ -207,6 +255,7 @@ String phone = request.getParameter("phone");
 
 
 		<div id="google-results">  
+		<%--
 		  <table>
 		    <tr>
 		      <% 
@@ -242,6 +291,7 @@ String phone = request.getParameter("phone");
 		      } } //End For loop
 		      out.println("</table>");
 		      %>
+			--%>
 	    	</div>
 
 
@@ -255,9 +305,10 @@ String phone = request.getParameter("phone");
 	</script>
 
       </body>
-
-      <% } else {
+      <% 	} else {
+			response.sendRedirect(request.getContextPath() + "/search.jsp");
+		}
+	} else {
       response.sendRedirect(request.getContextPath() + "/login.jsp");
-      } %>
-    </html>
-    
+      } %>   
+</html>
