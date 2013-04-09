@@ -216,7 +216,7 @@ String igID = request.getParameter("ig");
 
  
 	    <div id="facebook-results">
-	    <%-- <table>
+	    <table>
 		<tr>
 		  
 		  <%
@@ -247,7 +247,6 @@ String igID = request.getParameter("ig");
 		  } //End For loop
 		  out.println("</table>");
 		  %>
-		--%>	
 		</div>
 		
 		<div id="linkedin-results">
@@ -294,11 +293,7 @@ String igID = request.getParameter("ig");
 		      out.println("</table>");
 		      
 		      %>
-<<<<<<< HEAD
 			--%>
-=======
-
->>>>>>> 0ab11854cf4f7e8deb3096a501b95fffa9dee491
 	    	</div>
 
 
