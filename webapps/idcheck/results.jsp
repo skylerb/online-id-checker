@@ -222,7 +222,7 @@ String igID = request.getParameter("ig");
 		  <%
 		  
 		  //Paste in access token here!
-		  FacebookWrapper fw = new FacebookWrapper("AAACEdEose0cBAIodR2jcshTEydFfinlfzhW6hHG1ywAlr0QvTxpU3TqZCV7gjjkUseVYEXj0M4UqBJA8mw6UhNkVvhnAIOhAvonDk5VFsCx505fkW");
+		  FacebookWrapper fw = new FacebookWrapper("AAACEdEose0cBAORCQF1VWKtZB63LRDCb9Yt8SMIZB9CfwfSRu8nr8EgYis7fePJpGCZC7eIiqVym85mGGURAD9eCZCTgk8qiu98jTZBsBr3RaZC5b1jZAdN");
 		  Profile[] profiles = fw.findPossibleMatches(new Person(name));
 		  i = 0;
 		  for(Profile prof : profiles) {
@@ -259,6 +259,7 @@ String igID = request.getParameter("ig");
 		  <table>
 		    <tr>
 		      <% 
+		     
 		      PlusSample goo = new PlusSample();
 					String []gplus = goo.getProfile(name);
 					i=0;
@@ -268,6 +269,7 @@ String igID = request.getParameter("ig");
 		      %>
 
 		      <%
+		      
 		      i++;
 		      if (i != 4) {
 		      out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
@@ -290,8 +292,13 @@ String igID = request.getParameter("ig");
 		      if (i == 4) { i = 0; out.println("</tr><tr>"); }
 		      } } //End For loop
 		      out.println("</table>");
+		      
 		      %>
+<<<<<<< HEAD
 			--%>
+=======
+
+>>>>>>> 0ab11854cf4f7e8deb3096a501b95fffa9dee491
 	    	</div>
 
 
