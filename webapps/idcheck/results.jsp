@@ -174,7 +174,7 @@ String phone = request.getParameter("phone");
 		  <%
 		  
 		  //Paste in access token here!
-		  FacebookWrapper fw = new FacebookWrapper("AAACEdEose0cBAIZBZBKVbx2M0Te7GrREqiEqovi2jWYLUjjAHwJU2uKiNDZAkrbnPpsnGzrz4tGSXhTkstxNfymcSIXIInSD5Lq0vjOb7Rc5s6bX4ng");
+		  FacebookWrapper fw = new FacebookWrapper("AAACEdEose0cBAORCQF1VWKtZB63LRDCb9Yt8SMIZB9CfwfSRu8nr8EgYis7fePJpGCZC7eIiqVym85mGGURAD9eCZCTgk8qiu98jTZBsBr3RaZC5b1jZAdN");
 		  Profile[] profiles = fw.findPossibleMatches(new Person(name));
 		  i = 0;
 		  for(Profile prof : profiles) {
@@ -210,6 +210,7 @@ String phone = request.getParameter("phone");
 		  <table>
 		    <tr>
 		      <% 
+		     
 		      PlusSample goo = new PlusSample();
 					String []gplus = goo.getProfile(name);
 					i=0;
@@ -219,6 +220,7 @@ String phone = request.getParameter("phone");
 		      %>
 
 		      <%
+		      
 		      i++;
 		      if (i != 4) {
 		      out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
@@ -241,7 +243,9 @@ String phone = request.getParameter("phone");
 		      if (i == 4) { i = 0; out.println("</tr><tr>"); }
 		      } } //End For loop
 		      out.println("</table>");
+		      
 		      %>
+
 	    	</div>
 
 
