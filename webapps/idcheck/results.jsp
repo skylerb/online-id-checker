@@ -11,6 +11,12 @@ response.setHeader("Cache-Control","no-store");
 response.setHeader("Pragma","no-cache");
 response.setDateHeader("Expires",0);
 
+
+///////////
+String FBTok = "BAACEdEose0cBADgbMw0QZAlaQnIHYe5zfBabJY6Ncbmtog2bj9IMnnel1YIU3lIgJlXLBeto6oUfPZCesOLNVIYYqQq9JtK5bfXIZAlF9mZBTfdllAIeqG818nPurvKYGYzO8NCGe4mF5JrOsaDEIZCTsrswqNcaZB65Ke6rs3lLsjItqFjpQ3zvMMixH4WSy0pthJYAjN2QZDZD";
+/////////
+
+
 //Post parameters
 String name = request.getParameter("name");
 String dob = request.getParameter("dob");
@@ -215,7 +221,7 @@ String igID = request.getParameter("ig");
 		<table>
 			<tr>
 		  	<% //Paste in access token here!
-		 		FacebookWrapper fw = new FacebookWrapper("BAACEdEose0cBAMZCEymIK0jfJSp25R1mztGGZCMDW0OZBxFduABdWZC86uoxqACjWt68SMhRT7xMDZCJpYNPgYfZC4ZATuwA2pdClTVlBtLxIVZA059gsSEN7oACxJOCFey8dsBOLHcRTZA1KtY5fO2OI97SNlGObaPV9fcpmhiWZBBrjuxY7ZCCjKO4L2yFxKI3tQBvgAhiNHOxwZDZD");
+		 		FacebookWrapper fw = new FacebookWrapper(FBTok);
 		  		Profile[] profiles = fw.findPossibleMatches(new Person(name));
 		  		i = 0;
 		  		for(Profile prof : profiles) {
