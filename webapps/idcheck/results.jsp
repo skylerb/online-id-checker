@@ -239,7 +239,7 @@ String igID = request.getParameter("ig");
 
 
 		<div id="google-results">  
-		<%--  <table>
+		<table>
 		    <tr>
 		      <% 
 		     
@@ -277,7 +277,6 @@ String igID = request.getParameter("ig");
 		      out.println("</table>");
 		      
 		      %>
-		--%>
 	    	</div>
 
 
