@@ -215,7 +215,7 @@ String igID = request.getParameter("ig");
 		<table>
 			<tr>
 		  	<% //Paste in access token here!
-		 		FacebookWrapper fw = new FacebookWrapper("BAACEdEose0cBAFoDEsLLzFAddUUbkzP8k3hbdzZBwpfw5YZBoGU0ZCaU3ZAyTPCI7QtFeZAbnNpxO4ZCwVZC5uXsTviksKo2pwebbZBuFOKzQ2wOncZCFolEU5rNlZA2wZAZBjPz1usAltZCT9AcE6h40vFavZACNTkCyoZBOUqP2ZCvtQpYH0iVOMOGoUdqZC8DOEPMxjggwTNzdWH9uAAZDZD");
+		 		FacebookWrapper fw = new FacebookWrapper("BAACEdEose0cBAMZCEymIK0jfJSp25R1mztGGZCMDW0OZBxFduABdWZC86uoxqACjWt68SMhRT7xMDZCJpYNPgYfZC4ZATuwA2pdClTVlBtLxIVZA059gsSEN7oACxJOCFey8dsBOLHcRTZA1KtY5fO2OI97SNlGObaPV9fcpmhiWZBBrjuxY7ZCCjKO4L2yFxKI3tQBvgAhiNHOxwZDZD");
 		  		Profile[] profiles = fw.findPossibleMatches(new Person(name));
 		  		i = 0;
 		  		for(Profile prof : profiles) {
