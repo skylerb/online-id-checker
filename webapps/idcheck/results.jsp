@@ -59,7 +59,7 @@ String igID = request.getParameter("ig");
 <html>
 <% if((session.getAttribute("username") != null)) { 
 	if(name != null) { 
-	    /*
+
 	int id = (Integer)session.getAttribute("uid");
 	//Save Search History
 	SaveSearch saveSearch = new SaveSearch();
@@ -67,9 +67,9 @@ String igID = request.getParameter("ig");
 	try {
 		saved = saveSearch.save(id,name,dob,phone,address,city,state,country,job,degree,colleges,fbActive,fbID,gpActive,gpID,twtActive,twtID,liActive,liID,igActive,igID);
 	} catch(SQLException e) {
-	    //e.printStackTrace(response.getWriter());
+	   	//e.printStackTrace(response.getWriter());
 	}
-	    */
+	 
 	//out.print(saved);
 	%>
 
