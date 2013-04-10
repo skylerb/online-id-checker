@@ -69,6 +69,12 @@ public class SaveSearch {
 			throw e;
 		} catch(Exception e){
 			return false;
+		} finally {
+			try {
+				if(conn != null) {
+					conn.close();
+				}
+			} catch(SQLException se) {}
 		}
 	}
 }
