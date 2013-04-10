@@ -62,7 +62,7 @@ public class SaveSearch {
 
 			stmt.executeUpdate();
 
-			stmt.close();
+			//stmt.close();
 			conn.close();
 			return true;
 		} catch(SQLException e) {

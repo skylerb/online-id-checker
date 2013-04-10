@@ -57,11 +57,13 @@ response.setDateHeader("Expires",0);
 
 			<table class="shadow" style="width: 900px; cellspacing: 0; cellpadding: 0;background: white; margin-top: 20px; border-collapse: collapse; font-size: 11pt; color: #808080;">
 			<%	
+				ResultSet rs = null;
+				Connection conn = null;
 				try {
 					Class.forName("org.sqlite.JDBC");
-					Connection conn = DriverManager.getConnection("jdbc:sqlite:" + System.getProperty("catalina.home") + "/dbs/database.db");
+					conn = DriverManager.getConnection("jdbc:sqlite:" + System.getProperty("catalina.home") + "/dbs/database.db");
 					Statement stmt = conn.createStatement();
-					ResultSet rs = stmt.executeQuery("select * from search where uid =" + id);
+					rs = stmt.executeQuery("select * from search where uid =" + id);
 					int cnt = 0;
 					while(rs.next()) {
 						int accts = 0;
@@ -114,8 +116,16 @@ response.setDateHeader("Expires",0);
 
 					rs.close();
 					conn.close();
-				} catch(Exception e) {
+				} catch(SQLException e) {
 					out.println("Unable to connect to database");
+					e.printStackTrace(response.getWriter());
+				} finally {
+					try {
+						if(rs!=null){ rs.close(); }
+					} catch(SQLException se) { }
+					try {
+						if(conn!=null) { conn.close(); }
+					} catch(SQLException se) {}
 				}
 
 			%>

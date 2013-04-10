@@ -177,7 +177,6 @@ String igID = request.getParameter("ig");
       <div class="bottom-content-results">
 	<div id="twitter-results">  
 	  <table>
-	    <tr>
 	      <% 
 	      SearchUsers search = new SearchUsers();
 	      String[] twitter = search.getResults(name);
@@ -185,10 +184,8 @@ String igID = request.getParameter("ig");
 	      for(String twt : twitter) {
 	      if(twt != null) {
 	      String[] arr = twt.split(";");
-	      %>
-
-	      <%
 	      i++;
+		if(i == 1) { out.println("<tr>"); }
 	      if (i != 4) {
 	      out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
 	      }
@@ -207,55 +204,42 @@ String igID = request.getParameter("ig");
 
 	      <% 
 	      out.println("</div></td>"); 
-	      if (i == 4) { i = 0; out.println("</tr><tr>"); }
+	      if (i == 4) { i = 0; out.println("</tr>"); }
 	      } } //End For loop
 	      out.println("</table>");
 	      %>
 
 	    </div>
 
- 
-	    <div id="facebook-results">
-	    <table>
-		<tr>
-		  
-		  <%
-		  
-		  //Paste in access token here!
-		  FacebookWrapper fw = new FacebookWrapper("AAACEdEose0cBAORCQF1VWKtZB63LRDCb9Yt8SMIZB9CfwfSRu8nr8EgYis7fePJpGCZC7eIiqVym85mGGURAD9eCZCTgk8qiu98jTZBsBr3RaZC5b1jZAdN");
-		  Profile[] profiles = fw.findPossibleMatches(new Person(name));
-		  i = 0;
-		  for(Profile prof : profiles) {
-		  
-		  %>
+ 	<div id="facebook-results">
+		<table>
+			<tr>
+		  	<% //Paste in access token here!
+		 		FacebookWrapper fw = new FacebookWrapper("BAACEdEose0cBAFoDEsLLzFAddUUbkzP8k3hbdzZBwpfw5YZBoGU0ZCaU3ZAyTPCI7QtFeZAbnNpxO4ZCwVZC5uXsTviksKo2pwebbZBuFOKzQ2wOncZCFolEU5rNlZA2wZAZBjPz1usAltZCT9AcE6h40vFavZACNTkCyoZBOUqP2ZCvtQpYH0iVOMOGoUdqZC8DOEPMxjggwTNzdWH9uAAZDZD");
+		  		Profile[] profiles = fw.findPossibleMatches(new Person(name));
+		  		i = 0;
+		  		for(Profile prof : profiles) {
+		 			i++;
+		  			if (i != 4) {
+		  				out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
+		  			} else if (i == 4) {
+		  				out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
+		  			} %>
+		  			<h4><% out.println(prof.person.getFullName()); %></h4>
+		  			<img src="https://graph.facebook.com<% out.println(prof.url.getPath()); %>/picture">
 
-		  <%
-		  i++;
-		  if (i != 4) {
-		  out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
-		  }
-		  else if (i == 4) {
-		  out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
-		  }
-		  %>
-		  <h4><% out.println(prof.person.getFullName()); %></h4>
-		  <img src="https://graph.facebook.com<% out.println(prof.url.getPath()); %>/picture">
-
-		  <% 
-		  out.println("</div></td>"); 
-		  if (i == 4) { i = 0; out.println("</tr><tr>"); }
-		  } //End For loop
-		  out.println("</table>");
-		  %>
-		</div>
+		  			<% out.println("</div></td>"); 
+		  			if (i == 4) { i = 0; out.println("</tr><tr>"); }
+		  		} //End For loop
+		  out.println("</table>"); %>
+	</div>
 		
 		<div id="linkedin-results">
 		</div>
 
 
 		<div id="google-results">  
-		<%--
-		  <table>
+		<%--  <table>
 		    <tr>
 		      <% 
 		     
@@ -293,7 +277,7 @@ String igID = request.getParameter("ig");
 		      out.println("</table>");
 		      
 		      %>
-			--%>
+		--%>
 	    	</div>
 
 
