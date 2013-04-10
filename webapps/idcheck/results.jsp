@@ -67,7 +67,7 @@ String igID = request.getParameter("ig");
 	try {
 		saved = saveSearch.save(id,name,dob,phone,address,city,state,country,job,degree,colleges,fbActive,fbID,gpActive,gpID,twtActive,twtID,liActive,liID,igActive,igID);
 	} catch(SQLException e) {
-		e.printStackTrace(response.getWriter());
+	    //e.printStackTrace(response.getWriter());
 	}
 
 	//out.print(saved);
