@@ -12,6 +12,15 @@
     String plusDob = "";
  //End fake data %>
 
+<%
+	String twitter = request.getParameter("twitter");
+	if (twitter == null)
+	   twitter = "Ab";
+	String facebook = request.getParameter("facebook");
+	if (facebook == null)
+	   facebook = "Ac";
+%>
+
 <!DOCTYPE html>
 
 <html>
@@ -53,13 +62,13 @@
 
 <div class="bottom-content">
     <% //Compute similarity...
-        float nameResult = ProfileAnalyzer.compareThreeProf(fbName, twtName, plusName);
-        float dobResult = ProfileAnalyzer.compareThreeProf(fbDob, twtDob, plusDob);
-        float average = (nameResult + dobResult) / 2.0f;
+	float nameResult = ProfileAnalyzer.compareTwoProf(twitter, facebook);
+	    //float dobResult = ProfileAnalyzer.compareThreeProf(fbDob, twtDob, plusDob);
+        float average = (nameResult + nameResult) / 2.0f;
         average *= 100;
     %>
     <div id="name-dob" class="shadow" style="width: 190px; height: 90px; background: white; padding: 10px; float: left; margin-right: 20px;" >
-        <h4 style="text-align:center; margin-top: 15px;">John Doe</h4>
+	 <h4 style="text-align:center; margin-top: 15px;"><% out.println(twitter); %></h4>
         <p style="text-align:center; font: 11pt Myriad Pro, sans-serif; font-weight: 700; color: #999">DOB: January 23, 1991</p>
     </div>
 

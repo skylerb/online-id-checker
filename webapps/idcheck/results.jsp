@@ -13,7 +13,7 @@ response.setDateHeader("Expires",0);
 
 
 ///////////
-String FBTok = "BAACEdEose0cBADgbMw0QZAlaQnIHYe5zfBabJY6Ncbmtog2bj9IMnnel1YIU3lIgJlXLBeto6oUfPZCesOLNVIYYqQq9JtK5bfXIZAlF9mZBTfdllAIeqG818nPurvKYGYzO8NCGe4mF5JrOsaDEIZCTsrswqNcaZB65Ke6rs3lLsjItqFjpQ3zvMMixH4WSy0pthJYAjN2QZDZD";
+String FBTok = "BAACEdEose0cBAEQ7z72L3vjPQYJTYjXKXbn9515LAuKFAzzvumMtFTtiENZBce7qOMgoH92VzJeKI9RZBVJsiPM5fKnZBtmPLVzK4fMZButGu7AVZA7il9iZBo19fkQZC2PspkZC8OWVZCAkjngSmERjqxVBUG21AUdWJL43jOM8X8ysdYcZAp3yZCkTt21PnMpZCL6dZBmRICiRDdQZDZD";
 /////////
 
 
@@ -80,6 +80,34 @@ String igID = request.getParameter("ig");
 	%>
 
 	<head>
+
+
+	<script language="javascript">
+	function post(dictionary, url, method) {
+	    method = method || "post"; 
+ 
+
+	    var form = document.createElement("form");
+	    form.setAttribute("method", method);
+	    form.setAttribute("action", url);
+ 
+
+	    for (key in dictionary) {
+
+		var hiddenField = document.createElement("input");
+		hiddenField.setAttribute("type", "hidden");
+		hiddenField.setAttribute("name", key);
+		hiddenField.setAttribute("value", dictionary[key]);
+		form.appendChild(hiddenField);
+	    }
+ 
+	    document.body.appendChild(form);
+	    form.submit();
+	}
+	</script>
+
+
+
 		<title>Results | <% out.print(name); %></title>
     		<link href="main.css" rel="stylesheet" type="text/css" />
     
@@ -101,6 +129,11 @@ String igID = request.getParameter("ig");
    			#selectable li { margin: 3px; padding: 1px; float: left; width: 670px; height: 20px; font-size: 1.4m; text-align: center; margin-right:15px }
 		</style>
 
+<script language="javascript">
+	var myDictionary = [];
+	var type = "twitter";
+</script>
+
 <script>
   $(function() {
   $( "#selectable" ).selectable({
@@ -111,8 +144,10 @@ String igID = request.getParameter("ig");
   var index = $( "#selectable li" ).index( this );
   if (index === 0)  {
    $('#twitter-results').show();
+   type = "twitter";
   } else if (index === 1){
   $('#facebook-results').show();
+  type = "facebook";
   } else if (index === 2){
   $('#linkedin-results').show();
   } else if (index === 3){
@@ -160,7 +195,17 @@ String igID = request.getParameter("ig");
 	  		<div class="submenu-button unselected">LinkedIn</div>
 			<div class="submenu-button unselected">Google+</div>
 			<div class="submenu-button unselected">Instagram</div>
-			<div class="submenu-button compare">Compare</div>
+	<div class="submenu-button" style="padding:0; margin-top:12px;">
+
+	
+
+	  <input style="height: 35px; width:90px" class="button"  value="     Compare" onclick="javascript:post(myDictionary, 'compare.jsp');">
+
+
+
+	
+
+	               </div>
 		</div>
       	</div>
 
@@ -248,7 +293,7 @@ String igID = request.getParameter("ig");
 		<table>
 		    <tr>
 		      <% 
-		     
+		     /*
 		      PlusSample goo = new PlusSample();
 					String []gplus = goo.getProfile(name);
 					i=0;
@@ -281,7 +326,7 @@ String igID = request.getParameter("ig");
 		      if (i == 4) { i = 0; out.println("</tr><tr>"); }
 		      } } //End For loop
 		      out.println("</table>");
-		      
+		      */
 		      %>
 	    	</div>
 
@@ -290,9 +335,17 @@ String igID = request.getParameter("ig");
 	      
     	<script>
 	  $("table").selectable({
-	  filter: ".tdItem"
+		  filter: ".tdItem",
+		  stop: function() {
+		      var index = 0;
+		      $( ".ui-selected", this ).each(function() {
+			      index = $( ".tdItem" ).index( this );
+		      });
+
+		      var val = $(".tdItem").eq(index).text();
+		      myDictionary[type] = val;
+		  }
 	  });
-	  
 	</script>
 
       </body>
