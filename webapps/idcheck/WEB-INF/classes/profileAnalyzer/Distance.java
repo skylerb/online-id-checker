@@ -1,4 +1,4 @@
-package profileAnalyzer;
+package ProfileAnalyzer;
 
 public abstract class Distance {
 

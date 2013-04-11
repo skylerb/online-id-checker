@@ -1,4 +1,4 @@
-package profileAnalyzer;
+package ProfileAnalyzer;
 
 import com.wcohen.ss.Jaro;
 import com.wcohen.ss.api.StringDistance;
