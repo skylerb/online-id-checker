@@ -423,7 +423,7 @@ String igID = request.getParameter("ig");
 
 
 		      myDictionary["num_accounts"] = 12;
-		      myDictionary["search_name"] = <% out.println("\"name.trim()\""); %>;
+		      myDictionary["search_name"] = <% out.println("\"" + name.trim() + "\""); %>;
 
 		  }
 	  });
