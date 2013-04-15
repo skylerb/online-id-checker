@@ -405,7 +405,7 @@ String igID = request.getParameter("ig");
 		      myDictionary[newtype] = myArray[1];
 
 		      myDictionary["num_accounts"] = 12;
-		      myDictionary["search_name"] = <% out.print(name); %>;
+		      myDictionary["search_name"] = "HI";
 
 		  }
 	  });
