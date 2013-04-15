@@ -333,7 +333,7 @@ String igID = request.getParameter("ig");
 		<table>
 		    <tr>
 		      <%
-
+	
 		      PlusSample goo = new PlusSample();
 					String []gplus = goo.getProfile(name);
 					i=0;
@@ -363,7 +363,7 @@ String igID = request.getParameter("ig");
 		      if (i == 4) { i = 0; out.println("</tr><tr>"); }
 		      } } //End For loop
 		      out.println("</table>");
-
+	
 		      %>
 	    	</div>
 
@@ -380,7 +380,7 @@ String igID = request.getParameter("ig");
 		      });
 
 		      var val = $(".tdItem").eq(index).html();
-		      alert(val);
+
 		      var re = new RegExp("<\s*h4[^>]*>(.*?)<\s*/\s*h4>", "g");
 		      var myArray = re.exec(val);
 		      if ( myArray != null) {
@@ -401,11 +401,11 @@ String igID = request.getParameter("ig");
 			  }
 		      }
 
-		      var newtype = type + "_location"
-		      myDictionary[newtype] = myArray[1]
+		      var newtype = type + "_location";
+		      myDictionary[newtype] = myArray[1];
 
-		      myDictionary["num_accounts"] = 12
-		      myDictionary["search_name"] = <% out.print(name); %>
+		      myDictionary["num_accounts"] = 12;
+		      myDictionary["search_name"] = <% out.print(name); %>;
 
 		  }
 	  });
