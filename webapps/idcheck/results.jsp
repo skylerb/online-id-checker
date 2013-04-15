@@ -13,7 +13,7 @@ response.setDateHeader("Expires",0);
 
 
 ///////////
-String FBTok = "BAACEdEose0cBADjlPQvbdPW1hYDnYHzfq2RDnPhB95xcgi2559jCVdA1cR1O1MRMmgUMLFok9aqxY8u1lmdtqpN7FM4TwiG2vU7pxyGgCVJ8XUAYbEQZAAeteAupnyFFYjplunF0J8ZCKDzIjLohirXuQsnG2SQaCwUniZA1gC3WBM8AFmKA9OxJsCwPZApcJ1Cu71itDgZDZD";
+String FBTok = "BAACEdEose0cBADtC4jaZBmY0nPh0tBBSUXwUl7EguvfZAnIumVLPexy2jH31FGUISjZBzTAMkGKCauE17ZB4rGMXIJ3hEyvPOspmqUZCdQSJkt1H3C2PNpDnvR6cSiS1aJ5u28wMMLXb1USa3obN3HA9JUkZBEMDxKq2pMgk7WuVZALOAO6rTELshTQkz6CWSPIkCbBpBZBmwgZDZD";
 /////////
 
 
@@ -203,8 +203,10 @@ String igID = request.getParameter("ig");
 					type = "facebook";
 				    } else if (index === 2){
 					$('#linkedin-results').show();
+					type = "linkedin";
 				    } else if (index === 3){
 					$('#google-results').show();
+					type = "google";
 				    }
 				    
 				});
@@ -243,9 +245,9 @@ String igID = request.getParameter("ig");
 
       <div class="submenu-wrapper">
 	<div class="submenu" id="selectable">
-	  <div class="ui-state-selected">Twitter</div>
+	  <div class="ui-state-selected selected">Twitter</div>
 
-	  <div class="submenu-button">Facebook</div>
+	  <div class="ui-selectee unselected">Facebook</div>
 
 	  <div class="submenu-button unselected">LinkedIn</div>
 
@@ -314,9 +316,11 @@ String igID = request.getParameter("ig");
 		  			} else if (i == 4) {
 		  				out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
 		  			} %>
-		  			<h4><% out.println(prof.person.getFullName()); %></h4>
 		  			<img src="https://graph.facebook.com<% out.println(prof.url.getPath()); %>/picture">
-
+		  			<h4><% out.println(prof.person.getFullName()); %></h4>
+					      <h5 style="padding-top: 0; margin-top: 0;">
+					N/A
+					</h5>
 		  			<% out.println("</div></td>"); 
 		  			if (i == 4) { i = 0; out.println("</tr><tr>"); }
 		  		} //End For loop
@@ -333,7 +337,6 @@ String igID = request.getParameter("ig");
 		<table>
 		    <tr>
 		      <% 
-			/*
 		      PlusSample goo = new PlusSample();
 					String []gplus = goo.getProfile(name);
 					i=0;
@@ -366,7 +369,6 @@ String igID = request.getParameter("ig");
 		      if (i == 4) { i = 0; out.println("</tr><tr>"); }
 		      } } //End For loop
 		      out.println("</table>");
-			*/
 		      %>
 	    	</div>
 

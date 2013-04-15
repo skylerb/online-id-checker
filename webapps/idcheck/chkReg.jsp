@@ -2,9 +2,9 @@
 
 <%
 
-String username = null;
-String pass = null;
-String pass_ver = null;
+String username = "";
+String pass = "";
+String pass_ver = "";
 
 try {
 	
@@ -38,7 +38,9 @@ try {
 	    response.sendRedirect(request.getContextPath() + "/register.jsp?err=db");
 	} 
 	else {
+		int id = lc.validate(username,pass);
 	    session.setAttribute("username", username);
+		session.setAttribute("uid",id);
 	    response.sendRedirect(request.getContextPath());
 	}
     }

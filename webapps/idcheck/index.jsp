@@ -103,7 +103,7 @@ response.setDateHeader("Expires",0);
 							location += rs.getString("country");
 						}
 						DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-						out.println("<td>" + df.format(rs.getDate(3)) + "</td>");
+						out.println("<td>" + rs.getString("date") + "</td>");
 						out.println("<td>" + rs.getString("name") + "</td>");
 						out.println("<td>" + location + "</td>");
 						out.println("<td>" + accts + " Accounts</td>");
