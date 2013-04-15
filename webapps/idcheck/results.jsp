@@ -384,10 +384,14 @@ String igID = request.getParameter("ig");
 		      var re = new RegExp("<\s*h4[^>]*>(.*?)<\s*/\s*h4>", "g");
 		      var myArray = re.exec(val);
 		      if ( myArray != null) {
+			  if (myArray.length < 1) {
+			      alert("Error retrieving specific persons details");
+			  }
+
 			  for ( i = 0; i < myArray.length; i++ ) {
 			      var result = "myArray[" + i + "] = " + myArray[i];
 
-			      if (result == 1) {
+			      if (i === 1) {
 				  var newtype = type + "_location";
 				  myDictionary[newtype] = myArray[1];
 			      }
@@ -401,10 +405,15 @@ String igID = request.getParameter("ig");
 		      var re = new RegExp("<\w*h5[^>]*>(.*?)<\w*/\w*h5>");
 		      var myArray = re.exec(val);
 		      if ( myArray != null) {
+
+			  if (myArray.length < 1) {
+			      alert("Error retrieving specific persons details");
+			  }
+
 			  for ( i = 0; i < myArray.length; i++ ) {
 			      var result = "myArray[" + i + "] = " + myArray[i];
 
-			      if (result == 1) {
+			      if (i === 1) {
 				  var newtype = type + "_location";
 				  myDictionary[newtype] = myArray[1];
 			      }
@@ -414,7 +423,7 @@ String igID = request.getParameter("ig");
 
 
 		      myDictionary["num_accounts"] = 12;
-		      myDictionary["search_name"] = <% out.println("\"name.trim()\"");;
+		      myDictionary["search_name"] = <% out.println("\"name.trim()\""); %>;
 
 		  }
 	  });
