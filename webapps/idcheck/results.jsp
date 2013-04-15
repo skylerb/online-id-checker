@@ -285,9 +285,9 @@ String igID = request.getParameter("ig");
 
 	      <img src="<% out.print(arr[2]); %>"/>
 	      <br/>
-	      <h4><% out.print(arr[0]); %></h4>
+		   <h4><%out.print(arr[0].trim()); %></h4>
 	      
-	      <h5 style="padding-top: 0; margin-top: 0;"><% if(!arr[1].equals("null")) { out.print(arr[1]); } else { out.print("N/A"); } %></h5>
+							   <h5 style="padding-top: 0; margin-top: 0;"><% if(!arr[1].equals("null")) { out.print(arr[1].trim()); } else { out.print("N/A"); } %></h5>
 
 	      <% 
 	      out.println("</div></td>"); 
@@ -315,7 +315,7 @@ String igID = request.getParameter("ig");
 		  				out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
 		  			} %>
 		  			<img src="https://graph.facebook.com<% out.println(prof.url.getPath()); %>/picture">
-		  			<h4><% out.print(prof.person.getFullName()); %></h4>
+					     <h4><% out.print(prof.person.getFullName().trim()); %></h4>
 					 <h5 style="padding-top: 0; margin-top: 0;">N/A</h5>
 		  			<% out.println("</div></td>"); 
 		  			if (i == 4) { i = 0; out.println("</tr><tr>"); }
@@ -353,10 +353,10 @@ String igID = request.getParameter("ig");
 		      }
 		      %>
 
-		      <img src="<% out.print(as[1]); %>"/>
+		      <img src="<% out.print(as[1].trim()); %>"/>
 		      <br/>
 		      <h4><% out.print(as[0]); %></h4>
-		      <h5 style="padding-top: 0; margin-top: 0;"><% if(!as[2].equals("null")) { out.print(as[2]); } else { out.print("N/A"); } %></h5>
+		      <h5 style="padding-top: 0; margin-top: 0;"><% if(!as[2].equals("null")) { out.print(as[2].trim()); } else { out.print("N/A"); } %></h5>
 
 		      <% 
 		      out.println("</div></td>"); 
