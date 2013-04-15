@@ -386,6 +386,11 @@ String igID = request.getParameter("ig");
 		      if ( myArray != null) {
 			  for ( i = 0; i < myArray.length; i++ ) {
 			      var result = "myArray[" + i + "] = " + myArray[i];
+
+			      if (result == 1) {
+				  var newtype = type + "_location";
+				  myDictionary[newtype] = myArray[1];
+			      }
 			  }
 		      }
 
@@ -398,14 +403,18 @@ String igID = request.getParameter("ig");
 		      if ( myArray != null) {
 			  for ( i = 0; i < myArray.length; i++ ) {
 			      var result = "myArray[" + i + "] = " + myArray[i];
+
+			      if (result == 1) {
+				  var newtype = type + "_location";
+				  myDictionary[newtype] = myArray[1];
+			      }
 			  }
 		      }
 
-		      var newtype = type + "_location";
-		      myDictionary[newtype] = myArray[1];
+
 
 		      myDictionary["num_accounts"] = 12;
-		      myDictionary["search_name"] = "HI";
+		      myDictionary["search_name"] = <% out.println("\"name.trim()\"");;
 
 		  }
 	  });
