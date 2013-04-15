@@ -245,7 +245,7 @@ String igID = request.getParameter("ig");
 
       <div class="submenu-wrapper">
 	<div class="submenu" id="selectable">
-	  <div class="ui-state-selected selected">Twitter</div>
+	  <div class="ui-state-selected">Twitter</div>
 
 	  <div class="ui-selectee unselected">Facebook</div>
 
@@ -287,9 +287,7 @@ String igID = request.getParameter("ig");
 	      <br/>
 	      <h4><% out.print(arr[0]); %></h4>
 	      
-	      <h5 style="padding-top: 0; margin-top: 0;">
-		<% if(!arr[1].equals("null")) { out.print(arr[1]); } else { out.print("N/A"); } %>
-	      </h5>
+	      <h5 style="padding-top: 0; margin-top: 0;"><% if(!arr[1].equals("null")) { out.print(arr[1]); } else { out.print("N/A"); } %></h5>
 
 	      <% 
 	      out.println("</div></td>"); 
@@ -317,10 +315,8 @@ String igID = request.getParameter("ig");
 		  				out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
 		  			} %>
 		  			<img src="https://graph.facebook.com<% out.println(prof.url.getPath()); %>/picture">
-		  			<h4><% out.println(prof.person.getFullName()); %></h4>
-					      <h5 style="padding-top: 0; margin-top: 0;">
-					N/A
-					</h5>
+		  			<h4><% out.print(prof.person.getFullName()); %></h4>
+					 <h5 style="padding-top: 0; margin-top: 0;">N/A</h5>
 		  			<% out.println("</div></td>"); 
 		  			if (i == 4) { i = 0; out.println("</tr><tr>"); }
 		  		} //End For loop
@@ -336,7 +332,8 @@ String igID = request.getParameter("ig");
 		<div id="google-results" style="display:none">  
 		<table>
 		    <tr>
-		      <% 
+		      <%
+
 		      PlusSample goo = new PlusSample();
 					String []gplus = goo.getProfile(name);
 					i=0;
@@ -359,16 +356,14 @@ String igID = request.getParameter("ig");
 		      <img src="<% out.print(as[1]); %>"/>
 		      <br/>
 		      <h4><% out.print(as[0]); %></h4>
-		      
-		      <h5 style="padding-top: 0; margin-top: 0;">
-			<% if(!as[2].equals("null")) { out.print(as[2]); } else { out.print("N/A"); } %>
-		      </h5>
+		      <h5 style="padding-top: 0; margin-top: 0;"><% if(!as[2].equals("null")) { out.print(as[2]); } else { out.print("N/A"); } %></h5>
 
 		      <% 
 		      out.println("</div></td>"); 
 		      if (i == 4) { i = 0; out.println("</tr><tr>"); }
 		      } } //End For loop
 		      out.println("</table>");
+
 		      %>
 	    	</div>
 
@@ -384,8 +379,34 @@ String igID = request.getParameter("ig");
 			      index = $( ".tdItem" ).index( this );
 		      });
 
-		      var val = $(".tdItem").eq(index).text();
-		      myDictionary[type] = val;
+		      var val = $(".tdItem").eq(index).html();
+		      alert(val);
+		      var re = new RegExp("<\s*h4[^>]*>(.*?)<\s*/\s*h4>", "g");
+		      var myArray = re.exec(val);
+		      if ( myArray != null) {
+			  for ( i = 0; i < myArray.length; i++ ) {
+			      var result = "myArray[" + i + "] = " + myArray[i];
+			  }
+		      }
+
+		      var newtype = type + "_name"
+		      myDictionary[newtype] = myArray[1];
+		      
+		      var val = $(".tdItem").eq(index).html();
+		      var re = new RegExp("<\w*h5[^>]*>(.*?)<\w*/\w*h5>");
+		      var myArray = re.exec(val);
+		      if ( myArray != null) {
+			  for ( i = 0; i < myArray.length; i++ ) {
+			      var result = "myArray[" + i + "] = " + myArray[i];
+			  }
+		      }
+
+		      var newtype = type + "_location"
+		      myDictionary[newtype] = myArray[1]
+
+		      myDictionary["num_accounts"] = 12
+		      myDictionary["search_name"] = <% out.print(name); %>
+
 		  }
 	  });
 	</script>
