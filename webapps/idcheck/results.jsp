@@ -13,7 +13,7 @@ response.setDateHeader("Expires",0);
 
 
 ///////////
-String FBTok = "BAACEdEose0cBAEQ7z72L3vjPQYJTYjXKXbn9515LAuKFAzzvumMtFTtiENZBce7qOMgoH92VzJeKI9RZBVJsiPM5fKnZBtmPLVzK4fMZButGu7AVZA7il9iZBo19fkQZC2PspkZC8OWVZCAkjngSmERjqxVBUG21AUdWJL43jOM8X8ysdYcZAp3yZCkTt21PnMpZCL6dZBmRICiRDdQZDZD";
+String FBTok = "BAACEdEose0cBADjlPQvbdPW1hYDnYHzfq2RDnPhB95xcgi2559jCVdA1cR1O1MRMmgUMLFok9aqxY8u1lmdtqpN7FM4TwiG2vU7pxyGgCVJ8XUAYbEQZAAeteAupnyFFYjplunF0J8ZCKDzIjLohirXuQsnG2SQaCwUniZA1gC3WBM8AFmKA9OxJsCwPZApcJ1Cu71itDgZDZD";
 /////////
 
 
@@ -28,27 +28,34 @@ String country = request.getParameter("country");
 String job = request.getParameter("job");
 String degree = request.getParameter("degree");
 String colleges = request.getParameter("colleges");
+
 //String[] collegeArr = colleges.split(",");
 int fbActive = 0;
 int gpActive = 0;
 int twtActive = 0;
 int liActive = 0;
 int igActive = 0;
+
 if(request.getParameter("fbActive") != null) {
-	fbActive = 1;
+    fbActive = 1;
 }
+
 if(request.getParameter("gpActive") != null) {
-	gpActive = 1;
+    gpActive = 1;
 }
+
 if(request.getParameter("twtActive") != null) {
-	twtActive = 1;
+    twtActive = 1;
 }
+
 if(request.getParameter("liActive") != null) {
-	liActive = 1;
+    liActive = 1;
 }
+
 if(request.getParameter("igActive") != null) {
-	igActive = 1;
+    igActive = 1;
 }
+
 String fbID = request.getParameter("fb");
 String gpID = request.getParameter("gp");
 String twtID = request.getParameter("twt");
@@ -68,6 +75,7 @@ String igID = request.getParameter("ig");
 
 	int id = (Integer)session.getAttribute("uid");
 	//Save Search History
+   /*
 	SaveSearch saveSearch = new SaveSearch();
 	boolean saved = false;
 	try {
@@ -75,7 +83,7 @@ String igID = request.getParameter("ig");
 	} catch(SQLException e) {
 	   	//e.printStackTrace(response.getWriter());
 	}
-	 
+	 */
 	//out.print(saved);
 	%>
 
@@ -86,11 +94,9 @@ String igID = request.getParameter("ig");
 	function post(dictionary, url, method) {
 	    method = method || "post"; 
  
-
 	    var form = document.createElement("form");
 	    form.setAttribute("method", method);
 	    form.setAttribute("action", url);
- 
 
 	    for (key in dictionary) {
 
@@ -119,14 +125,61 @@ String igID = request.getParameter("ig");
 
  		<style>
    			#feedback { font-size: 1.4em; }
+
    			table .ui-selectee  { background: white; border: solid; border-width:1px; border-color: grey;}
    			table .ui-selecting { background: white;}
    			table .ui-selected  { background: #FFE685; color: black}
-   			#selectable .ui-selectee { background: white;}
-   			#selectable .ui-selecting { background: blue; }
-   			#selectable .ui-selected { background: white; border-width:1px; border-color:black; }
-   			#selectable { list-style-type: none; margin: 0; padding: 0; width: 700px; }
-   			#selectable li { margin: 3px; padding: 1px; float: left; width: 670px; height: 20px; font-size: 1.4m; text-align: center; margin-right:15px }
+
+   			#selectable .ui-selectee { 
+			    border-top: solid 1px #65666d;
+			    border-bottom: solid 1px #1d1d22;
+			    color: #aeadbb;
+			    text-shadow: 0px 1px #000000;
+
+			    /* IE */
+			    background-image: -ms-linear-gradient(top,#494b54 0%, #393b41 100%);
+
+			    /* FF */
+			    background-image: -moz-linear-gradient(top,#494b54 0%, #393b41 100%);
+	
+			    /* Opera */
+			    background-image: -o-linear-gradient(top,#494b54 0%, #393b41 100%);
+
+			    /* WebKit 1 */
+			    background-image: -webkit-gradient(linear,left top, left bottom, color-stop(0,#494b54), color-stop(1,#393b41));
+
+			    /* Webkit 2 */
+			    background-image: -webkit-linear-gradient(top, #494b54 0%, #393b41 100%);
+
+			    /* Other */
+			    background-image: linear-gradient(to bottom, #494b54 0%, #393b41 100%);
+			}
+
+   			#selectable .ui-selecting { 
+
+			}
+
+   			#selectable .ui-selected {	
+		
+			    border-bottom: solid 1px #494a4f;
+			    background-color: #212228;
+			    -moz-box-shadow: inset 0 0 10px #1a1b20;
+			    -webkit-box-shadow: inset 0 0 10px #1a1b20;
+			    box-shadow: inset 0 0 10px #1a1b20;
+			    text-shadow: 0px -1px #000000; 
+			}
+
+   			#selectable { }
+   			#selectable div { 
+			    border-radius: 5px;
+			    -moz-border-radius: 5px;
+			    margin-top: 15px;
+			    margin-right: 25px;
+			    padding: 5px 25px;
+			    float: left;
+			    cursor: pointer;
+			}
+
 		</style>
 
 <script language="javascript">
@@ -135,29 +188,29 @@ String igID = request.getParameter("ig");
 </script>
 
 <script>
-  $(function() {
-  $( "#selectable" ).selectable({
-  stop: function() {
-  $('#twitter-results, #facebook-results, #google-results, #linkedin-results').hide();
-  $( ".ui-selected", this ).each(function() {
-
-  var index = $( "#selectable li" ).index( this );
-  if (index === 0)  {
-   $('#twitter-results').show();
-   type = "twitter";
-  } else if (index === 1){
-  $('#facebook-results').show();
-  type = "facebook";
-  } else if (index === 2){
-  $('#linkedin-results').show();
-  } else if (index === 3){
-  $('#google-results').show();
-  }
-
-  });
-  }
-  });
-  });
+	$(function() {
+		$( "#selectable" ).selectable({
+			stop: function() {		    
+			    $('#twitter-results, #facebook-results, #google-results, #linkedin-results').hide();
+			    $( ".ui-selected", this ).each(function() {
+	
+				    var index = $( "#selectable div" ).index( this );
+				    if (index === 0)  {
+					$('#twitter-results').show();
+					type = "twitter";
+				    } else if (index === 1){
+					$('#facebook-results').show();
+					type = "facebook";
+				    } else if (index === 2){
+					$('#linkedin-results').show();
+				    } else if (index === 3){
+					$('#google-results').show();
+				    }
+				    
+				});
+			}
+		    });
+	    });
 </script>
 
   </head>
@@ -188,44 +241,27 @@ String igID = request.getParameter("ig");
 	</div>
       </div>
 
-	<div class="submenu-wrapper">
-		<div class="submenu" id="pages">
-	  		<div class="submenu-button selected">Twitter</div>
-	  		<div class="submenu-button unselected">Facebook</div>
-	  		<div class="submenu-button unselected">LinkedIn</div>
-			<div class="submenu-button unselected">Google+</div>
-			<div class="submenu-button unselected">Instagram</div>
-	<div class="submenu-button" style="padding:0; margin-top:12px;">
+      <div class="submenu-wrapper">
+	<div class="submenu" id="selectable">
+	  <div class="ui-state-selected">Twitter</div>
 
-	
+	  <div class="submenu-button">Facebook</div>
 
-	  <input style="height: 35px; width:90px" class="button"  value="     Compare" onclick="javascript:post(myDictionary, 'compare.jsp');">
+	  <div class="submenu-button unselected">LinkedIn</div>
 
+	  <div class="submenu-button unselected">Google+</div>
+
+	  <div class="submenu-button unselected">Instagram</div>
 
 
-	
-
-	               </div>
-		</div>
-      	</div>
-
-      <div class="bottom-content">
-	<div class="shadow" style="width: 190px; height: 90px; background: white; padding: 10px; float: left; margin-right: 20px;">
-	  <p style="text-align:center; font: 15pt Myriad Pro, 
-		    sans-serif; font-weight: 700;"><% out.print(name); %></p>
 	</div>
+		  <div class="submenu-button" style="padding:0; margin-top:15px;">
+	    <input style="height: 25px; width:90px" class="button"  value="      Compare" onclick="javascript:post(myDictionary, 'compare.jsp');">
+	  </div>
 
-	<div style="border-style:none; width: 650px; height: 100px padding: 10px; float: left; margin-right: 0px;">
-	  <ol id="selectable">
-	  <li class="ui-state-default">Twitter</li>
-	  <li class="ui-state-default">Facebook</li>
-	  <li class="ui-state-default">LinkedIn</li>
-	  <li class="ui-state-default">Google+</li>
-	  </ol>
-	</div>
       </div>
 
-      <div class="bottom-content-results">
+      <div class="bottom-content">
 	<div id="twitter-results">  
 	  <table>
 	      <% 
@@ -262,10 +298,12 @@ String igID = request.getParameter("ig");
 
 	    </div>
 
- 	<div id="facebook-results">
+ 	<div id="facebook-results" style="display:none">
 		<table>
 			<tr>
-		  	<% //Paste in access token here!
+		  	<% 
+
+			    //Paste in access token here!
 		 		FacebookWrapper fw = new FacebookWrapper(FBTok);
 		  		Profile[] profiles = fw.findPossibleMatches(new Person(name));
 		  		i = 0;
@@ -282,18 +320,20 @@ String igID = request.getParameter("ig");
 		  			<% out.println("</div></td>"); 
 		  			if (i == 4) { i = 0; out.println("</tr><tr>"); }
 		  		} //End For loop
-		  out.println("</table>"); %>
+		  out.println("</table>"); 
+
+					   %>
 	</div>
 		
-		<div id="linkedin-results">
+		<div id="linkedin-results" style="display:none">
 		</div>
 
 
-		<div id="google-results">  
+		<div id="google-results" style="display:none">  
 		<table>
 		    <tr>
 		      <% 
-		     /*
+			/*
 		      PlusSample goo = new PlusSample();
 					String []gplus = goo.getProfile(name);
 					i=0;
@@ -326,7 +366,7 @@ String igID = request.getParameter("ig");
 		      if (i == 4) { i = 0; out.println("</tr><tr>"); }
 		      } } //End For loop
 		      out.println("</table>");
-		      */
+			*/
 		      %>
 	    	</div>
 
