@@ -13,12 +13,26 @@
  //End fake data %>
 
 <%
-	String twitter = request.getParameter("twitter");
-	if (twitter == null)
-	   twitter = "Ab";
-	String facebook = request.getParameter("facebook");
-	if (facebook == null)
-	   facebook = "Ac";
+	String search_name = request.getParameter("search_name");
+	String twitter_name = request.getParameter("twitter_name");
+	if(twitter_name == null) 
+		twitter_name = "Albus Dumbledore";
+	String twitter_location = request.getParameter("twitter_location");
+	if (twitter_location == null)
+	   twitter_location = "Hogwarts";
+	String facebook_name = request.getParameter("facebook_name");
+	if(facebook_name == null)
+		facebook_name = "Albus Dumbledore";
+	String facebook_location = request.getParameter("facebook_location");
+	if (facebook_location == null)
+	   facebook_location = "Hogwarts";
+	String google_name = request.getParameter("google_name");
+	if(google_name == null)
+		google_name = "Albus Dumbledore";
+	String google_location = request.getParameter("google_location");
+	if(google_location == null)
+		google_location = "Hogwarts";
+	int num_accounts = Integer.parseInt(request.getParameter("num_accounts"));
 %>
 
 <!DOCTYPE html>
@@ -62,18 +76,18 @@
 
 <div class="bottom-content">
     <% //Compute similarity...
-	float nameResult = ProfileAnalyzer.compareTwoProf(twitter, facebook);
-	    //float dobResult = ProfileAnalyzer.compareThreeProf(fbDob, twtDob, plusDob);
-        float average = (nameResult + nameResult) / 2.0f;
+	float nameResult = ProfileAnalyzer.compareThreeProf(twitter_name, facebook_name,google_name);
+	float locResult = ProfileAnalyzer.compareThreeProf(twitter_location, facebook_location, google_location);
+        float average = (nameResult + locResult) / 2.0f;
         average *= 100;
     %>
     <div id="name-dob" class="shadow" style="width: 190px; height: 90px; background: white; padding: 10px; float: left; margin-right: 20px;" >
-	 <h4 style="text-align:center; margin-top: 15px;"><% out.println(twitter); %></h4>
-        <p style="text-align:center; font: 11pt Myriad Pro, sans-serif; font-weight: 700; color: #999">DOB: January 23, 1991</p>
+	 <h4 style="text-align:center; margin-top: 15px;"><% out.print(search_name); %></h4>
+        <p style="text-align:center; font: 11pt Myriad Pro, sans-serif; font-weight: 700; color: #999"></p>
     </div>
 
     <div id="results-found" class="shadow" style="width: 190px; height: 90px; background: white; padding: 10px; float: left; margin-right: 20px;" >
-        <h4 style="text-align:center; margin-top: 15px;">12</h4>
+        <h4 style="text-align:center; margin-top: 15px;"><% out.print(num_accounts); %></h4>
         <p style="text-align:center; font: 11pt Myriad Pro, sans-serif; font-weight: 700; color: #999">Results Found</p>
     </div>
 
@@ -86,6 +100,32 @@
         <h4 style="text-align:center; margin-top: 15px;">34.2%</h4>
         <p style="text-align:center; font: 11pt Myriad Pro, sans-serif; font-weight: 700; color: #999">some other stat</p>
     </div>
+</div>
+
+<div class="bottom-content-results">
+	<table class="shadow" style="background: white; text-align:center;width:900px; font-size: 11pt; color: #808080; border-collapse: collapse;">
+		<thead>
+			<td>&nbsp;</td>
+			<td>Facebook</td>
+			<td>Twitter</td>
+			<td>Google+</td>
+			<td>% Matched</td>
+		</thead>
+		<tr style="background:#e1e1e1;">
+			<td style="text-align:right;width:10%;">Name</td>
+			<td><% out.print(facebook_name); %></td>
+			<td><% out.print(twitter_name); %></td>
+			<td><% out.print(google_name); %></td>
+			<td><% out.print(nameResult * 100); %></td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">Location</td>
+			<td><% out.print(facebook_location); %></td>
+			<td><% out.print(twitter_location); %></td>
+			<td><% out.print(google_location); %></td>
+			<td><% out.print(locResult * 100); %></td>
+		</tr>
+	</table>
 </div>
 
 
