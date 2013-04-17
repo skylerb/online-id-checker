@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/homes/kim1059/Downloads/dom4j.jar"/>
+	<classpathentry kind="lib" path="/u/data/u92/kim1059/Downloads/scribe-1.2.1.jar"/>
+	<classpathentry kind="lib" path="/u/data/u92/kim1059/Downloads/json-simple.jar"/>
+	<classpathentry kind="lib" path="/u/data/u92/kim1059/Downloads/org.apache.commons.codec.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
