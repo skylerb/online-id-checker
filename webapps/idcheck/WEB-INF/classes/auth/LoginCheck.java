@@ -47,9 +47,14 @@ public class LoginCheck {
 			} else {
 				ret = false;
 			}
-			conn.close();
 		} catch (SQLException e) {
 			//
+		} finally {
+			try {
+				if(conn!=null) {
+					conn.close();
+				}
+			}catch(SQLException se) {}
 		}
 
 		return ret;
@@ -79,12 +84,18 @@ public class LoginCheck {
 		stmt.executeUpdate();
 		ret = USER_CREATED;
 
-	    conn.close();
-
 	} 
 	catch (SQLException se) {	    
 	    //	    ret = DB_CONNECTION_ERROR;  
-	} 
+	} finally {
+		try {
+			if(conn!=null) {
+				conn.close();
+			}
+		} catch(SQLException se) {
+			//
+		}
+	}
 	
 	return ret;
     }
@@ -93,18 +104,20 @@ public class LoginCheck {
     public int validate(String user, String pass) {
 	
 	PreparedStatement stmt = null;
+	ResultSet rs = null;
+	Connection conn = null;
 
 	try {
 
 	    Context ctx = new InitialContext();
 	    Context envCtx = (Context)ctx.lookup("java:comp/env");
 	    DataSource ds = (DataSource)envCtx.lookup("jdbc/database");
-	    Connection conn = ds.getConnection();
+	    conn = ds.getConnection();
 	
 	    stmt = conn.prepareStatement("SELECT uid, uname FROM users WHERE uname=? AND pass=?");
 	    stmt.setString(1, user);
 	    stmt.setString(2, pass);
-	    ResultSet rs = stmt.executeQuery();
+	    rs = stmt.executeQuery();
 	    
 	    String res = rs.getString("uname");
 	    if (res.equals(user)) {
@@ -112,11 +125,24 @@ public class LoginCheck {
 	    }
 	    else {
 		return 0;
-	    }
+	   }
 	    
 	} 
 	catch (SQLException se) { }
-	catch (NamingException ne) { }
+	catch (NamingException ne) { 
+	} finally {
+		try {
+			if(rs!=null) {
+				rs.close();
+			}
+		}catch(SQLException se) {
+		}
+		try {
+			if(conn!=null) {
+				conn.close();
+			}
+		} catch(SQLException se) {}
+	} 
      
 	return 0;
     }

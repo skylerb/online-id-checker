@@ -3,6 +3,7 @@
 <%@ page import="org.sqlite.*" %>
 <%@ page import="java.text.*" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="java.util.Locale" %>
 
 <%
 response.setHeader("Cache-Control","no-store");
@@ -16,6 +17,7 @@ response.setDateHeader("Expires",0);
 	<head>
 		<title>Dashboard</title>
 		<link href="main.css" rel="stylesheet" type="text/css" />
+
 	</head>
 
 
@@ -51,12 +53,12 @@ response.setDateHeader("Expires",0);
 				</div>
 			</div>
 			<div class="bottom-content">
-				<div class="shadow" style="width: 890px; padding: 5px; background: white;">
-					<h4>Search History</h4>
+				<div class="shadow" style="width: 880px; padding: 10px; background: white;">
+					<h4 style="padding-left:15px;">Search History</h4>
 				</div> 
 
-			<table class="shadow" style="width: 900px; cellspacing: 0; cellpadding: 0;background: white; margin-top: 20px; border-collapse: collapse; font-size: 11pt; color: #808080;">
-				<thead>
+			<table class="shadow" style="width: 900px; cellspacing: 0; cellpadding: 0;background: white; margin-top: 30px; border-collapse: collapse; font-size: 11pt; color: #808080;">
+				<thead style="background:black; color:white; text-align:center;">
 					<td>&nbsp;</td>
 					<td>Search Date</td>
 					<td>Name</td>
@@ -70,15 +72,17 @@ response.setDateHeader("Expires",0);
 					Class.forName("org.sqlite.JDBC");
 					conn = DriverManager.getConnection("jdbc:sqlite:" + System.getProperty("catalina.home") + "/dbs/database.db");
 					Statement stmt = conn.createStatement();
-					rs = stmt.executeQuery("select * from search where uid =" + id);
+					rs = stmt.executeQuery("select * from search where uid ='" + id + "' order by sid desc limit 20");
 					int cnt = 0;
 					while(rs.next()) {
 						int accts = 0;
 						cnt++;
 						if(cnt % 2 == 0) { 
-							out.println("<tr style='background: #e1e1e1;'>"); 
+							out.println("<tr style='background: #e1e1e1;'>");
+			
 						} else {
 							out.println("<tr>");
+				
 						}
 						if(rs.getInt("fbActive") == 1) {
 							accts += 1;
@@ -95,12 +99,15 @@ response.setDateHeader("Expires",0);
 						if(rs.getInt("igActive") == 1) {
 							accts += 1;
 						}
+						
+						String date = rs.getString("date");
+						Date dDate = new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH).parse(date);
+						DateFormat df = new SimpleDateFormat("MMM dd, yyyy");
 						out.println("<td>&nbsp;</td>");
-						DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-						out.println("<td>" + rs.getString("date") + "</td>");
-						out.println("<td>" + rs.getString("name") + "</td>");
-						out.println("<td>" + accts + "</td>");
-						out.println("<td>Search</td>");
+						out.println("<td style='text-align:center;'>" + df.format(dDate) + "</td>");
+						out.println("<td style='text-align:center;'>" + rs.getString("name") + "</td>");
+						out.println("<td style='text-align:center;'>" + accts + "</td>");
+						out.println("<td style='text-align:center; width:25%;'><a href='" + rs.getInt("sid") + "'>Search</a></td>");
 						out.println("</tr>");			
 					}
 
@@ -124,12 +131,6 @@ response.setDateHeader("Expires",0);
 
 			%>
 			</table>
-			</div>
-
-			<div class="bottom-content">
-				<div class="shadow" style="width: 890px; padding: 5px; background: white;">
-					<h4>Compare History</h4>				
-				</div>	
 			</div>
 		</body>
 	<% } else {

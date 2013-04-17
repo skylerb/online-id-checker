@@ -138,7 +138,7 @@
             <a href="index.jsp"><img src="images/home.png"></a>
             <p>Dashboard</p>
             </li>
-            <li class="current">
+            <li>
             <a href="search.jsp"><img src="images/search.png"></a>
             <p>Search</p>
             </li>
@@ -176,7 +176,8 @@
 
 <div class="bottom-content-results" style="margin-bottom: 20px;">
 	<table class="shadow" style="background: white; text-align:center;width:900px; font-size: 11pt; color: #808080; border-collapse: collapse;">
-		<thead>
+		<thead style="background:black; color:white; text-align:center;">
+			<td>&nbsp;</td>
 			<td>&nbsp;</td>
 			<td>Facebook</td>
 			<td>Twitter</td>
@@ -184,14 +185,16 @@
 			<td>% Matched</td>
 		</thead>
 		<tr style="background:#e1e1e1;">
-			<td style="text-align:right;width:10%;">Name</td>
+			<td>&nbsp;</td>
+			<td style="text-align:left;width:10%;">Name</td>
 			<td><% out.print(facebook_name); %></td>
 			<td><% out.print(twitter_name); %></td>
 			<td><% out.print(google_name); %></td>
 			<td><% out.print(nameResult * 100); %></td>
 		</tr>
 		<tr>
-			<td style="text-align:right;">Location</td>
+			<td>&nbsp;</td>
+			<td style="text-align:left;">Location</td>
 			<td><% out.print(facebook_location); %></td>
 			<td><% out.print(twitter_location); %></td>
 			<td><% out.print(google_location); %></td>
