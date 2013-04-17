@@ -109,6 +109,7 @@ hr {
 	border-top: solid 1px #ab2d1d;
 	border-bottom: solid 1px #1d1d22;
 	text-shadow: 0px 1px #000000;
+	cursor: pointer;
 }
 
 .selected {

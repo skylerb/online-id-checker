@@ -13,7 +13,7 @@ response.setDateHeader("Expires",0);
 
 
 ///////////
-String FBTok = "BAACEdEose0cBADtC4jaZBmY0nPh0tBBSUXwUl7EguvfZAnIumVLPexy2jH31FGUISjZBzTAMkGKCauE17ZB4rGMXIJ3hEyvPOspmqUZCdQSJkt1H3C2PNpDnvR6cSiS1aJ5u28wMMLXb1USa3obN3HA9JUkZBEMDxKq2pMgk7WuVZALOAO6rTELshTQkz6CWSPIkCbBpBZBmwgZDZD";
+String FBTok = "AAACEdEose0cBAAruTqdQPDQZCtfIvJuDhWcEqowGGyAYA1w2YkzorT7sJl3631p2A0daeHi8qZAyFnf6iYhi9qjwasoX8AaSJ8hKEHFIDYrHxizp4A";
 /////////
 
 
@@ -126,7 +126,7 @@ String igID = request.getParameter("ig");
  		<style>
    			#feedback { font-size: 1.4em; }
 
-   			table .ui-selectee  { background: white; border: solid; border-width:1px; border-color: grey;}
+   			table .ui-selectee  { background: white;}
    			table .ui-selecting { background: white;}
    			table .ui-selected  { background: #FFE685; color: black}
 
@@ -160,17 +160,26 @@ String igID = request.getParameter("ig");
 			}
 
    			#selectable .ui-selected {	
-		
+				color:#54545b;
 			    border-bottom: solid 1px #494a4f;
 			    background-color: #212228;
 			    -moz-box-shadow: inset 0 0 10px #1a1b20;
 			    -webkit-box-shadow: inset 0 0 10px #1a1b20;
 			    box-shadow: inset 0 0 10px #1a1b20;
-			    text-shadow: 0px -1px #000000; 
+			    text-shadow: 0px -1px #000000;
+				background: none;
+				border-top: none; 
 			}
 
-   			#selectable { }
-   			#selectable div { 
+			#selectable {
+				font: 10pt Myriad Pro, sans-serif;
+				color: #999999;
+				width:900px;
+				margin: auto;
+				position: relative;
+			}
+
+   			#selectable div { }
 			    border-radius: 5px;
 			    -moz-border-radius: 5px;
 			    margin-top: 15px;
@@ -245,41 +254,49 @@ String igID = request.getParameter("ig");
 
       <div class="submenu-wrapper">
 	<div class="submenu" id="selectable">
-	  <div class="ui-state-selected">Twitter</div>
+	  <div class="submenu-button ui-selected">Twitter</div>
 
-	  <div class="ui-selectee unselected">Facebook</div>
+	  <div class="submenu-button">Facebook</div>
 
-	  <div class="submenu-button unselected">LinkedIn</div>
+	  <div class="submenu-button">LinkedIn</div>
 
-	  <div class="submenu-button unselected">Google+</div>
+	  <div class="submenu-button">Google+</div>
 
-	  <div class="submenu-button unselected">Instagram</div>
+	  <div class="submenu-button">Instagram</div>
 
 
 	</div>
-		  <div class="submenu-button" style="padding:0; margin-top:15px;">
-	    <input style="height: 25px; width:90px" class="button"  value="      Compare" onclick="javascript:post(myDictionary, 'compare.jsp');">
+	<div class="submenu-button" style="padding:0; margin-top:15px;">
+	    		<input style="height: 25px; width:90px" class="button compare"  value="      Compare" onclick="javascript:post(myDictionary, 'compare.jsp');">
 	  </div>
 
       </div>
 
       <div class="bottom-content">
-	<div id="twitter-results">  
-	  <table>
-	      <% 
-	      SearchUsers search = new SearchUsers();
-	      String[] twitter = search.getResults(name);
-	      int i = 0;
+	<%
+		SearchUsers search = new SearchUsers();
+		String[] twitter = search.getResults(name);
+		int twtSize = twitter.length;	
+	%>
+	<div id="twitter-results"> 
+		<div class="bottom-content" style="margin-bottom:20px;">
+			<div class="shadow" style="width:890px; padding: 5px; background: white; min-height:30px;">
+				<div style="float:left;">Twitter</div>
+				<div style="float:right; display:inline-block;"><% out.print(twtSize); %></div>
+			</div>
+		</div>
+	  	<table>
+	 	<% int i = 0;
 	      for(String twt : twitter) {
 	      if(twt != null) {
 	      String[] arr = twt.split(";");
 	      i++;
 		if(i == 1) { out.println("<tr>"); }
 	      if (i != 4) {
-	      out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
+	      out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
 	      }
 	      else if (i == 4) {
-	      out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
+	      out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
 	      }
 	      %>
 
@@ -298,23 +315,31 @@ String igID = request.getParameter("ig");
 
 	    </div>
 
+
+	<%
+		FacebookWrapper fw = new FacebookWrapper(FBTok);
+		Profile[] profiles = fw.findPossibleMatches(new Person(name));
+		int fbSize = profiles.length;
+	%>
  	<div id="facebook-results" style="display:none">
+		<div class="bottom-content" style="margin-bottom: 20px;">
+			<div class="shadow" style="width: 890px; padding: 5px; background: white; min-height: 30px;">
+				<div style="float:left;">Facebook</div>
+				<div style="float:right; display:inline-block;"><% out.print(fbSize); %></div>
+			</div>
+		</div>
 		<table>
 			<tr>
 		  	<% 
-
-			    //Paste in access token here!
-		 		FacebookWrapper fw = new FacebookWrapper(FBTok);
-		  		Profile[] profiles = fw.findPossibleMatches(new Person(name));
 		  		i = 0;
 		  		for(Profile prof : profiles) {
 		 			i++;
 		  			if (i != 4) {
-		  				out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
+		  				out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
 		  			} else if (i == 4) {
-		  				out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
+		  				out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
 		  			} %>
-		  			<img src="https://graph.facebook.com<% out.println(prof.url.getPath()); %>/picture">
+		  			<img height="48" width="48" src="https://graph.facebook.com<% out.println(prof.url.getPath()); %>/picture">
 					     <h4><% out.print(prof.person.getFullName().trim()); %></h4>
 					 <h5 style="padding-top: 0; margin-top: 0;">N/A</h5>
 		  			<% out.println("</div></td>"); 
@@ -329,14 +354,22 @@ String igID = request.getParameter("ig");
 		</div>
 
 
-		<div id="google-results" style="display:none">  
+		<% 
+			PlusSample goo = new PlusSample();
+			String[] gplus = goo.getProfile(name);
+			int gooSize = gplus.length;
+
+		%>
+	<div id="google-results" style="display:none"> 
+		<div class="bottom-content" style="margin-bottom: 20px;">
+			<div class="shadow" style="width: 890px; padding: 5px; background: white; min-height: 30px;">
+				<div style="float:left;">Google+</div>
+				<div style="float:right; display:inline-block;"><% out.print(gooSize); %></div>
+			</div>
+		</div>		
 		<table>
 		    <tr>
-		      <%
-	
-		      PlusSample goo = new PlusSample();
-					String []gplus = goo.getProfile(name);
-					i=0;
+		      <%	i=0;
            				for (String person : gplus) {
            					if(person!=null){
            						String [] as = person.split(";");
@@ -346,10 +379,10 @@ String igID = request.getParameter("ig");
 		      
 		      i++;
 		      if (i != 4) {
-		      out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
+		      out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
 		      }
 		      else if (i == 4) {
-		      out.println("<td><div class=\"tdItem\" style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
+		      out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
 		      }
 		      %>
 

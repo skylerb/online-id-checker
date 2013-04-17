@@ -1,4 +1,5 @@
 <%@page import="ProfileAnalyzer.ProfileAnalyzer" %>
+<%@page import="java.util.Map" %>
 
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 
@@ -13,6 +14,9 @@
  //End fake data %>
 
 <%
+	Map<String,String[]> parameters = request.getParameterMap();
+	int size = parameters.size();
+	int num_accounts = 0;
 	String search_name = request.getParameter("search_name");
 	String twitter_name = request.getParameter("twitter_name");
 	if(twitter_name == null) 
@@ -32,7 +36,14 @@
 	String google_location = request.getParameter("google_location");
 	if(google_location == null)
 		google_location = "Hogwarts";
-	int num_accounts = Integer.parseInt(request.getParameter("num_accounts"));
+	if(size < 6) {
+		response.sendRedirect(request.getContextPath() + "/search.jsp");	
+	} else if(size == 6) {
+		num_accounts = 2;
+	} else {
+		num_accounts = 3;
+	}
+	//int num_accounts = Integer.parseInt(request.getParameter("num_accounts"));
 %>
 
 <!DOCTYPE html>
@@ -45,6 +56,67 @@
 <link href="main.css" rel="stylesheet" type="text/css" />
 
 <meta charset="utf-8" />
+
+<style type="text/css">
+  #map-canvas { width: 900px; height: 400px; }
+</style>
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkAhsg4jUFlMWiS_HS6P6MCKJc1Ms1DkY&sensor=true">
+    </script>
+    <script type="text/javascript">
+	var sites = [
+	['Home', 39.0333, 125.7500, 1, 'Best Korea']
+];
+
+	var map;
+
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(39.0333, 125.75),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+
+	
+	setMarkers(map, sites);
+	AutoCenter();
+      }
+
+	function setMarkers(map, markers) {
+
+		for (var i = 0; i < markers.length; i++) {
+		    var sites = markers[i];
+		    var siteLatLng = new google.maps.LatLng(sites[1], sites[2]);
+		    var marker = new google.maps.Marker({
+		        position: siteLatLng,
+		        map: map,
+		        title: sites[0],
+		        zIndex: sites[3],
+		        html: sites[4]
+		    });
+		}
+	}
+
+	function AutoCenter() {
+		//  Create a new viewpoint bound
+		var bounds = new google.maps.LatLngBounds();
+		//  Go through each...
+		$.each(sites, function (index, marker) {
+			bounds.extend(marker.position);
+		});
+		//  Fit these bounds to the map
+		map.fitBounds(bounds);
+
+	}
+
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 
 </head>
 
@@ -88,7 +160,7 @@
 
     <div id="results-found" class="shadow" style="width: 190px; height: 90px; background: white; padding: 10px; float: left; margin-right: 20px;" >
         <h4 style="text-align:center; margin-top: 15px;"><% out.print(num_accounts); %></h4>
-        <p style="text-align:center; font: 11pt Myriad Pro, sans-serif; font-weight: 700; color: #999">Results Found</p>
+        <p style="text-align:center; font: 11pt Myriad Pro, sans-serif; font-weight: 700; color: #999">Accounts Selected</p>
     </div>
 
     <div id="percent-matched" class="shadow" style="width: 190px; height: 90px; background: white; padding: 10px; float: left; margin-right: 20px;" >
@@ -102,7 +174,7 @@
     </div>
 </div>
 
-<div class="bottom-content-results">
+<div class="bottom-content-results" style="margin-bottom: 20px;">
 	<table class="shadow" style="background: white; text-align:center;width:900px; font-size: 11pt; color: #808080; border-collapse: collapse;">
 		<thead>
 			<td>&nbsp;</td>
@@ -128,6 +200,11 @@
 	</table>
 </div>
 
+<div class="bottom-content-results" style="margin-top: 0px;">
+	<div class="shadow" style="background: white; width:900px;">
+		<div id="map-canvas"/>
+	</div>
+</div>
 
 <% } else {
 response.sendRedirect(request.getContextPath() + "/login.jsp");

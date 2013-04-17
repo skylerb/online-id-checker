@@ -56,7 +56,14 @@ response.setDateHeader("Expires",0);
 				</div> 
 
 			<table class="shadow" style="width: 900px; cellspacing: 0; cellpadding: 0;background: white; margin-top: 20px; border-collapse: collapse; font-size: 11pt; color: #808080;">
-			<%	
+				<thead>
+					<td>&nbsp;</td>
+					<td>Search Date</td>
+					<td>Name</td>
+					<td># of Networks Searched</td>
+					<td>&nbsp;</td>
+				</thead>
+				<%	
 				ResultSet rs = null;
 				Connection conn = null;
 				try {
@@ -89,24 +96,11 @@ response.setDateHeader("Expires",0);
 							accts += 1;
 						}
 						out.println("<td>&nbsp;</td>");
-						String location = "";
-						if(rs.getString("address") != null) {
-							location += rs.getString("address") + ", ";
-						}
-						if(rs.getString("city") != null) {
-							location += rs.getString("city") + ", ";
-						}
-						if(rs.getString("state") != null) {
-							location += rs.getString("state") + ", ";
-						}
-						if(rs.getString("country") != null) {
-							location += rs.getString("country");
-						}
 						DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 						out.println("<td>" + rs.getString("date") + "</td>");
 						out.println("<td>" + rs.getString("name") + "</td>");
-						out.println("<td>" + location + "</td>");
-						out.println("<td>" + accts + " Accounts</td>");
+						out.println("<td>" + accts + "</td>");
+						out.println("<td>Search</td>");
 						out.println("</tr>");			
 					}
 
@@ -130,6 +124,12 @@ response.setDateHeader("Expires",0);
 
 			%>
 			</table>
+			</div>
+
+			<div class="bottom-content">
+				<div class="shadow" style="width: 890px; padding: 5px; background: white;">
+					<h4>Compare History</h4>				
+				</div>	
 			</div>
 		</body>
 	<% } else {
