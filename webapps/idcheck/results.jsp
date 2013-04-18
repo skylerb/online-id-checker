@@ -5,6 +5,10 @@
 <%@page import="User.MyConfigurationBuilder" %>
 <%@page import="User.SearchUsers" %>
 <%@page import="SearchHistory.SaveSearch" %>
+<%@page import="java.util.ArrayList" %>
+<%@page import="ProfileManager.ProfileHashMap" %>
+<%@page import="SocialNetworkAcces.LinkedinWrapper" %>
+
 
 <%
 response.setHeader("Cache-Control","no-store");
@@ -13,7 +17,7 @@ response.setDateHeader("Expires",0);
 
 
 ///////////
-String FBTok = "AAACEdEose0cBAAruTqdQPDQZCtfIvJuDhWcEqowGGyAYA1w2YkzorT7sJl3631p2A0daeHi8qZAyFnf6iYhi9qjwasoX8AaSJ8hKEHFIDYrHxizp4A";
+String FBTok = "AAACEdEose0cBAMdVwCvzlZAyLDQOcsxy0TINXZAhgCyls4XvnRDfs2ZBc5XZBJZCHj2YuhGGcQ9RV9yMSaGsR4jLYqBPXs5Axbgxs16aCDnousZB1D8n4m";
 /////////
 
 
@@ -65,17 +69,13 @@ String igID = request.getParameter("ig");
 %>
 
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
-
-
 <!DOCTYPE html>
-
 <html>
 <% if((session.getAttribute("username") != null)) { 
 	if(name != null) { 
 
 	int id = (Integer)session.getAttribute("uid");
-	//Save Search History
-   /*
+	/*Save Search History 
 	SaveSearch saveSearch = new SaveSearch();
 	boolean saved = false;
 	try {
@@ -83,13 +83,10 @@ String igID = request.getParameter("ig");
 	} catch(SQLException e) {
 	   	//e.printStackTrace(response.getWriter());
 	}
-	 */
-	//out.print(saved);
+	//out.print(saved); */
 	%>
 
 	<head>
-
-
 	<script language="javascript">
 	function post(dictionary, url, method) {
 	    method = method || "post"; 
@@ -112,8 +109,6 @@ String igID = request.getParameter("ig");
 	}
 	</script>
 
-
-
 		<title>Results | <% out.print(name); %></title>
     		<link href="main.css" rel="stylesheet" type="text/css" />
     
@@ -121,7 +116,6 @@ String igID = request.getParameter("ig");
     		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
     		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     		<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-
 
  		<style>
    			#feedback { font-size: 1.4em; }
@@ -194,6 +188,196 @@ String igID = request.getParameter("ig");
 <script language="javascript">
 	var myDictionary = [];
 	var type = "twitter";
+
+	<%
+	   SearchUsers search = new SearchUsers();
+	   ArrayList<ProfileHashMap> twitter = search.getResults(name);
+	   int twtSize = twitter.size();	
+	%>
+
+	var TwitterResults = new Array();
+	var TwitterSize = <% out.print(twtSize); %>;
+	
+	<%
+	for (int i = 0; i < twtSize; i++) {
+	    %> TwitterResults[<%out.print(i);%>] = { }; <%
+	    if (twitter.get(i).information.containsKey("name")) {
+		%>TwitterResults[<%out.print(i);%>]["name"] = "<%out.print(twitter.get(i).information.get("name"));%>";<%
+	    }
+
+	    if (twitter.get(i).information.containsKey("location")) {
+		%>TwitterResults[<%out.print(i);%>]["location"] = "<%out.print(twitter.get(i).information.get("location"));%>";<%
+	    }
+
+	    if (twitter.get(i).information.containsKey("timezone")) {
+		%>TwitterResults[<%out.print(i);%>]["timezone"] = "<%out.print(twitter.get(i).information.get("timezone"));%>";<%
+	    }
+
+	    if (twitter.get(i).information.containsKey("url")) {
+		%>TwitterResults[<%out.print(i);%>]["url"] = "<%out.print(twitter.get(i).information.get("url"));%>";<%
+	    }
+
+	    if (twitter.get(i).information.containsKey("pic")) {
+		%>TwitterResults[<%out.print(i);%>]["pic"] = "<%out.print(twitter.get(i).information.get("pic"));%>";<%
+	    }
+
+	    out.println();
+	    
+	}
+
+	PlusSample goo = new PlusSample();
+	ArrayList<ProfileHashMap> gplus = goo.getProfile(name);
+	int gooSize = gplus.size();
+	%>
+
+	var GoogleResults = new Array();
+	var GoogleSize = <% out.print(gooSize); %>;
+
+	<%
+	for (int i = 0; i < gooSize; i++) {
+	    %> GoogleResults[<%out.print(i);%>] = { }; <%
+
+	    if (gplus.get(i).information.containsKey("name")) {
+		%>GoogleResults[<%out.print(i);%>]["name"] = "<%out.print(gplus.get(i).information.get("name"));%>";<%
+		    }
+
+	    if (gplus.get(i).information.containsKey("location")) {
+		%>GoogleResults[<%out.print(i);%>]["location"] = "<%out.print(gplus.get(i).information.get("location"));%>";<%
+		    }
+	    
+	    if (gplus.get(i).information.containsKey("timezone")) {
+		%>GoogleResults[<%out.print(i);%>]["timezone"] = "<%out.print(gplus.get(i).information.get("timezone"));%>";<%
+		    }
+
+	    if (gplus.get(i).information.containsKey("url")) {
+		%>GoogleResults[<%out.print(i);%>]["url"] = "<%out.print(gplus.get(i).information.get("url"));%>";<%
+		    }
+
+	    if (gplus.get(i).information.containsKey("pic")) {
+		%>GoogleResults[<%out.print(i);%>]["pic"] = "<%out.print(gplus.get(i).information.get("pic"));%>";<%
+		    }
+
+	    if (gplus.get(i).information.containsKey("previouslocation")) {
+		%>GoogleResults[<%out.print(i);%>]["previouslocation"] = "<%out.print(gplus.get(i).information.get("previouslocation"));%>";<%
+		    }
+
+	    if (gplus.get(i).information.containsKey("gender")) {
+		%>GoogleResults[<%out.print(i);%>]["gender"] = "<%out.print(gplus.get(i).information.get("gender"));%>";<%
+		    }
+
+	    if (gplus.get(i).information.containsKey("relationship")) {
+		%>GoogleResults[<%out.print(i);%>]["relationship"] = "<%out.print(gplus.get(i).information.get("relationship"));%>";<%
+		    }
+
+	    if (gplus.get(i).information.containsKey("employment")) {
+		%>GoogleResults[<%out.print(i);%>]["employment"] = "<%out.print(gplus.get(i).information.get("employment"));%>";<%
+		    }
+
+	    if (gplus.get(i).information.containsKey("education")) {
+		%>GoogleResults[<%out.print(i);%>]["education"] = "<%out.print(gplus.get(i).information.get("education"));%>";<%
+		    }
+
+		out.println();
+
+	}
+
+
+	LinkedinWrapper wrap = new LinkedinWrapper();
+	ArrayList<ProfileHashMap> LinkedIn = wrap.findPossibleMatches(new Person(name));	
+	int linkedSize = LinkedIn.size();
+	%>
+
+	var LinkedInResults = new Array();
+	var LinkedInSize = <% out.print(linkedSize); %>;
+
+	<%
+
+
+	
+	for (int i = 0; i < linkedSize; i++) {
+	    %> LinkedInResults[<%out.print(i);%>] = { }; <%
+
+	    if (LinkedIn.get(i).information.containsKey("name")) {
+		%>LinkedInResults[<%out.print(i);%>]["name"] = "<%out.print(LinkedIn.get(i).information.get("name"));%>";<%
+		    }
+
+	    if (LinkedIn.get(i).information.containsKey("location")) {
+		%>LinkedInResults[<%out.print(i);%>]["location"] = "<%out.print(LinkedIn.get(i).information.get("location"));%>";<%
+		    }
+	    
+	    if (LinkedIn.get(i).information.containsKey("timezone")) {
+		%>LinkedInResults[<%out.print(i);%>]["timezone"] = "<%out.print(LinkedIn.get(i).information.get("timezone"));%>";<%
+		    }
+
+	    if (LinkedIn.get(i).information.containsKey("url")) {
+		%>LinkedInResults[<%out.print(i);%>]["url"] = "<%out.print(LinkedIn.get(i).information.get("url"));%>";<%
+		    }
+
+	    if (LinkedIn.get(i).information.containsKey("pic")) {
+		%>LinkedInResults[<%out.print(i);%>]["pic"] = "<%out.print(LinkedIn.get(i).information.get("pic"));%>";<%
+		    }
+
+	    if (LinkedIn.get(i).information.containsKey("previouslocation")) {
+		%>LinkedInResults[<%out.print(i);%>]["previouslocation"] = "<%out.print(LinkedIn.get(i).information.get("previouslocation"));%>";<%
+		    }
+
+	    if (LinkedIn.get(i).information.containsKey("gender")) {
+		%>LinkedInResults[<%out.print(i);%>]["gender"] = "<%out.print(LinkedIn.get(i).information.get("gender"));%>";<%
+		    }
+
+	    if (LinkedIn.get(i).information.containsKey("relationship")) {
+		%>LinkedInResults[<%out.print(i);%>]["relationship"] = "<%out.print(LinkedIn.get(i).information.get("relationship"));%>";<%
+		    }
+
+	    if (LinkedIn.get(i).information.containsKey("employment")) {
+		%>LinkedInResults[<%out.print(i);%>]["employment"] = "<%out.print(LinkedIn.get(i).information.get("employment"));%>";<%
+		    }
+
+	    if (LinkedIn.get(i).information.containsKey("education")) {
+		%>LinkedInResults[<%out.print(i);%>]["education"] = "<%out.print(LinkedIn.get(i).information.get("education"));%>";<%
+		    }
+
+		out.println();
+	}
+
+	FacebookWrapper fw = new FacebookWrapper(FBTok);
+	ArrayList<ProfileHashMap> Facebook = fw.findPossibleMatches(new Person(name));
+	int fbSize = Facebook.size();
+	%>
+
+	var FacebookResults = new Array();
+	var FacebookSize = <% out.print(fbSize); %>;
+
+
+	<%
+	for (int i = 0; i < fbSize; i++) {
+	    %> FacebookResults[<%out.print(i);%>] = { }; <%
+	    if (Facebook.get(i).information.containsKey("name")) {
+		%>FacebookResults[<%out.print(i);%>]["name"] = "<%out.print(Facebook.get(i).information.get("name"));%>";<%
+	    }
+
+	    if (Facebook.get(i).information.containsKey("location")) {
+		%>FacebookResults[<%out.print(i);%>]["location"] = "<%out.print(Facebook.get(i).information.get("location"));%>";<%
+	    }
+
+	    if (Facebook.get(i).information.containsKey("id")) {
+		%>FacebookResults[<%out.print(i);%>]["id"] = "<%out.print(Facebook.get(i).information.get("id"));%>";<%
+	    }
+
+	    if (Facebook.get(i).information.containsKey("url")) {
+		%>FacebookResults[<%out.print(i);%>]["url"] = "<%out.print(Facebook.get(i).information.get("url"));%>";<%
+	    }
+
+	    if (Facebook.get(i).information.containsKey("pic")) {
+		%>FacebookResults[<%out.print(i);%>]["pic"] = "<%out.print(Facebook.get(i).information.get("pic"));%>";<%
+	    }
+
+	    out.println();
+	    
+	}
+
+	%>
+
 </script>
 
 <script>
@@ -273,135 +457,210 @@ String igID = request.getParameter("ig");
       </div>
 
       <div class="bottom-content">
-	<%
-		SearchUsers search = new SearchUsers();
-		String[] twitter = search.getResults(name);
-		int twtSize = twitter.length;	
-	%>
+
 	<div id="twitter-results"> 
-		<div class="bottom-content" style="margin-bottom:20px;">
-			<div class="shadow" style="width:890px; padding: 5px; background: white; min-height:30px;">
-				<div style="float:left;">Twitter</div>
-				<div style="float:right; display:inline-block;"><% out.print(twtSize); %></div>
-			</div>
-		</div>
-	  	<table>
-	 	<% int i = 0;
-	      for(String twt : twitter) {
-	      if(twt != null) {
-	      String[] arr = twt.split(";");
-	      i++;
-		if(i == 1) { out.println("<tr>"); }
-	      if (i != 4) {
-	      out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
-	      }
-	      else if (i == 4) {
-	      out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
-	      }
-	      %>
-
-	      <img src="<% out.print(arr[2]); %>"/>
-	      <br/>
-		   <h4><%out.print(arr[0].trim()); %></h4>
-	      
-							   <h5 style="padding-top: 0; margin-top: 0;"><% if(!arr[1].equals("null")) { out.print(arr[1].trim()); } else { out.print("N/A"); } %></h5>
-
-	      <% 
-	      out.println("</div></td>"); 
-	      if (i == 4) { i = 0; out.println("</tr>"); }
-	      } } //End For loop
-	      out.println("</table>");
-	      %>
-
+	  <div class="bottom-content" style="margin-bottom:20px;">
+	    <div class="shadow" style="width:890px; padding: 5px; background: white; min-height:30px;">
+	      <div style="float:left;">Twitter</div>
+	      <div style="float:right; display:inline-block;"><% out.print(twtSize); %></div>
 	    </div>
+	  </div>
 
-
+	  <table>
 	<%
-		FacebookWrapper fw = new FacebookWrapper(FBTok);
-		Profile[] profiles = fw.findPossibleMatches(new Person(name));
-		int fbSize = profiles.length;
-	%>
- 	<div id="facebook-results" style="display:none">
-		<div class="bottom-content" style="margin-bottom: 20px;">
-			<div class="shadow" style="width: 890px; padding: 5px; background: white; min-height: 30px;">
-				<div style="float:left;">Facebook</div>
-				<div style="float:right; display:inline-block;"><% out.print(fbSize); %></div>
-			</div>
-		</div>
-		<table>
-			<tr>
-		  	<% 
-		  		i = 0;
-		  		for(Profile prof : profiles) {
-		 			i++;
-		  			if (i != 4) {
-		  				out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
-		  			} else if (i == 4) {
-		  				out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
-		  			} %>
-		  			<img height="48" width="48" src="https://graph.facebook.com<% out.println(prof.url.getPath()); %>/picture">
-					     <h4><% out.print(prof.person.getFullName().trim()); %></h4>
-					 <h5 style="padding-top: 0; margin-top: 0;">N/A</h5>
-		  			<% out.println("</div></td>"); 
-		  			if (i == 4) { i = 0; out.println("</tr><tr>"); }
-		  		} //End For loop
-		  out.println("</table>"); 
+	int i = 0;
+	for (ProfileHashMap identity : twitter) {
+	    i++;
 
-					   %>
-	</div>
-		
-		<div id="linkedin-results" style="display:none">
-		</div>
+	    if (i == 1) { 
+		out.println("<tr>"); 
+	    }
 
-
-		<% 
-			PlusSample goo = new PlusSample();
-			String[] gplus = goo.getProfile(name);
-			int gooSize = gplus.length;
-
-		%>
-	<div id="google-results" style="display:none"> 
-		<div class="bottom-content" style="margin-bottom: 20px;">
-			<div class="shadow" style="width: 890px; padding: 5px; background: white; min-height: 30px;">
-				<div style="float:left;">Google+</div>
-				<div style="float:right; display:inline-block;"><% out.print(gooSize); %></div>
-			</div>
-		</div>		
-		<table>
-		    <tr>
-		      <%	i=0;
-           				for (String person : gplus) {
-           					if(person!=null){
-           						String [] as = person.split(";");
-		      %>
-
-		      <%
-		      
-		      i++;
-		      if (i != 4) {
-		      out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
-		      }
-		      else if (i == 4) {
-		      out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
-		      }
-		      %>
-
-		      <img src="<% out.print(as[1].trim()); %>"/>
-		      <br/>
-		      <h4><% out.print(as[0]); %></h4>
-		      <h5 style="padding-top: 0; margin-top: 0;"><% if(!as[2].equals("null")) { out.print(as[2].trim()); } else { out.print("N/A"); } %></h5>
-
-		      <% 
-		      out.println("</div></td>"); 
-		      if (i == 4) { i = 0; out.println("</tr><tr>"); }
-		      } } //End For loop
-		      out.println("</table>");
+	    if (i != 4) {
+		out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
+	    }
+	    else if (i == 4) {
+		out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
+	    }
 	
-		      %>
-	    	</div>
+	    %>
+
+	<div style="padding-right: 2px; float:left; margin-top: 15px; margin-left: 10px;">
+	  <img height="73" width="73" src="<% out.print(identity.information.get("pic")); %>"/>
+	</div>
+	<div style="float:right; width: 110px; margin-top: 15px;">
+	  <h4 style="color:#a2b1b9;"><% int l = identity.information.get("name").trim().length(); out.print(identity.information.get("name").trim().substring(0,Math.min(10,l))); %></h4>	
+   	  <h5 style="color:#a2b1b9; float: left; padding-top: 0; margin-top: 0;"><% int x = identity.information.get("location").trim().length();out.print(identity.information.get("location").trim().substring(0,Math.min(10,x))); %></h5>
+	</div>
+
+	    <%
+
+	    out.println("</div></td>"); 
+	    
+	    if (i == 4) {
+		i = 0;
+		out.println("</tr>");
+	    }
+	}
+	%>
+	</table>
+	  
+	</div>
 
 
-	      </div>
+
+ 	<div id="facebook-results" style="display:none">
+	
+	  <div class="bottom-content" style="margin-bottom:20px;">
+	    <div class="shadow" style="width:890px; padding: 5px; background: white; min-height:30px;">
+	      <div style="float:left;">Facebook</div>
+	      <div style="float:right; display:inline-block;"><% out.print(fbSize); %></div>
+	    </div>
+	  </div>
+
+	  <table>
+	<%
+	i = 0;
+	for (ProfileHashMap identity : Facebook) {
+	    i++;
+
+	    if (i == 1) { 
+		out.println("<tr>"); 
+	    }
+
+	    if (i != 4) {
+		out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
+	    }
+	    else if (i == 4) {
+		out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
+	    }
+	
+	    %>
+
+	<div style="padding-right: 2px; float:left; margin-top: 15px; margin-left: 10px;">
+	  <img height="73" width="73" src="<% out.print(identity.information.get("pic")); %>"/>
+	</div>
+	<div style="float:right; width: 110px; margin-top: 15px;">
+	  <h4 style="color:#a2b1b9;"><% int l = identity.information.get("name").trim().length(); out.print(identity.information.get("name").trim().substring(0,Math.min(10,l))); %></h4>	
+   	  <h5 style="color:#a2b1b9; float: left; padding-top: 0; margin-top: 0;"><% int x = identity.information.get("location").trim().length();out.print(identity.information.get("location").trim().substring(0,Math.min(10,x))); %></h5>
+	</div>
+
+	    <%
+
+	    out.println("</div></td>"); 
+	    
+	    if (i == 4) {
+		i = 0;
+		out.println("</tr>");
+	    }
+	}
+	%>
+	</table>
+	  
+	</div>
+	
+	<div id="linkedin-results" style="display:none">
+
+	<div class="bottom-content" style="margin-bottom:20px;">
+	    <div class="shadow" style="width:890px; padding: 5px; background: white; min-height:30px;">
+	      <div style="float:left;">LinkedIn</div>
+	      <div style="float:right; display:inline-block;"><% out.print(linkedSize); %></div>
+	    </div>
+	  </div>
+	
+	<table>
+	<%
+	i = 0;
+	for (ProfileHashMap identity : LinkedIn) {
+	    i++;
+
+	    if (i == 1) { 
+		out.println("<tr>"); 
+	    }
+
+	    if (i != 4) {
+		out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
+	    }
+	    else if (i == 4) {
+		out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
+	    }
+	
+	    %>
+
+	<div style="padding-right: 2px; float:left; margin-top: 15px; margin-left: 10px;">
+	  <img height="73" width="73" src="<% out.print(identity.information.get("pic")); %>"/>
+	</div>
+	<div style="float:right; width: 110px; margin-top: 15px;">
+	  <h4 style="color:#a2b1b9;"><% int l = identity.information.get("name").trim().length(); out.print(identity.information.get("name").trim().substring(0,Math.min(10,l))); %></h4>	
+   	  <h5 style="color:#a2b1b9; float: left; padding-top: 0; margin-top: 0;"><% int x = identity.information.get("location").trim().length();out.print(identity.information.get("location").trim().substring(0,Math.min(10,x))); %></h5>
+	</div>
+
+	    <%
+
+	    out.println("</div></td>"); 
+	    
+	    if (i == 4) {
+		i = 0;
+		out.println("</tr>");
+	    }
+	}
+	%>
+	</table>
+
+	</div>
+
+
+	<div id="google-results" style="display:none">
+	<div class="bottom-content" style="margin-bottom:20px;">
+	    <div class="shadow" style="width:890px; padding: 5px; background: white; min-height:30px;">
+	      <div style="float:left;">Google</div>
+	      <div style="float:right; display:inline-block;"><% out.print(gooSize); %></div>
+	    </div>
+	  </div>
+	
+	<table>
+	<%
+	i = 0;
+	for (ProfileHashMap identity : gplus) {
+	    i++;
+
+	    if (i == 1) { 
+		out.println("<tr>"); 
+	    }
+
+	    if (i != 4) {
+		out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:15px;\">");
+	    }
+	    else if (i == 4) {
+		out.println("<td><div class='shadow tdItem' style=\"width:200px; height: 100px; padding: 5px; margin-left: 0; float: left; margin-bottom: 20px; margin-right:0px;\">");
+	    }
+	
+	    %>
+
+	<div style="padding-right: 2px; float:left; margin-top: 15px; margin-left: 10px;">
+	  <img height="73" width="73" src="<% out.print(identity.information.get("pic")); %>"/>
+	</div>
+	<div style="float:right; width: 110px; margin-top: 15px;">
+	  <h4 style="color:#a2b1b9;"><% int l = identity.information.get("name").trim().length(); out.print(identity.information.get("name").trim().substring(0,Math.min(10,l))); %></h4>	
+   	  <h5 style="color:#a2b1b9; float: left; padding-top: 0; margin-top: 0;"><% int x = identity.information.get("location").trim().length();out.print(identity.information.get("location").trim().substring(0,Math.min(10,x))); %></h5>
+	</div>
+
+	    <%
+
+	    out.println("</div></td>"); 
+	    
+	    if (i == 4) {
+		i = 0;
+		out.println("</tr>");
+	    }
+	}
+	%>
+	</table>
+
+
+	</div>
+
+      </div>
 	      
     	<script>
 	  $("table").selectable({
@@ -411,62 +670,81 @@ String igID = request.getParameter("ig");
 		      $( ".ui-selected", this ).each(function() {
 			      index = $( ".tdItem" ).index( this );
 		      });
-
-		      var val = $(".tdItem").eq(index).html();
-
-		      var re = new RegExp("<\s*h4[^>]*>(.*?)<\s*/\s*h4>", "g");
-		      var myArray = re.exec(val);
-		      if ( myArray != null) {
-			  if (myArray.length < 1) {
-			      alert("Error retrieving specific persons details");
-			  }
-
-			  for ( i = 0; i < myArray.length; i++ ) {
-			      var result = "myArray[" + i + "] = " + myArray[i];
-
-			      if (i === 1) {
-				  var newtype = type + "_location";
-				  myDictionary[newtype] = myArray[1];
-			      }
-			  }
-		      }
-
-		      var newtype = type + "_name"
-		      myDictionary[newtype] = myArray[1];
 		      
-		      var val = $(".tdItem").eq(index).html();
-		      var re = new RegExp("<\w*h5[^>]*>(.*?)<\w*/\w*h5>");
-		      var myArray = re.exec(val);
-		      if ( myArray != null) {
+		      var res;
+		      var prefix;
 
-			  if (myArray.length < 1) {
-			      alert("Error retrieving specific persons details");
-			  }
+		      if (index < TwitterSize) {
+			  res = TwitterResults;
+			  prefix = "twitter_";
+		      }
+		      else if (index < FacebookSize + TwitterSize) {
+			  index = index - TwitterSize;
+			  res = FacebookResults;
+			  prefix = "facebook_";
 
-			  for ( i = 0; i < myArray.length; i++ ) {
-			      var result = "myArray[" + i + "] = " + myArray[i];
+		      }
+		      else if (index < FacebookSize + TwitterSize + LinkedInSize) {
+			  index = index - FacebookSize;
+			  index = index - TwitterSize;
+			  res = LinkedInResults
+			  prefix = "linkedin_";
+		      }
+		      else if (index < FacebookSize + TwitterSize + LinkedInSize + GoogleSize) {
+			  index = index - FacebookSize;
+			  index = index - TwitterSize;
+			  index = index - LinkedInSize;
+			  res = GoogleResults
+			  prefix = "google_";
 
-			      if (i === 1) {
-				  var newtype = type + "_location";
-				  myDictionary[newtype] = myArray[1];
-			      }
-			  }
 		      }
 
+		      if ('name' in res[index]) {
+			  myDictionary[prefix + "name"] = res[index]["name"];
+		      }
 
+		      if ('location' in res[index]) {
+			  myDictionary[prefix + "location"] = res[index]["location"];
+		      }
 
-		      myDictionary["num_accounts"] = 12;
+		      if ('timezone' in res[index]) {
+			  myDictionary[prefix + "timezone"] = res[index]["timezone"];
+		      }
+
+		      if ('employment' in res[index]) {
+			  myDictionary[prefix + "employment"] = res[index]["employment"];
+		      }
+
+		      if ('education' in res[index]) {
+			  myDictionary[prefix + "education"] = res[index]["education"];
+		      }
+		      
+		      if ('gender' in res[index]) {
+			  myDictionary[prefix + "gender"] = res[index]["gender"];
+		      }
+
+		      if ('phone' in res[index]) {
+			  myDictionary[prefix + "phone"] = res[index]["phone"];
+		      }
+
+		      if ('relationship' in res[index]) {
+			  myDictionary[prefix + "relationship"] = res[index]["relationship"];
+		      }
+		      
+		      myDictionary["num_accounts"] = GoogleSize + LinkedInSize + FacebookSize + TwitterSize;
 		      myDictionary["search_name"] = <% out.println("\"" + name.trim() + "\""); %>;
 
 		  }
 	  });
 	</script>
 
-      </body>
-      <% 	} else {
-			response.sendRedirect(request.getContextPath() + "/search.jsp");
-		}
-	} else {
-      response.sendRedirect(request.getContextPath() + "/login.jsp");
-      } %>   
+  </body>
+  <% 
+     } else {
+     response.sendRedirect(request.getContextPath() + "/search.jsp");
+     }
+     }else {
+     response.sendRedirect(request.getContextPath() + "/login.jsp");
+     } 
+     %>   
 </html>

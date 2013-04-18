@@ -13,8 +13,11 @@
     String plusDob = "";
  //End fake data %>
 
+
 <%
 	Map<String,String[]> parameters = request.getParameterMap();
+
+
 	int size = parameters.size();
 	int num_accounts = 0;
 	String search_name = request.getParameter("search_name");
