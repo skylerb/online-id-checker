@@ -216,6 +216,7 @@
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkAhsg4jUFlMWiS_HS6P6MCKJc1Ms1DkY&sensor=true">
     </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
     <script type="text/javascript">
 	var sites = [
 		<% int x = 0; 
@@ -230,34 +231,45 @@
 	var map;
 	var geocoder;
 	var bounds;
+	var marker;
+	var bounds = new google.maps.LatLngBounds(); 
+
+	
 
       function initialize() {
 	geocoder = new google.maps.Geocoder();
+
         var mapOptions = {
-		zoom: 3,
+		zoom: 5,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
         map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-	
-	bounds = new google.maps.LatLngBounds();
 
-	for (var i = 0; i < sites.length; i++) {
-	    geocoder.geocode( { 'address': sites[i]}, function(results, status) {
-	      if (status == google.maps.GeocoderStatus.OK) {
+
+	for (var i = 0; i < sites.length; i++) {		
+	    geocoder.geocode( { 'address': sites[i]}, function(results, status) {		
+	      if (status == google.maps.GeocoderStatus.OK) {		
 		map.setCenter(results[0].geometry.location);
-		var marker = new google.maps.Marker({
-		    map: map,
-		    position: results[0].geometry.location
-		});
-		bounds.extend(marker.position);
-
+		addMarker(results[0].geometry.location,'Location',"active");
+		bounds.extend(results[0].geometry.location);
+		map.fitBounds(bounds);
+		map.panToBounds(bounds);
 	      }
 	    });
+	}	
+	
+      }
+
+	function addMarker(location, name, active) {          
+		var marker = new google.maps.Marker({
+		    position: location,
+		    map: map,
+		    title: name,
+		    status: active
+		});
 	}
 
-	map.fitBounds(bounds);
-      }
 
       google.maps.event.addDomListener(window, 'load', initialize);
 
