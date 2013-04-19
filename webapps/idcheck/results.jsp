@@ -17,7 +17,7 @@ response.setDateHeader("Expires",0);
 
 
 ///////////
-String FBTok = "BAACEdEose0cBAPoBM4ZBuJOvdCrWugoo7W1ahODnvkonxnoZCwzvmn73Sv1wF12ef6h7UY56wnZApHbAKMoPVKQgQ3hzQntLUvDJmF4LwBQXTyInxei680Hw1AQHqieZCPrI02m8pkkZA1c2GJpG8ElVjhjyF8aROZBUYX8wcHG69b0JxI7aDRCaFCc5BBmAZBgJvrhZAwYjZAQZDZD";
+String FBTok = "BAACEdEose0cBAJJVTtSZCLgn9yexNQ1wiBhdYV8brgZBSgWvVFhAjvFZCTeyjBktFSzoXSYTgUJPjhq4GKdO7WdDOZBkBMRaVuhPfPoCp7A7urTMsHYGSTbvn2ZAv1FCgs4pVFN8I6r4x96YPPEyJ7BkMr3FdZCCYcBHwKVhm0bWMVtoapYCgtmXrg4qtZBDrfwcoZBpCupD7AZDZD";
 /////////
 
 
@@ -75,7 +75,7 @@ String igID = request.getParameter("ig");
 	if(name != null) { 
 
 	int id = (Integer)session.getAttribute("uid");
-	/*Save Search History 
+	//Save Search History 
 	SaveSearch saveSearch = new SaveSearch();
 	boolean saved = false;
 	try {
@@ -83,7 +83,6 @@ String igID = request.getParameter("ig");
 	} catch(SQLException e) {
 	   	//e.printStackTrace(response.getWriter());
 	}
-	//out.print(saved); */
 	%>
 
 	<head>
@@ -588,7 +587,11 @@ String igID = request.getParameter("ig");
 	    %>
 
 	<div style="padding-right: 2px; float:left; margin-top: 15px; margin-left: 10px;">
+	<% if(identity.information.get("pic") != null) { %>
 	  <img height="73" width="73" src="<% out.print(identity.information.get("pic")); %>"/>
+	<% } else { %>
+		<img height="73" width="73" src="https://si0.twimg.com/profile_images/1983915891/default_profile_bigger.jpg"/>
+	<% } %>
 	</div>
 	<div style="float:right; width: 110px; margin-top: 15px;">
 	  <h4 style="color:#a2b1b9;"><% int l = identity.information.get("name").trim().length(); out.print(identity.information.get("name").trim().substring(0,Math.min(10,l))); %></h4>	
